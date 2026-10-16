@@ -1,0 +1,920 @@
+{
+  "pbtResults": {},
+  "executionHistory": {
+    "1. Set up monorepo and project scaffolding": [
+      {
+        "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792126645110
+      },
+      {
+        "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792126666390
+      }
+    ],
+    "2.1 Add config module with validated environment variables (Mongo URI, JWT secrets, Google client ID, revalidation secret, storage keys)": [
+      {
+        "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792126645286
+      }
+    ],
+    "2.2 Add global `ValidationPipe`, exception filter, `helmet`, CORS and `@nestjs/throttler`": [
+      {
+        "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792126645487
+      }
+    ],
+    "2.3 Connect Mongoose and add `/health` endpoint": [
+      {
+        "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792126645591
+      }
+    ],
+    "3.1 Create `User` schema: immutable unique `publicId`, optional `customName`, optional `fullName`, optional credentials (email, emailVerified, passwordHash, googleId, recoveryCodeHash), indexes (publicId unique; email and googleId unique sparse)": [
+      {
+        "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792126645669
+      }
+    ],
+    "3.2 Create `CustomNameClaim` schema (unique `name`, `userId`, status `current` | `retired`)": [
+      {
+        "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792126645739
+      }
+    ],
+    "3.3 Create `ProfileLink` schema with `{ userId, mode, priorityOrder }` index": [
+      {
+        "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792126645808
+      }
+    ],
+    "3.4 Create `NfcCard` schema with unique `uid`": [
+      {
+        "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792126645875
+      }
+    ],
+    "3.5 Create `AnalyticsEvent` schema with query indexes and TTL": [
+      {
+        "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792126645951
+      }
+    ],
+    "3.6 Create `NetworkContact` schema (unique `{ ownerUserId, publicId }`, `lastTappedAt` index)": [
+      {
+        "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792126646022
+      }
+    ],
+    "3.7 Write schema/unit tests for defaults and constraints": [
+      {
+        "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792126646098
+      }
+    ],
+    "4.1 `POST /auth/anonymous`: create a credential-less User with a generated `publicId` (nanoid, collision retry) and a blank profile, issue tokens; throttle per IP and per device": [
+      {
+        "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792126646173
+      }
+    ],
+    "4.2 JWT access token strategy and `JwtAuthGuard`": [
+      {
+        "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792126646251
+      }
+    ],
+    "4.3 Rotating refresh tokens (hashed storage, reuse detection, sliding 365-day expiry) with `/auth/refresh` and `/auth/logout`": [
+      {
+        "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792126646324
+      }
+    ],
+    "4.4 Link Google (verify ID token server-side) and link email (Argon2id hash, email verification), rejecting credentials already linked to another account": [
+      {
+        "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792126646397
+      }
+    ],
+    "4.5 Recovery code: generate and regenerate, show once, store an Argon2id hash": [
+      {
+        "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792126646466
+      }
+    ],
+    "4.6 `POST /auth/restore` with Google, email and password, or recovery code; delete the caller's anonymous account if untouched (no links, cards or name); throttle attempts": [
+      {
+        "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792126646537
+      }
+    ],
+    "4.7 Optional hardening hook for Play Integrity / App Attest on `/auth/anonymous`": [
+      {
+        "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792126646616
+      }
+    ],
+    "4.8 Integration tests: first open, silent re-login, link and restore for each method, conflicts, refresh reuse, throttling": [
+      {
+        "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792126646690
+      }
+    ],
+    "5.1 `GET/PATCH /user/me` with field validation and hidden-field support": [
+      {
+        "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792126646757
+      }
+    ],
+    "5.2 Custom name availability endpoint and reserved-word check": [
+      {
+        "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792126646906
+      }
+    ],
+    "5.3 Claim, change and remove custom name via `CustomNameClaim` (transactional retire-and-insert, retired names stay reserved, 3 changes per 30 days, re-claim own retired names)": [
+      {
+        "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792126646973
+      }
+    ],
+    "5.4 Avatar upload (type/size validation, resize, storage, CDN URL)": [
+      {
+        "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792126647049
+      }
+    ],
+    "5.5 Account deletion (soft delete, then purge job)": [
+      {
+        "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792126647120
+      }
+    ],
+    "5.6 Tests including ownership and validation cases": [
+      {
+        "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792126647196
+      }
+    ],
+    "6.1 Link CRUD endpoints with URL scheme allow-list and per-mode limit": [
+      {
+        "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792126647267
+      }
+    ],
+    "6.2 Atomic reorder endpoint (bulk write)": [
+      {
+        "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792126647339
+      }
+    ],
+    "6.3 Enable/disable and move/copy between modes": [
+      {
+        "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792126647406
+      }
+    ],
+    "6.4 Category and icon registry in `packages/shared`": [
+      {
+        "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792126647474
+      }
+    ],
+    "6.5 Tests for ownership checks, limits and ordering": [
+      {
+        "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792126647540
+      }
+    ],
+    "7.1 `PATCH /user/mode` endpoint and DTO validation": [
+      {
+        "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792126647616
+      }
+    ],
+    "7.2 Unit and integration tests for default and switching": [
+      {
+        "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792126647683
+      }
+    ],
+    "8.1 `RevalidationService` calling the Next.js webhook with retry/backoff": [
+      {
+        "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792126647774
+      }
+    ],
+    "8.2 Trigger on profile update, link change, mode toggle, custom name change, avatar change": [
+      {
+        "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792126647852
+      }
+    ],
+    "8.3 Tests with mocked HTTP": [
+      {
+        "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792126647924
+      }
+    ],
+    "9.1 `GET /cards/program-payload` returning `https://tapsync.app/c/{publicId}` (never the custom name URL)": [
+      {
+        "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792126647998
+      }
+    ],
+    "9.2 `POST /cards/bind` with UID normalization, conflict on already-bound UID, and per-user card limit": [
+      {
+        "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792126648066
+      }
+    ],
+    "9.3 List and unassign endpoints": [
+      {
+        "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792126648134
+      }
+    ],
+    "9.4 Tests for bind, rebind by same user, conflict, unassign and rebind elsewhere": [
+      {
+        "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792126648251
+      }
+    ],
+    "10.1 `GET /public/profiles/c/:publicId` returning the Public Profile DTO (active mode, enabled links, hidden fields removed)": [
+      {
+        "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792126648358
+      }
+    ],
+    "10.2 `GET /public/profiles/p/:name`: return the profile for the current name, `redirectTo` for retired names, 404 otherwise; 404 for suspended or deleted users": [
+      {
+        "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792126648423
+      }
+    ],
+    "10.3 vCard 3.0 builder with proper escaping and photo support": [
+      {
+        "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792126648491
+      }
+    ],
+    "10.4 `GET /public/profiles/c/:publicId/vcard` with `text/vcard` and download headers": [
+      {
+        "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792126648554
+      }
+    ],
+    "10.5 Tests for filtering, escaping (commas, semicolons, unicode) and empty-contact case": [
+      {
+        "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792126648623
+      }
+    ],
+    "11.1 `POST /public/events` with validation, bot filtering, session de-duplication, no raw IP storage": [
+      {
+        "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792126648698
+      }
+    ],
+    "11.2 Click-count increment on `ProfileLink`": [
+      {
+        "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792126648767
+      }
+    ],
+    "11.3 Summary, per-link and recent-events endpoints with date ranges": [
+      {
+        "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792126648838
+      }
+    ],
+    "11.4 Tests for counting rules and owner-only access": [
+      {
+        "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792126648907
+      }
+    ],
+    "12.1 `POST /network`: idempotent upsert by `publicId` (source, tappedAt), store a snapshot (name, designation, avatar), skip the caller's own profile, bump `tapCount` and `lastTappedAt` on repeat taps": [
+      {
+        "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792126648992
+      }
+    ],
+    "12.2 `POST /network/sync`: bulk upsert of pending offline entries (max 100 per call)": [
+      {
+        "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792126649059
+      }
+    ],
+    "12.3 `GET /network`: list with search and cursor pagination, ordered by `lastTappedAt`, snapshots refreshed from live profiles": [
+      {
+        "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792126649125
+      }
+    ],
+    "12.4 `PATCH /network/:id` (private note) and `DELETE /network/:id`": [
+      {
+        "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792126649198
+      }
+    ],
+    "12.5 Mark entries `unavailable` when a profile is deleted or suspended; never expose who saved a profile to its owner": [
+      {
+        "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792126649268
+      }
+    ],
+    "12.6 Tests: duplicates, own-profile skip, bulk sync, ownership checks, owner cannot see savers": [
+      {
+        "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792126649339
+      }
+    ],
+    "13.1 `/c/[publicId]/page.tsx` canonical server component fetching with cache tag `profile:{publicId}` and 60 s fallback revalidate; a blank profile renders the empty state": [
+      {
+        "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792126649407
+      }
+    ],
+    "13.2 `generateMetadata` for Open Graph and Twitter tags": [
+      {
+        "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792126649481
+      }
+    ],
+    "13.3 `not-found.tsx` and API-down fallback behavior": [
+      {
+        "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792126649556
+      }
+    ],
+    "13.4 `/api/revalidate` route protected by shared secret": [
+      {
+        "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792126649635
+      }
+    ],
+    "13.5 `/p/[name]/page.tsx`: render the same page for the current custom name, 308 redirect to `/c/{publicId}` for retired names, 404 otherwise; set canonical link to `/c/{publicId}`": [
+      {
+        "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792126649798
+      }
+    ],
+    "14.1 `ProfileHeader`, `LinkCard`, empty state, footer with privacy link": [
+      {
+        "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792126649868
+      }
+    ],
+    "14.2 Light/dark theme via CSS variables and `prefers-color-scheme`": [
+      {
+        "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792126649941
+      }
+    ],
+    "14.3 Accessibility pass: semantic HTML, focus rings, 44px targets, contrast, alt text": [
+      {
+        "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792126650015
+      }
+    ],
+    "14.4 Optimize: `next/image`, system fonts, minimal client JS": [
+      {
+        "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792126650092
+      }
+    ],
+    "14.5 `SaveToNetworkButton`: opens `tapsync://c/{publicId}` on press (Android intent link with Play Store fallback), with a \"Get the app\" link beside it. Stores no visitor data": [
+      {
+        "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792126650167
+      }
+    ],
+    "15.1 `SaveContactButton` hitting vCard route with download headers": [
+      {
+        "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792126650244
+      }
+    ],
+    "15.2 View beacon (non-blocking) on page load": [
+      {
+        "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792126650326
+      }
+    ],
+    "15.3 `/r/[linkId]` redirect route (or `sendBeacon`) logging link clicks, `rel=\"noopener noreferrer\"`": [
+      {
+        "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792126650403
+      }
+    ],
+    "15.4 Playwright tests: render per mode, 404, vCard download, mode change appears after revalidation": [
+      {
+        "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792126650484
+      }
+    ],
+    "16.1 Initialize Expo with expo-router and a development client (not Expo Go)": [
+      {
+        "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792126650566
+      }
+    ],
+    "16.2 Install and configure `react-native-nfc-manager` with iOS entitlements/Info.plist and Android NFC permission": [
+      {
+        "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792126650665
+      }
+    ],
+    "16.3 API client with token refresh interceptor and `expo-secure-store`": [
+      {
+        "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792126650784
+      }
+    ],
+    "17.1 First-open flow: no session means call `POST /auth/anonymous`, store tokens in `expo-secure-store`, and go straight to the dashboard (no forms). Silent sign-in on later launches": [
+      {
+        "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792126650858
+      }
+    ],
+    "17.2 First-run screen with a small \"Restore my account\" link (Google, email, recovery code). Restoring discards the untouched new account": [
+      {
+        "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792126650935
+      }
+    ],
+    "17.3 \"Secure your account\" screen: link Google, link email (with verification), generate recovery code (shown once, \"I saved it\" confirmation)": [
+      {
+        "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792126651006
+      }
+    ],
+    "17.4 Persistent dismissible warning banner until a Recovery Method is linked. Show the prompt again right after the first card is programmed": [
+      {
+        "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792126651086
+      }
+    ],
+    "17.5 Sign-out guard: for accounts with no Recovery Method, warn about permanent loss before logout": [
+      {
+        "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792126651167
+      }
+    ],
+    "17.6 \"Add your name\" prompt after first open. Public page shows the placeholder until set": [
+      {
+        "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792126651241
+      }
+    ],
+    "17.7 Auth state, protected routes, silent token refresh": [
+      {
+        "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792126651325
+      }
+    ],
+    "18.1 Home screen with Casual/Work toggle, optimistic update with rollback on failure": [
+      {
+        "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792126651388
+      }
+    ],
+    "18.2 Profile preview and quick stats": [
+      {
+        "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792126651456
+      }
+    ],
+    "18.3 Profile edit screen with avatar picker and hidden-field switches": [
+      {
+        "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792126651530
+      }
+    ],
+    "18.4 Custom Name screen: availability check, claim/change/remove, preview of `/p/{name}` and `/c/{publicId}`, and a note that cards use the permanent URL and never need reprogramming": [
+      {
+        "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792126651597
+      }
+    ],
+    "19.1 Per-mode link lists with enable/disable switch": [
+      {
+        "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792126651669
+      }
+    ],
+    "19.2 Add/edit form with category/icon picker and URL validation": [
+      {
+        "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792126651748
+      }
+    ],
+    "19.3 Drag-to-reorder with persisted order": [
+      {
+        "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792126651823
+      }
+    ],
+    "19.4 Move/copy link between modes, delete with confirmation": [
+      {
+        "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792126651893
+      }
+    ],
+    "20.1 `NfcService`: support/enabled detection, `writeProfileUrl` with timeout, read-back verification, cancel": [
+      {
+        "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792126651966
+      }
+    ],
+    "20.2 `useNfcWriter` hook implementing the state machine (idle, waiting, writing, verifying, success, error)": [
+      {
+        "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792126652042
+      }
+    ],
+    "20.3 Program Card screen: guidance, animated waiting state, success and error/retry UI, link to enable NFC in settings": [
+      {
+        "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792126652115
+      }
+    ],
+    "20.4 Bind card to account after verified write; handle `ALREADY_BOUND`": [
+      {
+        "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792126652182
+      }
+    ],
+    "20.5 Card management screen: list, label, unassign": [
+      {
+        "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792126652295
+      }
+    ],
+    "20.6 Unit tests with mocked NFC manager covering timeout, tag lost, not writable, verify failed": [
+      {
+        "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792126652433
+      }
+    ],
+    "20.7 \"How tapping works\" help screen: page needs internet, OS decides prompt vs redirect, iPhone/Android NFC notes": [
+      {
+        "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792126652505
+      }
+    ],
+    "21.1 Range selector, totals, per-link click list, recent taps": [
+      {
+        "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792126652584
+      }
+    ],
+    "21.2 Empty and loading states": [
+      {
+        "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792126652655
+      }
+    ],
+    "22.1 Set `scheme: \"tapsync\"` in `app.config`": [
+      {
+        "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792126652739
+      }
+    ],
+    "22.2 Expo Router handlers `app/c/[publicId].tsx` and `app/p/[name].tsx`: validate the Public ID format, run the My Network save flow (`source: 'link'`), then replace the route with `(tabs)/network` and highlight the new contact": [
+      {
+        "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792126652816
+      }
+    ],
+    "22.3 Own-card detection (skip saving, show \"This is your own card\") and 404 handling": [
+      {
+        "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792126652899
+      }
+    ],
+    "22.4 Real-device checks of the page button: iPhone and Android, with and without the app installed, including the Android intent fallback to the Play Store": [
+      {
+        "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792126652968
+      }
+    ],
+    "23.1 Local store (`expo-sqlite`) for pending entries and an offline cache of saved contacts": [
+      {
+        "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792126653041
+      }
+    ],
+    "23.2 `useNetwork` hooks (React Query) for list, search and upsert. Sync pending entries on app foreground and connectivity change": [
+      {
+        "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792126653121
+      }
+    ],
+    "23.3 My Network tab: list with avatar, name, designation and last tapped, search, pending and unavailable states, highlight for a new contact": [
+      {
+        "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792126653190
+      }
+    ],
+    "23.4 Contact detail: live profile, links for the active mode, Save to phone contacts (vCard), open in browser, private note, delete": [
+      {
+        "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792126653266
+      }
+    ],
+    "23.5 Manual capture: Scan card (in-app NFC read), Scan QR (camera), Paste link": [
+      {
+        "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792126653338
+      }
+    ],
+    "23.6 Unit tests for the pending queue, duplicate handling and own-card skip": [
+      {
+        "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792126653420
+      }
+    ],
+    "24.1 Write and read back NTAG215 cards on at least one Android and one iPhone (iOS 13+)": [
+      {
+        "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792126653489
+      }
+    ],
+    "24.2 Tap a programmed card with Android and iOS visitors and confirm the page opens": [
+      {
+        "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792126653556
+      }
+    ],
+    "24.3 Toggle mode in the app and verify the public page updates within 2 s without touching the card": [
+      {
+        "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792126653634
+      }
+    ],
+    "24.4 Import vCard on iOS and Android Contacts": [
+      {
+        "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792126653708
+      }
+    ],
+    "24.5 Failure paths: tag removed mid-write, read-only tag, NFC disabled, offline toggle": [
+      {
+        "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792126653785
+      }
+    ],
+    "24.6 Custom name: claim a name, change it, then confirm the old name redirects and a card programmed before the change still opens the page": [
+      {
+        "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792126653857
+      }
+    ],
+    "24.7 Brand-new account: confirm the card opens a blank page with the placeholder name and empty state, then fills in as links and a name are added": [
+      {
+        "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792126654007
+      }
+    ],
+    "24.8 First open on a clean install creates the account with no forms. Link Google and email, generate a recovery code, then restore on a second phone with each method": [
+      {
+        "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792126654075
+      }
+    ],
+    "24.9 Tap a card, press Save to My Network, and confirm the app opens on My Network with the contact saved. A repeat does not duplicate. Try with the app installed and not installed": [
+      {
+        "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792126654140
+      }
+    ],
+    "24.10 Use Scan card in airplane mode: contact saved as pending, then syncs when back online": [
+      {
+        "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792126654216
+      }
+    ],
+    "24.11 Tap your own card: nothing is saved and the own-card message shows": [
+      {
+        "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792126654292
+      }
+    ],
+    "25.1 Lighthouse CI on public page (LCP < 2 s, small JS bundle)": [
+      {
+        "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792126654371
+      }
+    ],
+    "25.2 k6 load test on public profile endpoint (p95 < 200 ms)": [
+      {
+        "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792126654442
+      }
+    ],
+    "25.3 Security checklist: ownership checks, rate limits, XSS escaping, secret handling, dependency audit": [
+      {
+        "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792126654507
+      }
+    ],
+    "25.4 axe scan plus VoiceOver/TalkBack manual pass": [
+      {
+        "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792126654584
+      }
+    ],
+    "25.5 Abuse checks: anonymous account creation rate limits, recovery-code and restore throttling, My Network privacy (owner cannot see savers)": [
+      {
+        "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792126654654
+      }
+    ],
+    "26.1 GitHub Actions CI: lint, typecheck, test on PR": [
+      {
+        "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792126654731
+      }
+    ],
+    "26.2 Deploy API to Render/DigitalOcean/AWS with MongoDB Atlas; configure env and secrets for staging and prod": [
+      {
+        "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792126654804
+      }
+    ],
+    "26.3 Deploy Next.js to Vercel; configure `tapsync.app` and `api.tapsync.app`": [
+      {
+        "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792126654883
+      }
+    ],
+    "26.4 Wire revalidation webhook secret between API and web": [
+      {
+        "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792126654953
+      }
+    ],
+    "26.5 Add Sentry, structured logging and uptime check": [
+      {
+        "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792126655033
+      }
+    ],
+    "26.6 Build `.apk` / `.aab` and `.ipa` via EAS and distribute to testers": [
+      {
+        "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792126655101
+      }
+    ],
+    "27.1 Privacy policy and terms pages linked from the public page and app": [
+      {
+        "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792126655170
+      }
+    ],
+    "27.2 Data deletion flow verified end to end": [
+      {
+        "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792126655268
+      }
+    ],
+    "27.3 Final regression pass and release notes": [
+      {
+        "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792126655341
+      }
+    ]
+  }
+}

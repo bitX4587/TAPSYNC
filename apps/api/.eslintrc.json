@@ -1,0 +1,11 @@
+{
+  "extends": ["../../.eslintrc.base.json"],
+  "parserOptions": {
+    "project": "./tsconfig.json",
+    "tsconfigRootDir": "."
+  },
+  "rules": {
+    "@typescript-eslint/interface-name-prefix": "off",
+    "@typescript-eslint/explicit-module-boundary-types": "off"
+  }
+}

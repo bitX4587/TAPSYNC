@@ -1,0 +1,33 @@
+# Dependencies
+node_modules
+.pnpm-store
+
+# Build outputs
+dist
+build
+.next
+out
+
+# Env files (never commit secrets)
+.env
+.env.*
+!.env.example
+
+# Expo / React Native
+.expo
+ios/Pods
+android/.gradle
+android/build
+*.jks
+*.p8
+*.p12
+*.key
+*.mobileprovision
+*.orig.*
+web-build
+
+# Misc
+.DS_Store
+*.tsbuildinfo
+coverage
+.turbo
