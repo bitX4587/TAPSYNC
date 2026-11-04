@@ -4,3 +4,7 @@ dist
 build
 coverage
 *.generated.ts
+
+App.tsx
+app.json
+eas.json
