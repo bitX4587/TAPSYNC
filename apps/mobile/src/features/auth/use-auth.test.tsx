@@ -15,6 +15,12 @@ jest.mock('./auth.service', () => ({
   createAnonymousAccount: jest.fn(),
 }));
 
+// Mock expo-router to avoid loading the full expo runtime which references
+// the ErrorUtils global (unavailable in the Node test environment).
+jest.mock('expo-router', () => ({
+  useRouter: () => ({ replace: jest.fn(), push: jest.fn() }),
+}));
+
 // Helper to create a fresh query client for each test
 function createTestQueryClient() {
   return new QueryClient({

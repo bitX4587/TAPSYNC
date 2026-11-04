@@ -147,7 +147,7 @@ describe('LinkFormModal — create', () => {
     fireEvent.changeText(getByLabelText('Link URL'), 'https://portfolio.dev');
 
     // Submit
-    fireEvent.press(getByText('Add link'));
+    fireEvent.press(getByLabelText('Add link'));
 
     await waitFor(() => {
       expect(linkService.createLink).toHaveBeenCalledTimes(1);
@@ -177,7 +177,7 @@ describe('LinkFormModal — create', () => {
     fireEvent.changeText(getByLabelText('Link title'), 'Bad link');
     fireEvent.changeText(getByLabelText('Link URL'), 'ftp://example.com');
 
-    fireEvent.press(getByText('Add link'));
+    fireEvent.press(getByLabelText('Add link'));
 
     expect(linkService.createLink).not.toHaveBeenCalled();
     expect(onClose).not.toHaveBeenCalled();
@@ -192,7 +192,7 @@ describe('LinkFormModal — create', () => {
     });
 
     fireEvent.changeText(getByLabelText('Link URL'), 'https://example.com');
-    fireEvent.press(getByText('Add link'));
+    fireEvent.press(getByLabelText('Add link'));
 
     expect(linkService.createLink).not.toHaveBeenCalled();
   });
@@ -246,10 +246,10 @@ describe('LinkFormModal — edit', () => {
       expect(linkService.updateLink).toHaveBeenCalledTimes(1);
     });
 
-    const args = (linkService.updateLink as jest.Mock).mock.calls[0][0];
-    expect(args.id).toBe('link-42');
-    expect(args.dto.title).toBe('Updated Title');
-    expect(args.dto.url).toBe('https://updated.dev');
+    const calls = (linkService.updateLink as jest.Mock).mock.calls[0];
+    expect(calls[0]).toBe('link-42');
+    expect(calls[1].title).toBe('Updated Title');
+    expect(calls[1].url).toBe('https://updated.dev');
 
     expect(onClose).toHaveBeenCalled();
   });
@@ -288,8 +288,9 @@ describe('LinkFormModal — edit', () => {
     });
 
     await waitFor(() => {
-      expect(linkService.deleteLink).toHaveBeenCalledWith('link-99');
+      expect(linkService.deleteLink).toHaveBeenCalled();
     });
+    expect((linkService.deleteLink as jest.Mock).mock.calls[0][0]).toBe('link-99');
 
     expect(onClose).toHaveBeenCalled();
   });

@@ -3,6 +3,7 @@
  */
 
 import * as SecureStore from 'expo-secure-store';
+import { triggerRefreshFailure } from '../features/auth/auth-context';
 import {
   api,
   ApiError,
@@ -17,6 +18,15 @@ jest.mock('expo-secure-store', () => ({
   getItemAsync: jest.fn(),
   setItemAsync: jest.fn(),
   deleteItemAsync: jest.fn(),
+}));
+
+// Mock auth-context: the real triggerRefreshFailure is a no-op unless an
+// AuthProvider is mounted (which registers a handler that calls clearTokens).
+// In unit tests we simulate that handler so refresh-failure clears tokens.
+jest.mock('../features/auth/auth-context', () => ({
+  triggerRefreshFailure: jest.fn(),
+  registerRefreshFailureHandler: jest.fn(),
+  unregisterRefreshFailureHandler: jest.fn(),
 }));
 
 // Mock fetch
@@ -90,6 +100,9 @@ describe('apiRequest', () => {
   beforeEach(() => {
     jest.clearAllMocks();
     (SecureStore.getItemAsync as jest.Mock).mockResolvedValue(null);
+    (triggerRefreshFailure as jest.Mock).mockImplementation(async () => {
+      await tokenStorage.clearTokens();
+    });
   });
 
   it('should make a successful GET request without auth', async () => {

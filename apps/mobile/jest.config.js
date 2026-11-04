@@ -21,5 +21,9 @@ module.exports = {
     // in-memory implementation in src/__mocks__/expo-sqlite.ts for all tests.
     // TypeScript still resolves the real package's types (see tsconfig.json).
     '^expo-sqlite$': '<rootDir>/src/__mocks__/expo-sqlite.ts',
+    // The jest-expo preset maps @tapsync/shared to its TypeScript source, whose
+    // files use ESM-style ".js" extension imports (e.g. "./constants.js").
+    // Strip the ".js" so Jest resolves the ".ts" sibling via moduleFileExtensions.
+    '^(\\.\\.?/.*)\\.js$': '$1',
   },
 };
