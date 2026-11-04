@@ -10,8 +10,7 @@
     "ios": "expo run:ios",
     "lint": "eslint src --ext .ts,.tsx",
     "typecheck": "tsc --noEmit",
-    "test": "jest --passWithNoTests",
-    "eas-build-post-install": "cd ../../ && pnpm --filter @tapsync/shared build"
+    "test": "jest --passWithNoTests"
   },
   "dependencies": {
     "@tanstack/react-query": "^5.104.4",
