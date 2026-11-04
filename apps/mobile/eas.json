@@ -1,6 +1,7 @@
 {
   "cli": {
-    "version": ">= 13.2.0"
+    "version": ">= 13.2.0",
+    "appVersionSource": "remote"
   },
   "build": {
     "development": {
@@ -20,6 +21,10 @@
       },
       "android": {
         "buildType": "apk"
+      },
+      "env": {
+        "EXPO_PUBLIC_API_URL": "https://tapsync-dh4y.onrender.com",
+        "EXPO_PUBLIC_SITE_URL": "https://tapsync-eosin.vercel.app"
       }
     },
     "production": {
@@ -28,6 +33,10 @@
       },
       "android": {
         "buildType": "app-bundle"
+      },
+      "env": {
+        "EXPO_PUBLIC_API_URL": "https://tapsync-dh4y.onrender.com",
+        "EXPO_PUBLIC_SITE_URL": "https://tapsync.app"
       }
     }
   },
