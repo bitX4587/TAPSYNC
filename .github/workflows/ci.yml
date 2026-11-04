@@ -7,7 +7,6 @@ on:
     branches: [main, master]
 
 jobs:
-  # ── Lint & Type-check (fast feedback, no DB needed) ───────────────────────
   lint-typecheck:
     name: Lint & Typecheck
     runs-on: ubuntu-latest
@@ -22,12 +21,13 @@ jobs:
           cache: 'pnpm'
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
+      - name: Build shared package
+        run: pnpm --filter @tapsync/shared build
       - name: Lint (all packages)
         run: pnpm -r lint
       - name: Typecheck (all packages)
         run: pnpm -r typecheck
 
-  # ── API unit tests ─────────────────────────────────────────────────────────
   test-api:
     name: API Unit Tests
     runs-on: ubuntu-latest
@@ -41,10 +41,11 @@ jobs:
           node-version-file: '.nvmrc'
           cache: 'pnpm'
       - run: pnpm install --frozen-lockfile
+      - name: Build shared package
+        run: pnpm --filter @tapsync/shared build
       - name: Run API unit tests
         run: pnpm --filter @tapsync/api test
 
-  # ── API e2e / integration tests (needs MongoDB) ───────────────────────────
   test-api-e2e:
     name: API Integration Tests
     runs-on: ubuntu-latest
@@ -68,6 +69,8 @@ jobs:
           node-version-file: '.nvmrc'
           cache: 'pnpm'
       - run: pnpm install --frozen-lockfile
+      - name: Build shared package
+        run: pnpm --filter @tapsync/shared build
       - name: Build API
         run: pnpm --filter @tapsync/api build
       - name: Run API e2e tests
@@ -88,7 +91,6 @@ jobs:
           STORAGE_SECRET: ci-storage-secret
           STORAGE_REGION: us-east-1
 
-  # ── Web tests ─────────────────────────────────────────────────────────────
   test-web:
     name: Web Tests
     runs-on: ubuntu-latest
@@ -102,10 +104,11 @@ jobs:
           node-version-file: '.nvmrc'
           cache: 'pnpm'
       - run: pnpm install --frozen-lockfile
+      - name: Build shared package
+        run: pnpm --filter @tapsync/shared build
       - name: Run web tests
         run: pnpm --filter @tapsync/web test
 
-  # ── Mobile tests ──────────────────────────────────────────────────────────
   test-mobile:
     name: Mobile Tests
     runs-on: ubuntu-latest
@@ -122,7 +125,6 @@ jobs:
       - name: Run mobile tests
         run: pnpm --filter @tapsync/mobile test
 
-  # ── Security audit (runs on PRs to main only) ─────────────────────────────
   security:
     name: Security Audit
     runs-on: ubuntu-latest
@@ -141,4 +143,4 @@ jobs:
         run: node scripts/secret-scan.mjs
       - name: Dependency audit
         run: node scripts/security-audit.mjs
-        continue-on-error: true  # Report but don't block PRs on transitive vulns
+        continue-on-error: true
