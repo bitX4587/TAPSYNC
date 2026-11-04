@@ -31,3 +31,6 @@ web-build
 *.tsbuildinfo
 coverage
 .turbo
+
+database.txt
+reports/

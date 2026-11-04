@@ -5,6 +5,7 @@ const config: ExpoConfig = {
   slug: 'tapsync',
   version: '1.0.0',
   orientation: 'portrait',
+  platforms: ['ios', 'android'],
 
   // Custom URL scheme for deep links: tapsync://c/{publicId}
   scheme: 'tapsync',
@@ -46,6 +47,13 @@ const config: ExpoConfig = {
       'expo-sqlite',
       {
         enableFTS: false,
+      },
+    ],
+    [
+      'react-native-nfc-manager',
+      {
+        nfcPermission:
+          'TapSync reads and writes NFC cards to program and scan digital business cards.',
       },
     ],
   ],

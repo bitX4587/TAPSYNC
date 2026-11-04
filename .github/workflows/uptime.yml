@@ -1,0 +1,30 @@
+name: Uptime Check
+on:
+  schedule:
+    - cron: '*/15 * * * *'  # every 15 minutes
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check API health
+        run: |
+          STATUS=$(curl -s -o /dev/null -w "%{http_code}" "$API_URL/health")
+          if [ "$STATUS" != "200" ]; then
+            echo "API health check failed: HTTP $STATUS"
+            exit 1
+          fi
+          echo "API health check passed: HTTP $STATUS"
+        env:
+          API_URL: ${{ vars.API_URL || 'https://api.tapsync.app' }}
+      - name: Check web app
+        run: |
+          STATUS=$(curl -s -o /dev/null -w "%{http_code}" "$WEB_URL")
+          if [ "$STATUS" != "200" ]; then
+            echo "Web app check failed: HTTP $STATUS"
+            exit 1
+          fi
+          echo "Web app check passed: HTTP $STATUS"
+        env:
+          WEB_URL: ${{ vars.WEB_URL || 'https://tapsync.app' }}

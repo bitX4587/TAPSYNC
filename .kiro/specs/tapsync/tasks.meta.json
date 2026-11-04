@@ -11,6 +11,11 @@
         "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
         "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
         "timestamp": 1792126666390
+      },
+      {
+        "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792127250740
       }
     ],
     "2.1 Add config module with validated environment variables (Mongo URI, JWT secrets, Google client ID, revalidation secret, storage keys)": [
@@ -18,6 +23,16 @@
         "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
         "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
         "timestamp": 1792126645286
+      },
+      {
+        "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792127259049
+      },
+      {
+        "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792128159175
       }
     ],
     "2.2 Add global `ValidationPipe`, exception filter, `helmet`, CORS and `@nestjs/throttler`": [
@@ -25,6 +40,16 @@
         "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
         "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
         "timestamp": 1792126645487
+      },
+      {
+        "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792128170558
+      },
+      {
+        "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792128502460
       }
     ],
     "2.3 Connect Mongoose and add `/health` endpoint": [
@@ -32,6 +57,16 @@
         "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
         "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
         "timestamp": 1792126645591
+      },
+      {
+        "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792128513254
+      },
+      {
+        "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792128740286
       }
     ],
     "3.1 Create `User` schema: immutable unique `publicId`, optional `customName`, optional `fullName`, optional credentials (email, emailVerified, passwordHash, googleId, recoveryCodeHash), indexes (publicId unique; email and googleId unique sparse)": [
@@ -39,6 +74,16 @@
         "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
         "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
         "timestamp": 1792126645669
+      },
+      {
+        "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792128751346
+      },
+      {
+        "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792129045309
       }
     ],
     "3.2 Create `CustomNameClaim` schema (unique `name`, `userId`, status `current` | `retired`)": [
@@ -46,6 +91,26 @@
         "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
         "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
         "timestamp": 1792126645739
+      },
+      {
+        "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792129056298
+      },
+      {
+        "executionId": "bd0b3c03-86fb-493d-a828-62c366ac9c2c",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792129381248
+      },
+      {
+        "executionId": "bd0b3c03-86fb-493d-a828-62c366ac9c2c",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792129391841
+      },
+      {
+        "executionId": "bd0b3c03-86fb-493d-a828-62c366ac9c2c",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792129560644
       }
     ],
     "3.3 Create `ProfileLink` schema with `{ userId, mode, priorityOrder }` index": [
@@ -53,6 +118,16 @@
         "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
         "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
         "timestamp": 1792126645808
+      },
+      {
+        "executionId": "bd0b3c03-86fb-493d-a828-62c366ac9c2c",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792129572160
+      },
+      {
+        "executionId": "bd0b3c03-86fb-493d-a828-62c366ac9c2c",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792129769655
       }
     ],
     "3.4 Create `NfcCard` schema with unique `uid`": [
@@ -60,6 +135,16 @@
         "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
         "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
         "timestamp": 1792126645875
+      },
+      {
+        "executionId": "bd0b3c03-86fb-493d-a828-62c366ac9c2c",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792129782218
+      },
+      {
+        "executionId": "bd0b3c03-86fb-493d-a828-62c366ac9c2c",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792130055130
       }
     ],
     "3.5 Create `AnalyticsEvent` schema with query indexes and TTL": [
@@ -67,6 +152,16 @@
         "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
         "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
         "timestamp": 1792126645951
+      },
+      {
+        "executionId": "bd0b3c03-86fb-493d-a828-62c366ac9c2c",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792130065500
+      },
+      {
+        "executionId": "bd0b3c03-86fb-493d-a828-62c366ac9c2c",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792130392774
       }
     ],
     "3.6 Create `NetworkContact` schema (unique `{ ownerUserId, publicId }`, `lastTappedAt` index)": [
@@ -74,6 +169,16 @@
         "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
         "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
         "timestamp": 1792126646022
+      },
+      {
+        "executionId": "bd0b3c03-86fb-493d-a828-62c366ac9c2c",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792130402541
+      },
+      {
+        "executionId": "bd0b3c03-86fb-493d-a828-62c366ac9c2c",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792130588361
       }
     ],
     "3.7 Write schema/unit tests for defaults and constraints": [
@@ -81,6 +186,16 @@
         "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
         "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
         "timestamp": 1792126646098
+      },
+      {
+        "executionId": "bd0b3c03-86fb-493d-a828-62c366ac9c2c",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792130600468
+      },
+      {
+        "executionId": "bd0b3c03-86fb-493d-a828-62c366ac9c2c",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792130997423
       }
     ],
     "4.1 `POST /auth/anonymous`: create a credential-less User with a generated `publicId` (nanoid, collision retry) and a blank profile, issue tokens; throttle per IP and per device": [
@@ -88,6 +203,16 @@
         "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
         "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
         "timestamp": 1792126646173
+      },
+      {
+        "executionId": "bd0b3c03-86fb-493d-a828-62c366ac9c2c",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792131010370
+      },
+      {
+        "executionId": "bd0b3c03-86fb-493d-a828-62c366ac9c2c",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792131526289
       }
     ],
     "4.2 JWT access token strategy and `JwtAuthGuard`": [
@@ -95,6 +220,16 @@
         "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
         "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
         "timestamp": 1792126646251
+      },
+      {
+        "executionId": "bd0b3c03-86fb-493d-a828-62c366ac9c2c",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792131538796
+      },
+      {
+        "executionId": "bd0b3c03-86fb-493d-a828-62c366ac9c2c",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792131897519
       }
     ],
     "4.3 Rotating refresh tokens (hashed storage, reuse detection, sliding 365-day expiry) with `/auth/refresh` and `/auth/logout`": [
@@ -102,6 +237,16 @@
         "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
         "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
         "timestamp": 1792126646324
+      },
+      {
+        "executionId": "bd0b3c03-86fb-493d-a828-62c366ac9c2c",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792131908712
+      },
+      {
+        "executionId": "bd0b3c03-86fb-493d-a828-62c366ac9c2c",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792132354658
       }
     ],
     "4.4 Link Google (verify ID token server-side) and link email (Argon2id hash, email verification), rejecting credentials already linked to another account": [
@@ -109,6 +254,16 @@
         "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
         "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
         "timestamp": 1792126646397
+      },
+      {
+        "executionId": "bd0b3c03-86fb-493d-a828-62c366ac9c2c",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792132367529
+      },
+      {
+        "executionId": "bd0b3c03-86fb-493d-a828-62c366ac9c2c",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792135127850
       }
     ],
     "4.5 Recovery code: generate and regenerate, show once, store an Argon2id hash": [
@@ -116,6 +271,16 @@
         "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
         "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
         "timestamp": 1792126646466
+      },
+      {
+        "executionId": "bd0b3c03-86fb-493d-a828-62c366ac9c2c",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792135140407
+      },
+      {
+        "executionId": "bd0b3c03-86fb-493d-a828-62c366ac9c2c",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792135348127
       }
     ],
     "4.6 `POST /auth/restore` with Google, email and password, or recovery code; delete the caller's anonymous account if untouched (no links, cards or name); throttle attempts": [
@@ -123,6 +288,21 @@
         "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
         "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
         "timestamp": 1792126646537
+      },
+      {
+        "executionId": "bd0b3c03-86fb-493d-a828-62c366ac9c2c",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792135360807
+      },
+      {
+        "executionId": "2af1a447-cda7-4aa7-ad51-4e57239e1b26",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792136360116
+      },
+      {
+        "executionId": "2af1a447-cda7-4aa7-ad51-4e57239e1b26",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792136957560
       }
     ],
     "4.7 Optional hardening hook for Play Integrity / App Attest on `/auth/anonymous`": [
@@ -130,6 +310,16 @@
         "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
         "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
         "timestamp": 1792126646616
+      },
+      {
+        "executionId": "2af1a447-cda7-4aa7-ad51-4e57239e1b26",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792136971094
+      },
+      {
+        "executionId": "2af1a447-cda7-4aa7-ad51-4e57239e1b26",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792137246456
       }
     ],
     "4.8 Integration tests: first open, silent re-login, link and restore for each method, conflicts, refresh reuse, throttling": [
@@ -137,6 +327,21 @@
         "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
         "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
         "timestamp": 1792126646690
+      },
+      {
+        "executionId": "2af1a447-cda7-4aa7-ad51-4e57239e1b26",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792137564504
+      },
+      {
+        "executionId": "7d399610-c4f0-4ed8-82e5-4ea74f5395fc",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792148566736
+      },
+      {
+        "executionId": "01d22056-c984-4e9d-95a2-e1263208650e",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792150119094
       }
     ],
     "5.1 `GET/PATCH /user/me` with field validation and hidden-field support": [
@@ -144,6 +349,16 @@
         "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
         "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
         "timestamp": 1792126646757
+      },
+      {
+        "executionId": "65afcab7-065f-4082-be7d-874720e183b3",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792150490824
+      },
+      {
+        "executionId": "65afcab7-065f-4082-be7d-874720e183b3",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792152155620
       }
     ],
     "5.2 Custom name availability endpoint and reserved-word check": [
@@ -151,6 +366,16 @@
         "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
         "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
         "timestamp": 1792126646906
+      },
+      {
+        "executionId": "65afcab7-065f-4082-be7d-874720e183b3",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792152163155
+      },
+      {
+        "executionId": "65afcab7-065f-4082-be7d-874720e183b3",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792153349593
       }
     ],
     "5.3 Claim, change and remove custom name via `CustomNameClaim` (transactional retire-and-insert, retired names stay reserved, 3 changes per 30 days, re-claim own retired names)": [
@@ -158,6 +383,16 @@
         "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
         "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
         "timestamp": 1792126646973
+      },
+      {
+        "executionId": "65afcab7-065f-4082-be7d-874720e183b3",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792153358865
+      },
+      {
+        "executionId": "a040c72c-8f88-4401-a4e2-f42738016a5e",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792157396091
       }
     ],
     "5.4 Avatar upload (type/size validation, resize, storage, CDN URL)": [
@@ -165,6 +400,16 @@
         "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
         "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
         "timestamp": 1792126647049
+      },
+      {
+        "executionId": "a040c72c-8f88-4401-a4e2-f42738016a5e",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792157404709
+      },
+      {
+        "executionId": "a040c72c-8f88-4401-a4e2-f42738016a5e",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792159469310
       }
     ],
     "5.5 Account deletion (soft delete, then purge job)": [
@@ -172,6 +417,11 @@
         "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
         "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
         "timestamp": 1792126647120
+      },
+      {
+        "executionId": "a040c72c-8f88-4401-a4e2-f42738016a5e",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792159478001
       }
     ],
     "5.6 Tests including ownership and validation cases": [
@@ -179,6 +429,16 @@
         "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
         "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
         "timestamp": 1792126647196
+      },
+      {
+        "executionId": "871238d2-36a8-4aab-a79f-0fc09371e1ea",
+        "chatSessionId": "sess_ec946762-a950-4a5e-a8a4-950c997c013e",
+        "timestamp": 1792233468453
+      },
+      {
+        "executionId": "871238d2-36a8-4aab-a79f-0fc09371e1ea",
+        "chatSessionId": "sess_ec946762-a950-4a5e-a8a4-950c997c013e",
+        "timestamp": 1792234042064
       }
     ],
     "6.1 Link CRUD endpoints with URL scheme allow-list and per-mode limit": [
@@ -186,6 +446,16 @@
         "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
         "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
         "timestamp": 1792126647267
+      },
+      {
+        "executionId": "3e6e2322-76aa-40a2-8698-a43eb6ff6d2e",
+        "chatSessionId": "sess_d1452211-1afe-4dfe-9f7f-131a3b675b28",
+        "timestamp": 1792234762285
+      },
+      {
+        "executionId": "3e6e2322-76aa-40a2-8698-a43eb6ff6d2e",
+        "chatSessionId": "sess_d1452211-1afe-4dfe-9f7f-131a3b675b28",
+        "timestamp": 1792236598135
       }
     ],
     "6.2 Atomic reorder endpoint (bulk write)": [
@@ -193,6 +463,11 @@
         "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
         "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
         "timestamp": 1792126647339
+      },
+      {
+        "executionId": "3e6e2322-76aa-40a2-8698-a43eb6ff6d2e",
+        "chatSessionId": "sess_d1452211-1afe-4dfe-9f7f-131a3b675b28",
+        "timestamp": 1792236613343
       }
     ],
     "6.3 Enable/disable and move/copy between modes": [
@@ -200,6 +475,11 @@
         "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
         "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
         "timestamp": 1792126647406
+      },
+      {
+        "executionId": "3e6e2322-76aa-40a2-8698-a43eb6ff6d2e",
+        "chatSessionId": "sess_d1452211-1afe-4dfe-9f7f-131a3b675b28",
+        "timestamp": 1792236619752
       }
     ],
     "6.4 Category and icon registry in `packages/shared`": [
@@ -207,6 +487,11 @@
         "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
         "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
         "timestamp": 1792126647474
+      },
+      {
+        "executionId": "3e6e2322-76aa-40a2-8698-a43eb6ff6d2e",
+        "chatSessionId": "sess_d1452211-1afe-4dfe-9f7f-131a3b675b28",
+        "timestamp": 1792236624868
       }
     ],
     "6.5 Tests for ownership checks, limits and ordering": [
@@ -214,6 +499,11 @@
         "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
         "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
         "timestamp": 1792126647540
+      },
+      {
+        "executionId": "3e6e2322-76aa-40a2-8698-a43eb6ff6d2e",
+        "chatSessionId": "sess_d1452211-1afe-4dfe-9f7f-131a3b675b28",
+        "timestamp": 1792236631955
       }
     ],
     "7.1 `PATCH /user/mode` endpoint and DTO validation": [
@@ -221,6 +511,16 @@
         "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
         "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
         "timestamp": 1792126647616
+      },
+      {
+        "executionId": "99ac30ae-b8f6-48ff-b30f-217fbfdaf479",
+        "chatSessionId": "sess_c057562a-2051-42a5-a9f8-3d4f948e4101",
+        "timestamp": 1792236674819
+      },
+      {
+        "executionId": "99ac30ae-b8f6-48ff-b30f-217fbfdaf479",
+        "chatSessionId": "sess_c057562a-2051-42a5-a9f8-3d4f948e4101",
+        "timestamp": 1792238711721
       }
     ],
     "7.2 Unit and integration tests for default and switching": [
@@ -228,6 +528,16 @@
         "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
         "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
         "timestamp": 1792126647683
+      },
+      {
+        "executionId": "99ac30ae-b8f6-48ff-b30f-217fbfdaf479",
+        "chatSessionId": "sess_c057562a-2051-42a5-a9f8-3d4f948e4101",
+        "timestamp": 1792238719616
+      },
+      {
+        "executionId": "99ac30ae-b8f6-48ff-b30f-217fbfdaf479",
+        "chatSessionId": "sess_c057562a-2051-42a5-a9f8-3d4f948e4101",
+        "timestamp": 1792239347811
       }
     ],
     "8.1 `RevalidationService` calling the Next.js webhook with retry/backoff": [
@@ -235,6 +545,11 @@
         "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
         "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
         "timestamp": 1792126647774
+      },
+      {
+        "executionId": "1d330b5d-a15a-4437-bbf0-f3c6f5a991b1",
+        "chatSessionId": "sess_d392cf8b-3547-4a2f-b14a-3657812b8ed9",
+        "timestamp": 1792241561967
       }
     ],
     "8.2 Trigger on profile update, link change, mode toggle, custom name change, avatar change": [
@@ -242,6 +557,11 @@
         "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
         "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
         "timestamp": 1792126647852
+      },
+      {
+        "executionId": "1d330b5d-a15a-4437-bbf0-f3c6f5a991b1",
+        "chatSessionId": "sess_d392cf8b-3547-4a2f-b14a-3657812b8ed9",
+        "timestamp": 1792241568100
       }
     ],
     "8.3 Tests with mocked HTTP": [
@@ -249,6 +569,11 @@
         "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
         "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
         "timestamp": 1792126647924
+      },
+      {
+        "executionId": "1d330b5d-a15a-4437-bbf0-f3c6f5a991b1",
+        "chatSessionId": "sess_d392cf8b-3547-4a2f-b14a-3657812b8ed9",
+        "timestamp": 1792241574116
       }
     ],
     "9.1 `GET /cards/program-payload` returning `https://tapsync.app/c/{publicId}` (never the custom name URL)": [
@@ -256,6 +581,11 @@
         "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
         "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
         "timestamp": 1792126647998
+      },
+      {
+        "executionId": "1d330b5d-a15a-4437-bbf0-f3c6f5a991b1",
+        "chatSessionId": "sess_d392cf8b-3547-4a2f-b14a-3657812b8ed9",
+        "timestamp": 1792242457270
       }
     ],
     "9.2 `POST /cards/bind` with UID normalization, conflict on already-bound UID, and per-user card limit": [
@@ -263,6 +593,11 @@
         "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
         "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
         "timestamp": 1792126648066
+      },
+      {
+        "executionId": "1d330b5d-a15a-4437-bbf0-f3c6f5a991b1",
+        "chatSessionId": "sess_d392cf8b-3547-4a2f-b14a-3657812b8ed9",
+        "timestamp": 1792242464290
       }
     ],
     "9.3 List and unassign endpoints": [
@@ -270,6 +605,11 @@
         "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
         "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
         "timestamp": 1792126648134
+      },
+      {
+        "executionId": "1d330b5d-a15a-4437-bbf0-f3c6f5a991b1",
+        "chatSessionId": "sess_d392cf8b-3547-4a2f-b14a-3657812b8ed9",
+        "timestamp": 1792242471369
       }
     ],
     "9.4 Tests for bind, rebind by same user, conflict, unassign and rebind elsewhere": [
@@ -277,6 +617,11 @@
         "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
         "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
         "timestamp": 1792126648251
+      },
+      {
+        "executionId": "1d330b5d-a15a-4437-bbf0-f3c6f5a991b1",
+        "chatSessionId": "sess_d392cf8b-3547-4a2f-b14a-3657812b8ed9",
+        "timestamp": 1792242480479
       }
     ],
     "10.1 `GET /public/profiles/c/:publicId` returning the Public Profile DTO (active mode, enabled links, hidden fields removed)": [
@@ -284,6 +629,11 @@
         "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
         "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
         "timestamp": 1792126648358
+      },
+      {
+        "executionId": "1d330b5d-a15a-4437-bbf0-f3c6f5a991b1",
+        "chatSessionId": "sess_d392cf8b-3547-4a2f-b14a-3657812b8ed9",
+        "timestamp": 1792243620443
       }
     ],
     "10.2 `GET /public/profiles/p/:name`: return the profile for the current name, `redirectTo` for retired names, 404 otherwise; 404 for suspended or deleted users": [
@@ -291,6 +641,11 @@
         "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
         "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
         "timestamp": 1792126648423
+      },
+      {
+        "executionId": "1d330b5d-a15a-4437-bbf0-f3c6f5a991b1",
+        "chatSessionId": "sess_d392cf8b-3547-4a2f-b14a-3657812b8ed9",
+        "timestamp": 1792243626902
       }
     ],
     "10.3 vCard 3.0 builder with proper escaping and photo support": [
@@ -298,6 +653,11 @@
         "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
         "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
         "timestamp": 1792126648491
+      },
+      {
+        "executionId": "1d330b5d-a15a-4437-bbf0-f3c6f5a991b1",
+        "chatSessionId": "sess_d392cf8b-3547-4a2f-b14a-3657812b8ed9",
+        "timestamp": 1792243632904
       }
     ],
     "10.4 `GET /public/profiles/c/:publicId/vcard` with `text/vcard` and download headers": [
@@ -305,6 +665,11 @@
         "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
         "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
         "timestamp": 1792126648554
+      },
+      {
+        "executionId": "1d330b5d-a15a-4437-bbf0-f3c6f5a991b1",
+        "chatSessionId": "sess_d392cf8b-3547-4a2f-b14a-3657812b8ed9",
+        "timestamp": 1792243639271
       }
     ],
     "10.5 Tests for filtering, escaping (commas, semicolons, unicode) and empty-contact case": [
@@ -312,6 +677,11 @@
         "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
         "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
         "timestamp": 1792126648623
+      },
+      {
+        "executionId": "1d330b5d-a15a-4437-bbf0-f3c6f5a991b1",
+        "chatSessionId": "sess_d392cf8b-3547-4a2f-b14a-3657812b8ed9",
+        "timestamp": 1792243645598
       }
     ],
     "11.1 `POST /public/events` with validation, bot filtering, session de-duplication, no raw IP storage": [
@@ -319,6 +689,11 @@
         "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
         "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
         "timestamp": 1792126648698
+      },
+      {
+        "executionId": "1d330b5d-a15a-4437-bbf0-f3c6f5a991b1",
+        "chatSessionId": "sess_d392cf8b-3547-4a2f-b14a-3657812b8ed9",
+        "timestamp": 1792246419461
       }
     ],
     "11.2 Click-count increment on `ProfileLink`": [
@@ -326,6 +701,11 @@
         "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
         "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
         "timestamp": 1792126648767
+      },
+      {
+        "executionId": "1d330b5d-a15a-4437-bbf0-f3c6f5a991b1",
+        "chatSessionId": "sess_d392cf8b-3547-4a2f-b14a-3657812b8ed9",
+        "timestamp": 1792246426112
       }
     ],
     "11.3 Summary, per-link and recent-events endpoints with date ranges": [
@@ -333,6 +713,11 @@
         "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
         "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
         "timestamp": 1792126648838
+      },
+      {
+        "executionId": "1d330b5d-a15a-4437-bbf0-f3c6f5a991b1",
+        "chatSessionId": "sess_d392cf8b-3547-4a2f-b14a-3657812b8ed9",
+        "timestamp": 1792246432836
       }
     ],
     "11.4 Tests for counting rules and owner-only access": [
@@ -340,6 +725,11 @@
         "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
         "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
         "timestamp": 1792126648907
+      },
+      {
+        "executionId": "1d330b5d-a15a-4437-bbf0-f3c6f5a991b1",
+        "chatSessionId": "sess_d392cf8b-3547-4a2f-b14a-3657812b8ed9",
+        "timestamp": 1792246440682
       }
     ],
     "12.1 `POST /network`: idempotent upsert by `publicId` (source, tappedAt), store a snapshot (name, designation, avatar), skip the caller's own profile, bump `tapCount` and `lastTappedAt` on repeat taps": [
@@ -347,6 +737,11 @@
         "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
         "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
         "timestamp": 1792126648992
+      },
+      {
+        "executionId": "1d330b5d-a15a-4437-bbf0-f3c6f5a991b1",
+        "chatSessionId": "sess_d392cf8b-3547-4a2f-b14a-3657812b8ed9",
+        "timestamp": 1792247824543
       }
     ],
     "12.2 `POST /network/sync`: bulk upsert of pending offline entries (max 100 per call)": [
@@ -354,6 +749,11 @@
         "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
         "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
         "timestamp": 1792126649059
+      },
+      {
+        "executionId": "1d330b5d-a15a-4437-bbf0-f3c6f5a991b1",
+        "chatSessionId": "sess_d392cf8b-3547-4a2f-b14a-3657812b8ed9",
+        "timestamp": 1792247831022
       }
     ],
     "12.3 `GET /network`: list with search and cursor pagination, ordered by `lastTappedAt`, snapshots refreshed from live profiles": [
@@ -361,6 +761,11 @@
         "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
         "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
         "timestamp": 1792126649125
+      },
+      {
+        "executionId": "1d330b5d-a15a-4437-bbf0-f3c6f5a991b1",
+        "chatSessionId": "sess_d392cf8b-3547-4a2f-b14a-3657812b8ed9",
+        "timestamp": 1792247841003
       }
     ],
     "12.4 `PATCH /network/:id` (private note) and `DELETE /network/:id`": [
@@ -368,6 +773,11 @@
         "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
         "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
         "timestamp": 1792126649198
+      },
+      {
+        "executionId": "1d330b5d-a15a-4437-bbf0-f3c6f5a991b1",
+        "chatSessionId": "sess_d392cf8b-3547-4a2f-b14a-3657812b8ed9",
+        "timestamp": 1792247847780
       }
     ],
     "12.5 Mark entries `unavailable` when a profile is deleted or suspended; never expose who saved a profile to its owner": [
@@ -375,6 +785,11 @@
         "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
         "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
         "timestamp": 1792126649268
+      },
+      {
+        "executionId": "1d330b5d-a15a-4437-bbf0-f3c6f5a991b1",
+        "chatSessionId": "sess_d392cf8b-3547-4a2f-b14a-3657812b8ed9",
+        "timestamp": 1792247854457
       }
     ],
     "12.6 Tests: duplicates, own-profile skip, bulk sync, ownership checks, owner cannot see savers": [
@@ -382,6 +797,11 @@
         "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
         "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
         "timestamp": 1792126649339
+      },
+      {
+        "executionId": "1d330b5d-a15a-4437-bbf0-f3c6f5a991b1",
+        "chatSessionId": "sess_d392cf8b-3547-4a2f-b14a-3657812b8ed9",
+        "timestamp": 1792247860075
       }
     ],
     "13.1 `/c/[publicId]/page.tsx` canonical server component fetching with cache tag `profile:{publicId}` and 60 s fallback revalidate; a blank profile renders the empty state": [
@@ -389,6 +809,11 @@
         "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
         "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
         "timestamp": 1792126649407
+      },
+      {
+        "executionId": "b20c0a17-8b50-4efe-bf32-61173bad222e",
+        "chatSessionId": "sess_d392cf8b-3547-4a2f-b14a-3657812b8ed9",
+        "timestamp": 1792249354300
       }
     ],
     "13.2 `generateMetadata` for Open Graph and Twitter tags": [
@@ -396,6 +821,11 @@
         "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
         "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
         "timestamp": 1792126649481
+      },
+      {
+        "executionId": "b20c0a17-8b50-4efe-bf32-61173bad222e",
+        "chatSessionId": "sess_d392cf8b-3547-4a2f-b14a-3657812b8ed9",
+        "timestamp": 1792249355001
       }
     ],
     "13.3 `not-found.tsx` and API-down fallback behavior": [
@@ -403,6 +833,11 @@
         "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
         "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
         "timestamp": 1792126649556
+      },
+      {
+        "executionId": "b20c0a17-8b50-4efe-bf32-61173bad222e",
+        "chatSessionId": "sess_d392cf8b-3547-4a2f-b14a-3657812b8ed9",
+        "timestamp": 1792249355675
       }
     ],
     "13.4 `/api/revalidate` route protected by shared secret": [
@@ -410,6 +845,11 @@
         "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
         "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
         "timestamp": 1792126649635
+      },
+      {
+        "executionId": "b20c0a17-8b50-4efe-bf32-61173bad222e",
+        "chatSessionId": "sess_d392cf8b-3547-4a2f-b14a-3657812b8ed9",
+        "timestamp": 1792249360096
       }
     ],
     "13.5 `/p/[name]/page.tsx`: render the same page for the current custom name, 308 redirect to `/c/{publicId}` for retired names, 404 otherwise; set canonical link to `/c/{publicId}`": [
@@ -417,6 +857,11 @@
         "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
         "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
         "timestamp": 1792126649798
+      },
+      {
+        "executionId": "b20c0a17-8b50-4efe-bf32-61173bad222e",
+        "chatSessionId": "sess_d392cf8b-3547-4a2f-b14a-3657812b8ed9",
+        "timestamp": 1792249360794
       }
     ],
     "14.1 `ProfileHeader`, `LinkCard`, empty state, footer with privacy link": [
@@ -424,6 +869,11 @@
         "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
         "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
         "timestamp": 1792126649868
+      },
+      {
+        "executionId": "b20c0a17-8b50-4efe-bf32-61173bad222e",
+        "chatSessionId": "sess_d392cf8b-3547-4a2f-b14a-3657812b8ed9",
+        "timestamp": 1792249381880
       }
     ],
     "14.2 Light/dark theme via CSS variables and `prefers-color-scheme`": [
@@ -431,6 +881,11 @@
         "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
         "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
         "timestamp": 1792126649941
+      },
+      {
+        "executionId": "b20c0a17-8b50-4efe-bf32-61173bad222e",
+        "chatSessionId": "sess_d392cf8b-3547-4a2f-b14a-3657812b8ed9",
+        "timestamp": 1792249383949
       }
     ],
     "14.3 Accessibility pass: semantic HTML, focus rings, 44px targets, contrast, alt text": [
@@ -438,6 +893,11 @@
         "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
         "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
         "timestamp": 1792126650015
+      },
+      {
+        "executionId": "b20c0a17-8b50-4efe-bf32-61173bad222e",
+        "chatSessionId": "sess_d392cf8b-3547-4a2f-b14a-3657812b8ed9",
+        "timestamp": 1792249381037
       }
     ],
     "14.4 Optimize: `next/image`, system fonts, minimal client JS": [
@@ -445,6 +905,11 @@
         "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
         "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
         "timestamp": 1792126650092
+      },
+      {
+        "executionId": "b20c0a17-8b50-4efe-bf32-61173bad222e",
+        "chatSessionId": "sess_d392cf8b-3547-4a2f-b14a-3657812b8ed9",
+        "timestamp": 1792249382612
       }
     ],
     "14.5 `SaveToNetworkButton`: opens `tapsync://c/{publicId}` on press (Android intent link with Play Store fallback), with a \"Get the app\" link beside it. Stores no visitor data": [
@@ -452,6 +917,11 @@
         "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
         "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
         "timestamp": 1792126650167
+      },
+      {
+        "executionId": "b20c0a17-8b50-4efe-bf32-61173bad222e",
+        "chatSessionId": "sess_d392cf8b-3547-4a2f-b14a-3657812b8ed9",
+        "timestamp": 1792249380158
       }
     ],
     "15.1 `SaveContactButton` hitting vCard route with download headers": [
@@ -459,6 +929,11 @@
         "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
         "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
         "timestamp": 1792126650244
+      },
+      {
+        "executionId": "0be8794f-619a-4328-a3c1-61708c7d69a3",
+        "chatSessionId": "sess_e58b32ce-d9d5-4642-8095-387bf6d35ce5",
+        "timestamp": 1792277972309
       }
     ],
     "15.2 View beacon (non-blocking) on page load": [
@@ -487,6 +962,16 @@
         "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
         "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
         "timestamp": 1792126650566
+      },
+      {
+        "executionId": "18692a7f-b955-466d-a00f-29e0ca4ad4c9",
+        "chatSessionId": "sess_520b1da2-bcb5-413b-a507-c4cd9c5ceccf",
+        "timestamp": 1792279847983
+      },
+      {
+        "executionId": "18692a7f-b955-466d-a00f-29e0ca4ad4c9",
+        "chatSessionId": "sess_520b1da2-bcb5-413b-a507-c4cd9c5ceccf",
+        "timestamp": 1792280644574
       }
     ],
     "16.2 Install and configure `react-native-nfc-manager` with iOS entitlements/Info.plist and Android NFC permission": [
@@ -494,6 +979,16 @@
         "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
         "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
         "timestamp": 1792126650665
+      },
+      {
+        "executionId": "18692a7f-b955-466d-a00f-29e0ca4ad4c9",
+        "chatSessionId": "sess_520b1da2-bcb5-413b-a507-c4cd9c5ceccf",
+        "timestamp": 1792280650915
+      },
+      {
+        "executionId": "18692a7f-b955-466d-a00f-29e0ca4ad4c9",
+        "chatSessionId": "sess_520b1da2-bcb5-413b-a507-c4cd9c5ceccf",
+        "timestamp": 1792281174017
       }
     ],
     "16.3 API client with token refresh interceptor and `expo-secure-store`": [
@@ -501,6 +996,16 @@
         "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
         "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
         "timestamp": 1792126650784
+      },
+      {
+        "executionId": "18692a7f-b955-466d-a00f-29e0ca4ad4c9",
+        "chatSessionId": "sess_520b1da2-bcb5-413b-a507-c4cd9c5ceccf",
+        "timestamp": 1792281180340
+      },
+      {
+        "executionId": "18692a7f-b955-466d-a00f-29e0ca4ad4c9",
+        "chatSessionId": "sess_520b1da2-bcb5-413b-a507-c4cd9c5ceccf",
+        "timestamp": 1792281519936
       }
     ],
     "17.1 First-open flow: no session means call `POST /auth/anonymous`, store tokens in `expo-secure-store`, and go straight to the dashboard (no forms). Silent sign-in on later launches": [
@@ -508,6 +1013,16 @@
         "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
         "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
         "timestamp": 1792126650858
+      },
+      {
+        "executionId": "6993de88-9de5-404e-b68a-f41d64c6d618",
+        "chatSessionId": "sess_222db7bc-1a26-4a6a-b445-538a48a110bf",
+        "timestamp": 1792281581106
+      },
+      {
+        "executionId": "6993de88-9de5-404e-b68a-f41d64c6d618",
+        "chatSessionId": "sess_222db7bc-1a26-4a6a-b445-538a48a110bf",
+        "timestamp": 1792282429324
       }
     ],
     "17.2 First-run screen with a small \"Restore my account\" link (Google, email, recovery code). Restoring discards the untouched new account": [
@@ -515,6 +1030,16 @@
         "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
         "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
         "timestamp": 1792126650935
+      },
+      {
+        "executionId": "6993de88-9de5-404e-b68a-f41d64c6d618",
+        "chatSessionId": "sess_222db7bc-1a26-4a6a-b445-538a48a110bf",
+        "timestamp": 1792282435280
+      },
+      {
+        "executionId": "6993de88-9de5-404e-b68a-f41d64c6d618",
+        "chatSessionId": "sess_222db7bc-1a26-4a6a-b445-538a48a110bf",
+        "timestamp": 1792282741131
       }
     ],
     "17.3 \"Secure your account\" screen: link Google, link email (with verification), generate recovery code (shown once, \"I saved it\" confirmation)": [
@@ -522,6 +1047,16 @@
         "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
         "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
         "timestamp": 1792126651006
+      },
+      {
+        "executionId": "6993de88-9de5-404e-b68a-f41d64c6d618",
+        "chatSessionId": "sess_222db7bc-1a26-4a6a-b445-538a48a110bf",
+        "timestamp": 1792282748687
+      },
+      {
+        "executionId": "6993de88-9de5-404e-b68a-f41d64c6d618",
+        "chatSessionId": "sess_222db7bc-1a26-4a6a-b445-538a48a110bf",
+        "timestamp": 1792283693174
       }
     ],
     "17.4 Persistent dismissible warning banner until a Recovery Method is linked. Show the prompt again right after the first card is programmed": [
@@ -529,6 +1064,11 @@
         "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
         "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
         "timestamp": 1792126651086
+      },
+      {
+        "executionId": "6993de88-9de5-404e-b68a-f41d64c6d618",
+        "chatSessionId": "sess_222db7bc-1a26-4a6a-b445-538a48a110bf",
+        "timestamp": 1792283699486
       }
     ],
     "17.5 Sign-out guard: for accounts with no Recovery Method, warn about permanent loss before logout": [
@@ -557,6 +1097,16 @@
         "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
         "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
         "timestamp": 1792126651388
+      },
+      {
+        "executionId": "89b94da0-6f3e-49e7-a402-b20b36083e13",
+        "chatSessionId": "sess_1d54d354-9a60-4c7a-9514-9e1d0a22957d",
+        "timestamp": 1792286695429
+      },
+      {
+        "executionId": "89b94da0-6f3e-49e7-a402-b20b36083e13",
+        "chatSessionId": "sess_1d54d354-9a60-4c7a-9514-9e1d0a22957d",
+        "timestamp": 1792288977806
       }
     ],
     "18.2 Profile preview and quick stats": [
@@ -564,6 +1114,16 @@
         "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
         "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
         "timestamp": 1792126651456
+      },
+      {
+        "executionId": "89b94da0-6f3e-49e7-a402-b20b36083e13",
+        "chatSessionId": "sess_1d54d354-9a60-4c7a-9514-9e1d0a22957d",
+        "timestamp": 1792288983145
+      },
+      {
+        "executionId": "89b94da0-6f3e-49e7-a402-b20b36083e13",
+        "chatSessionId": "sess_1d54d354-9a60-4c7a-9514-9e1d0a22957d",
+        "timestamp": 1792290015953
       }
     ],
     "18.3 Profile edit screen with avatar picker and hidden-field switches": [
@@ -571,6 +1131,16 @@
         "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
         "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
         "timestamp": 1792126651530
+      },
+      {
+        "executionId": "89b94da0-6f3e-49e7-a402-b20b36083e13",
+        "chatSessionId": "sess_1d54d354-9a60-4c7a-9514-9e1d0a22957d",
+        "timestamp": 1792290021046
+      },
+      {
+        "executionId": "89b94da0-6f3e-49e7-a402-b20b36083e13",
+        "chatSessionId": "sess_1d54d354-9a60-4c7a-9514-9e1d0a22957d",
+        "timestamp": 1792291086345
       }
     ],
     "18.4 Custom Name screen: availability check, claim/change/remove, preview of `/p/{name}` and `/c/{publicId}`, and a note that cards use the permanent URL and never need reprogramming": [
@@ -578,6 +1148,21 @@
         "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
         "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
         "timestamp": 1792126651597
+      },
+      {
+        "executionId": "89b94da0-6f3e-49e7-a402-b20b36083e13",
+        "chatSessionId": "sess_1d54d354-9a60-4c7a-9514-9e1d0a22957d",
+        "timestamp": 1792291092335
+      },
+      {
+        "executionId": "1c2aaeea-8029-497d-8223-e557f1fc85ab",
+        "chatSessionId": "sess_1d54d354-9a60-4c7a-9514-9e1d0a22957d",
+        "timestamp": 1792291872244
+      },
+      {
+        "executionId": "1c2aaeea-8029-497d-8223-e557f1fc85ab",
+        "chatSessionId": "sess_1d54d354-9a60-4c7a-9514-9e1d0a22957d",
+        "timestamp": 1792292640804
       }
     ],
     "19.1 Per-mode link lists with enable/disable switch": [
@@ -585,6 +1170,21 @@
         "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
         "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
         "timestamp": 1792126651669
+      },
+      {
+        "executionId": "2aea0804-682a-4169-81cb-f230476a84b6",
+        "chatSessionId": "sess_0296624f-6dfe-4b54-88dc-17fc7a78cb80",
+        "timestamp": 1792292705434
+      },
+      {
+        "executionId": "2aea0804-682a-4169-81cb-f230476a84b6",
+        "chatSessionId": "sess_0296624f-6dfe-4b54-88dc-17fc7a78cb80",
+        "timestamp": 1792293293725
+      },
+      {
+        "executionId": "2aea0804-682a-4169-81cb-f230476a84b6",
+        "chatSessionId": "sess_0296624f-6dfe-4b54-88dc-17fc7a78cb80",
+        "timestamp": 1792294283357
       }
     ],
     "19.2 Add/edit form with category/icon picker and URL validation": [
@@ -592,6 +1192,21 @@
         "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
         "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
         "timestamp": 1792126651748
+      },
+      {
+        "executionId": "2aea0804-682a-4169-81cb-f230476a84b6",
+        "chatSessionId": "sess_0296624f-6dfe-4b54-88dc-17fc7a78cb80",
+        "timestamp": 1792292710798
+      },
+      {
+        "executionId": "2aea0804-682a-4169-81cb-f230476a84b6",
+        "chatSessionId": "sess_0296624f-6dfe-4b54-88dc-17fc7a78cb80",
+        "timestamp": 1792294292793
+      },
+      {
+        "executionId": "2aea0804-682a-4169-81cb-f230476a84b6",
+        "chatSessionId": "sess_0296624f-6dfe-4b54-88dc-17fc7a78cb80",
+        "timestamp": 1792297082192
       }
     ],
     "19.3 Drag-to-reorder with persisted order": [
@@ -599,6 +1214,26 @@
         "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
         "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
         "timestamp": 1792126651823
+      },
+      {
+        "executionId": "2aea0804-682a-4169-81cb-f230476a84b6",
+        "chatSessionId": "sess_0296624f-6dfe-4b54-88dc-17fc7a78cb80",
+        "timestamp": 1792292716206
+      },
+      {
+        "executionId": "2aea0804-682a-4169-81cb-f230476a84b6",
+        "chatSessionId": "sess_0296624f-6dfe-4b54-88dc-17fc7a78cb80",
+        "timestamp": 1792297092336
+      },
+      {
+        "executionId": "a4123628-6c9e-4ed9-8474-8de8598ad1e4",
+        "chatSessionId": "sess_0296624f-6dfe-4b54-88dc-17fc7a78cb80",
+        "timestamp": 1792297799430
+      },
+      {
+        "executionId": "a4123628-6c9e-4ed9-8474-8de8598ad1e4",
+        "chatSessionId": "sess_0296624f-6dfe-4b54-88dc-17fc7a78cb80",
+        "timestamp": 1792298363277
       }
     ],
     "19.4 Move/copy link between modes, delete with confirmation": [
@@ -606,6 +1241,21 @@
         "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
         "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
         "timestamp": 1792126651893
+      },
+      {
+        "executionId": "2aea0804-682a-4169-81cb-f230476a84b6",
+        "chatSessionId": "sess_0296624f-6dfe-4b54-88dc-17fc7a78cb80",
+        "timestamp": 1792292722576
+      },
+      {
+        "executionId": "a4123628-6c9e-4ed9-8474-8de8598ad1e4",
+        "chatSessionId": "sess_0296624f-6dfe-4b54-88dc-17fc7a78cb80",
+        "timestamp": 1792298368307
+      },
+      {
+        "executionId": "a4123628-6c9e-4ed9-8474-8de8598ad1e4",
+        "chatSessionId": "sess_0296624f-6dfe-4b54-88dc-17fc7a78cb80",
+        "timestamp": 1792299013919
       }
     ],
     "20.1 `NfcService`: support/enabled detection, `writeProfileUrl` with timeout, read-back verification, cancel": [
@@ -613,6 +1263,16 @@
         "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
         "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
         "timestamp": 1792126651966
+      },
+      {
+        "executionId": "8854d0b5-bdba-4959-858b-57d507108585",
+        "chatSessionId": "sess_c5ff335f-b4ac-401a-96ae-cbf0dd24e45d",
+        "timestamp": 1792308755702
+      },
+      {
+        "executionId": "8854d0b5-bdba-4959-858b-57d507108585",
+        "chatSessionId": "sess_c5ff335f-b4ac-401a-96ae-cbf0dd24e45d",
+        "timestamp": 1792309525939
       }
     ],
     "20.2 `useNfcWriter` hook implementing the state machine (idle, waiting, writing, verifying, success, error)": [
@@ -620,6 +1280,16 @@
         "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
         "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
         "timestamp": 1792126652042
+      },
+      {
+        "executionId": "8854d0b5-bdba-4959-858b-57d507108585",
+        "chatSessionId": "sess_c5ff335f-b4ac-401a-96ae-cbf0dd24e45d",
+        "timestamp": 1792309530109
+      },
+      {
+        "executionId": "8854d0b5-bdba-4959-858b-57d507108585",
+        "chatSessionId": "sess_c5ff335f-b4ac-401a-96ae-cbf0dd24e45d",
+        "timestamp": 1792309838518
       }
     ],
     "20.3 Program Card screen: guidance, animated waiting state, success and error/retry UI, link to enable NFC in settings": [
@@ -627,6 +1297,16 @@
         "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
         "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
         "timestamp": 1792126652115
+      },
+      {
+        "executionId": "8854d0b5-bdba-4959-858b-57d507108585",
+        "chatSessionId": "sess_c5ff335f-b4ac-401a-96ae-cbf0dd24e45d",
+        "timestamp": 1792309842103
+      },
+      {
+        "executionId": "8854d0b5-bdba-4959-858b-57d507108585",
+        "chatSessionId": "sess_c5ff335f-b4ac-401a-96ae-cbf0dd24e45d",
+        "timestamp": 1792310165848
       }
     ],
     "20.4 Bind card to account after verified write; handle `ALREADY_BOUND`": [
@@ -634,6 +1314,16 @@
         "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
         "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
         "timestamp": 1792126652182
+      },
+      {
+        "executionId": "8854d0b5-bdba-4959-858b-57d507108585",
+        "chatSessionId": "sess_c5ff335f-b4ac-401a-96ae-cbf0dd24e45d",
+        "timestamp": 1792310171275
+      },
+      {
+        "executionId": "8854d0b5-bdba-4959-858b-57d507108585",
+        "chatSessionId": "sess_c5ff335f-b4ac-401a-96ae-cbf0dd24e45d",
+        "timestamp": 1792310176958
       }
     ],
     "20.5 Card management screen: list, label, unassign": [
@@ -641,6 +1331,16 @@
         "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
         "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
         "timestamp": 1792126652295
+      },
+      {
+        "executionId": "8854d0b5-bdba-4959-858b-57d507108585",
+        "chatSessionId": "sess_c5ff335f-b4ac-401a-96ae-cbf0dd24e45d",
+        "timestamp": 1792310182571
+      },
+      {
+        "executionId": "8854d0b5-bdba-4959-858b-57d507108585",
+        "chatSessionId": "sess_c5ff335f-b4ac-401a-96ae-cbf0dd24e45d",
+        "timestamp": 1792310188121
       }
     ],
     "20.6 Unit tests with mocked NFC manager covering timeout, tag lost, not writable, verify failed": [
@@ -648,6 +1348,16 @@
         "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
         "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
         "timestamp": 1792126652433
+      },
+      {
+        "executionId": "8854d0b5-bdba-4959-858b-57d507108585",
+        "chatSessionId": "sess_c5ff335f-b4ac-401a-96ae-cbf0dd24e45d",
+        "timestamp": 1792310193595
+      },
+      {
+        "executionId": "8854d0b5-bdba-4959-858b-57d507108585",
+        "chatSessionId": "sess_c5ff335f-b4ac-401a-96ae-cbf0dd24e45d",
+        "timestamp": 1792310790103
       }
     ],
     "20.7 \"How tapping works\" help screen: page needs internet, OS decides prompt vs redirect, iPhone/Android NFC notes": [
@@ -655,6 +1365,16 @@
         "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
         "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
         "timestamp": 1792126652505
+      },
+      {
+        "executionId": "8854d0b5-bdba-4959-858b-57d507108585",
+        "chatSessionId": "sess_c5ff335f-b4ac-401a-96ae-cbf0dd24e45d",
+        "timestamp": 1792310804942
+      },
+      {
+        "executionId": "8854d0b5-bdba-4959-858b-57d507108585",
+        "chatSessionId": "sess_c5ff335f-b4ac-401a-96ae-cbf0dd24e45d",
+        "timestamp": 1792310945275
       }
     ],
     "21.1 Range selector, totals, per-link click list, recent taps": [
@@ -662,6 +1382,16 @@
         "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
         "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
         "timestamp": 1792126652584
+      },
+      {
+        "executionId": "19fc028a-d59d-4de6-8f1f-b0e1698d332f",
+        "chatSessionId": "sess_c42854e2-2f37-43ad-bf15-55641db6095d",
+        "timestamp": 1792311225222
+      },
+      {
+        "executionId": "19fc028a-d59d-4de6-8f1f-b0e1698d332f",
+        "chatSessionId": "sess_c42854e2-2f37-43ad-bf15-55641db6095d",
+        "timestamp": 1792311585585
       }
     ],
     "21.2 Empty and loading states": [
@@ -669,6 +1399,16 @@
         "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
         "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
         "timestamp": 1792126652655
+      },
+      {
+        "executionId": "19fc028a-d59d-4de6-8f1f-b0e1698d332f",
+        "chatSessionId": "sess_c42854e2-2f37-43ad-bf15-55641db6095d",
+        "timestamp": 1792311229737
+      },
+      {
+        "executionId": "19fc028a-d59d-4de6-8f1f-b0e1698d332f",
+        "chatSessionId": "sess_c42854e2-2f37-43ad-bf15-55641db6095d",
+        "timestamp": 1792311589886
       }
     ],
     "22.1 Set `scheme: \"tapsync\"` in `app.config`": [
@@ -676,6 +1416,16 @@
         "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
         "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
         "timestamp": 1792126652739
+      },
+      {
+        "executionId": "e782eb25-bb10-49b8-90cd-6348b0767da8",
+        "chatSessionId": "sess_3932dcb1-4fbb-4f89-9d24-1642d3175226",
+        "timestamp": 1792311930510
+      },
+      {
+        "executionId": "e782eb25-bb10-49b8-90cd-6348b0767da8",
+        "chatSessionId": "sess_3932dcb1-4fbb-4f89-9d24-1642d3175226",
+        "timestamp": 1792313971521
       }
     ],
     "22.2 Expo Router handlers `app/c/[publicId].tsx` and `app/p/[name].tsx`: validate the Public ID format, run the My Network save flow (`source: 'link'`), then replace the route with `(tabs)/network` and highlight the new contact": [
@@ -683,6 +1433,16 @@
         "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
         "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
         "timestamp": 1792126652816
+      },
+      {
+        "executionId": "e782eb25-bb10-49b8-90cd-6348b0767da8",
+        "chatSessionId": "sess_3932dcb1-4fbb-4f89-9d24-1642d3175226",
+        "timestamp": 1792313982561
+      },
+      {
+        "executionId": "e782eb25-bb10-49b8-90cd-6348b0767da8",
+        "chatSessionId": "sess_3932dcb1-4fbb-4f89-9d24-1642d3175226",
+        "timestamp": 1792313993987
       }
     ],
     "22.3 Own-card detection (skip saving, show \"This is your own card\") and 404 handling": [
@@ -690,6 +1450,16 @@
         "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
         "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
         "timestamp": 1792126652899
+      },
+      {
+        "executionId": "e782eb25-bb10-49b8-90cd-6348b0767da8",
+        "chatSessionId": "sess_3932dcb1-4fbb-4f89-9d24-1642d3175226",
+        "timestamp": 1792314003338
+      },
+      {
+        "executionId": "e782eb25-bb10-49b8-90cd-6348b0767da8",
+        "chatSessionId": "sess_3932dcb1-4fbb-4f89-9d24-1642d3175226",
+        "timestamp": 1792314013689
       }
     ],
     "22.4 Real-device checks of the page button: iPhone and Android, with and without the app installed, including the Android intent fallback to the Play Store": [
@@ -697,6 +1467,16 @@
         "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
         "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
         "timestamp": 1792126652968
+      },
+      {
+        "executionId": "e782eb25-bb10-49b8-90cd-6348b0767da8",
+        "chatSessionId": "sess_3932dcb1-4fbb-4f89-9d24-1642d3175226",
+        "timestamp": 1792314019829
+      },
+      {
+        "executionId": "e782eb25-bb10-49b8-90cd-6348b0767da8",
+        "chatSessionId": "sess_3932dcb1-4fbb-4f89-9d24-1642d3175226",
+        "timestamp": 1792314029060
       }
     ],
     "23.1 Local store (`expo-sqlite`) for pending entries and an offline cache of saved contacts": [
@@ -704,6 +1484,26 @@
         "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
         "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
         "timestamp": 1792126653041
+      },
+      {
+        "executionId": "dfdb6c72-958c-4be1-bcac-4d53540fa896",
+        "chatSessionId": "sess_e02a90fd-0fb7-45a6-9ae7-e7f361a3451c",
+        "timestamp": 1792314111036
+      },
+      {
+        "executionId": "dfdb6c72-958c-4be1-bcac-4d53540fa896",
+        "chatSessionId": "sess_e02a90fd-0fb7-45a6-9ae7-e7f361a3451c",
+        "timestamp": 1792314261803
+      },
+      {
+        "executionId": "a5e690d7-8db4-4430-b8f4-fca6c832405d",
+        "chatSessionId": "sess_e02a90fd-0fb7-45a6-9ae7-e7f361a3451c",
+        "timestamp": 1793745315827
+      },
+      {
+        "executionId": "a5e690d7-8db4-4430-b8f4-fca6c832405d",
+        "chatSessionId": "sess_e02a90fd-0fb7-45a6-9ae7-e7f361a3451c",
+        "timestamp": 1793745463529
       }
     ],
     "23.2 `useNetwork` hooks (React Query) for list, search and upsert. Sync pending entries on app foreground and connectivity change": [
@@ -711,6 +1511,21 @@
         "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
         "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
         "timestamp": 1792126653121
+      },
+      {
+        "executionId": "dfdb6c72-958c-4be1-bcac-4d53540fa896",
+        "chatSessionId": "sess_e02a90fd-0fb7-45a6-9ae7-e7f361a3451c",
+        "timestamp": 1792314111130
+      },
+      {
+        "executionId": "a5e690d7-8db4-4430-b8f4-fca6c832405d",
+        "chatSessionId": "sess_e02a90fd-0fb7-45a6-9ae7-e7f361a3451c",
+        "timestamp": 1793745467181
+      },
+      {
+        "executionId": "a5e690d7-8db4-4430-b8f4-fca6c832405d",
+        "chatSessionId": "sess_e02a90fd-0fb7-45a6-9ae7-e7f361a3451c",
+        "timestamp": 1793746106639
       }
     ],
     "23.3 My Network tab: list with avatar, name, designation and last tapped, search, pending and unavailable states, highlight for a new contact": [
@@ -718,6 +1533,21 @@
         "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
         "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
         "timestamp": 1792126653190
+      },
+      {
+        "executionId": "dfdb6c72-958c-4be1-bcac-4d53540fa896",
+        "chatSessionId": "sess_e02a90fd-0fb7-45a6-9ae7-e7f361a3451c",
+        "timestamp": 1792314111220
+      },
+      {
+        "executionId": "a5e690d7-8db4-4430-b8f4-fca6c832405d",
+        "chatSessionId": "sess_e02a90fd-0fb7-45a6-9ae7-e7f361a3451c",
+        "timestamp": 1793746110847
+      },
+      {
+        "executionId": "a5e690d7-8db4-4430-b8f4-fca6c832405d",
+        "chatSessionId": "sess_e02a90fd-0fb7-45a6-9ae7-e7f361a3451c",
+        "timestamp": 1793746675677
       }
     ],
     "23.4 Contact detail: live profile, links for the active mode, Save to phone contacts (vCard), open in browser, private note, delete": [
@@ -725,6 +1555,21 @@
         "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
         "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
         "timestamp": 1792126653266
+      },
+      {
+        "executionId": "dfdb6c72-958c-4be1-bcac-4d53540fa896",
+        "chatSessionId": "sess_e02a90fd-0fb7-45a6-9ae7-e7f361a3451c",
+        "timestamp": 1792314111319
+      },
+      {
+        "executionId": "a5e690d7-8db4-4430-b8f4-fca6c832405d",
+        "chatSessionId": "sess_e02a90fd-0fb7-45a6-9ae7-e7f361a3451c",
+        "timestamp": 1793746680051
+      },
+      {
+        "executionId": "a5e690d7-8db4-4430-b8f4-fca6c832405d",
+        "chatSessionId": "sess_e02a90fd-0fb7-45a6-9ae7-e7f361a3451c",
+        "timestamp": 1793747166586
       }
     ],
     "23.5 Manual capture: Scan card (in-app NFC read), Scan QR (camera), Paste link": [
@@ -732,6 +1577,26 @@
         "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
         "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
         "timestamp": 1792126653338
+      },
+      {
+        "executionId": "dfdb6c72-958c-4be1-bcac-4d53540fa896",
+        "chatSessionId": "sess_e02a90fd-0fb7-45a6-9ae7-e7f361a3451c",
+        "timestamp": 1792314111412
+      },
+      {
+        "executionId": "a5e690d7-8db4-4430-b8f4-fca6c832405d",
+        "chatSessionId": "sess_e02a90fd-0fb7-45a6-9ae7-e7f361a3451c",
+        "timestamp": 1793747170745
+      },
+      {
+        "executionId": "838122b1-ab49-408e-8605-b314de56af96",
+        "chatSessionId": "sess_e02a90fd-0fb7-45a6-9ae7-e7f361a3451c",
+        "timestamp": 1793747949493
+      },
+      {
+        "executionId": "838122b1-ab49-408e-8605-b314de56af96",
+        "chatSessionId": "sess_e02a90fd-0fb7-45a6-9ae7-e7f361a3451c",
+        "timestamp": 1793749207411
       }
     ],
     "23.6 Unit tests for the pending queue, duplicate handling and own-card skip": [
@@ -739,6 +1604,21 @@
         "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
         "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
         "timestamp": 1792126653420
+      },
+      {
+        "executionId": "dfdb6c72-958c-4be1-bcac-4d53540fa896",
+        "chatSessionId": "sess_e02a90fd-0fb7-45a6-9ae7-e7f361a3451c",
+        "timestamp": 1792314111544
+      },
+      {
+        "executionId": "838122b1-ab49-408e-8605-b314de56af96",
+        "chatSessionId": "sess_e02a90fd-0fb7-45a6-9ae7-e7f361a3451c",
+        "timestamp": 1793749213907
+      },
+      {
+        "executionId": "838122b1-ab49-408e-8605-b314de56af96",
+        "chatSessionId": "sess_e02a90fd-0fb7-45a6-9ae7-e7f361a3451c",
+        "timestamp": 1793750030566
       }
     ],
     "24.1 Write and read back NTAG215 cards on at least one Android and one iPhone (iOS 13+)": [
@@ -746,6 +1626,16 @@
         "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
         "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
         "timestamp": 1792126653489
+      },
+      {
+        "executionId": "dfdb6c72-958c-4be1-bcac-4d53540fa896",
+        "chatSessionId": "sess_e02a90fd-0fb7-45a6-9ae7-e7f361a3451c",
+        "timestamp": 1792314111633
+      },
+      {
+        "executionId": "de3a354e-04be-4093-9857-9bfb8cbf4822",
+        "chatSessionId": "sess_e02a90fd-0fb7-45a6-9ae7-e7f361a3451c",
+        "timestamp": 1793750450046
       }
     ],
     "24.2 Tap a programmed card with Android and iOS visitors and confirm the page opens": [
@@ -753,6 +1643,16 @@
         "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
         "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
         "timestamp": 1792126653556
+      },
+      {
+        "executionId": "dfdb6c72-958c-4be1-bcac-4d53540fa896",
+        "chatSessionId": "sess_e02a90fd-0fb7-45a6-9ae7-e7f361a3451c",
+        "timestamp": 1792314111721
+      },
+      {
+        "executionId": "de3a354e-04be-4093-9857-9bfb8cbf4822",
+        "chatSessionId": "sess_e02a90fd-0fb7-45a6-9ae7-e7f361a3451c",
+        "timestamp": 1793750449954
       }
     ],
     "24.3 Toggle mode in the app and verify the public page updates within 2 s without touching the card": [
@@ -760,6 +1660,16 @@
         "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
         "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
         "timestamp": 1792126653634
+      },
+      {
+        "executionId": "dfdb6c72-958c-4be1-bcac-4d53540fa896",
+        "chatSessionId": "sess_e02a90fd-0fb7-45a6-9ae7-e7f361a3451c",
+        "timestamp": 1792314111806
+      },
+      {
+        "executionId": "de3a354e-04be-4093-9857-9bfb8cbf4822",
+        "chatSessionId": "sess_e02a90fd-0fb7-45a6-9ae7-e7f361a3451c",
+        "timestamp": 1793750450140
       }
     ],
     "24.4 Import vCard on iOS and Android Contacts": [
@@ -767,6 +1677,16 @@
         "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
         "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
         "timestamp": 1792126653708
+      },
+      {
+        "executionId": "dfdb6c72-958c-4be1-bcac-4d53540fa896",
+        "chatSessionId": "sess_e02a90fd-0fb7-45a6-9ae7-e7f361a3451c",
+        "timestamp": 1792314111902
+      },
+      {
+        "executionId": "de3a354e-04be-4093-9857-9bfb8cbf4822",
+        "chatSessionId": "sess_e02a90fd-0fb7-45a6-9ae7-e7f361a3451c",
+        "timestamp": 1793750450239
       }
     ],
     "24.5 Failure paths: tag removed mid-write, read-only tag, NFC disabled, offline toggle": [
@@ -774,6 +1694,16 @@
         "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
         "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
         "timestamp": 1792126653785
+      },
+      {
+        "executionId": "dfdb6c72-958c-4be1-bcac-4d53540fa896",
+        "chatSessionId": "sess_e02a90fd-0fb7-45a6-9ae7-e7f361a3451c",
+        "timestamp": 1792314111987
+      },
+      {
+        "executionId": "de3a354e-04be-4093-9857-9bfb8cbf4822",
+        "chatSessionId": "sess_e02a90fd-0fb7-45a6-9ae7-e7f361a3451c",
+        "timestamp": 1793750450330
       }
     ],
     "24.6 Custom name: claim a name, change it, then confirm the old name redirects and a card programmed before the change still opens the page": [
@@ -781,6 +1711,16 @@
         "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
         "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
         "timestamp": 1792126653857
+      },
+      {
+        "executionId": "dfdb6c72-958c-4be1-bcac-4d53540fa896",
+        "chatSessionId": "sess_e02a90fd-0fb7-45a6-9ae7-e7f361a3451c",
+        "timestamp": 1792314112076
+      },
+      {
+        "executionId": "de3a354e-04be-4093-9857-9bfb8cbf4822",
+        "chatSessionId": "sess_e02a90fd-0fb7-45a6-9ae7-e7f361a3451c",
+        "timestamp": 1793750457610
       }
     ],
     "24.7 Brand-new account: confirm the card opens a blank page with the placeholder name and empty state, then fills in as links and a name are added": [
@@ -788,6 +1728,16 @@
         "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
         "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
         "timestamp": 1792126654007
+      },
+      {
+        "executionId": "dfdb6c72-958c-4be1-bcac-4d53540fa896",
+        "chatSessionId": "sess_e02a90fd-0fb7-45a6-9ae7-e7f361a3451c",
+        "timestamp": 1792314112169
+      },
+      {
+        "executionId": "de3a354e-04be-4093-9857-9bfb8cbf4822",
+        "chatSessionId": "sess_e02a90fd-0fb7-45a6-9ae7-e7f361a3451c",
+        "timestamp": 1793750457748
       }
     ],
     "24.8 First open on a clean install creates the account with no forms. Link Google and email, generate a recovery code, then restore on a second phone with each method": [
@@ -795,6 +1745,16 @@
         "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
         "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
         "timestamp": 1792126654075
+      },
+      {
+        "executionId": "dfdb6c72-958c-4be1-bcac-4d53540fa896",
+        "chatSessionId": "sess_e02a90fd-0fb7-45a6-9ae7-e7f361a3451c",
+        "timestamp": 1792314112280
+      },
+      {
+        "executionId": "de3a354e-04be-4093-9857-9bfb8cbf4822",
+        "chatSessionId": "sess_e02a90fd-0fb7-45a6-9ae7-e7f361a3451c",
+        "timestamp": 1793750457989
       }
     ],
     "24.9 Tap a card, press Save to My Network, and confirm the app opens on My Network with the contact saved. A repeat does not duplicate. Try with the app installed and not installed": [
@@ -802,6 +1762,16 @@
         "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
         "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
         "timestamp": 1792126654140
+      },
+      {
+        "executionId": "dfdb6c72-958c-4be1-bcac-4d53540fa896",
+        "chatSessionId": "sess_e02a90fd-0fb7-45a6-9ae7-e7f361a3451c",
+        "timestamp": 1792314112372
+      },
+      {
+        "executionId": "de3a354e-04be-4093-9857-9bfb8cbf4822",
+        "chatSessionId": "sess_e02a90fd-0fb7-45a6-9ae7-e7f361a3451c",
+        "timestamp": 1793750457836
       }
     ],
     "24.10 Use Scan card in airplane mode: contact saved as pending, then syncs when back online": [
@@ -809,6 +1779,16 @@
         "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
         "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
         "timestamp": 1792126654216
+      },
+      {
+        "executionId": "dfdb6c72-958c-4be1-bcac-4d53540fa896",
+        "chatSessionId": "sess_e02a90fd-0fb7-45a6-9ae7-e7f361a3451c",
+        "timestamp": 1792314112466
+      },
+      {
+        "executionId": "de3a354e-04be-4093-9857-9bfb8cbf4822",
+        "chatSessionId": "sess_e02a90fd-0fb7-45a6-9ae7-e7f361a3451c",
+        "timestamp": 1793750458083
       }
     ],
     "24.11 Tap your own card: nothing is saved and the own-card message shows": [
@@ -816,6 +1796,16 @@
         "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
         "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
         "timestamp": 1792126654292
+      },
+      {
+        "executionId": "dfdb6c72-958c-4be1-bcac-4d53540fa896",
+        "chatSessionId": "sess_e02a90fd-0fb7-45a6-9ae7-e7f361a3451c",
+        "timestamp": 1792314112551
+      },
+      {
+        "executionId": "de3a354e-04be-4093-9857-9bfb8cbf4822",
+        "chatSessionId": "sess_e02a90fd-0fb7-45a6-9ae7-e7f361a3451c",
+        "timestamp": 1793750458175
       }
     ],
     "25.1 Lighthouse CI on public page (LCP < 2 s, small JS bundle)": [
@@ -823,6 +1813,21 @@
         "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
         "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
         "timestamp": 1792126654371
+      },
+      {
+        "executionId": "dfdb6c72-958c-4be1-bcac-4d53540fa896",
+        "chatSessionId": "sess_e02a90fd-0fb7-45a6-9ae7-e7f361a3451c",
+        "timestamp": 1792314112638
+      },
+      {
+        "executionId": "de3a354e-04be-4093-9857-9bfb8cbf4822",
+        "chatSessionId": "sess_e02a90fd-0fb7-45a6-9ae7-e7f361a3451c",
+        "timestamp": 1793750477915
+      },
+      {
+        "executionId": "de3a354e-04be-4093-9857-9bfb8cbf4822",
+        "chatSessionId": "sess_e02a90fd-0fb7-45a6-9ae7-e7f361a3451c",
+        "timestamp": 1793751023252
       }
     ],
     "25.2 k6 load test on public profile endpoint (p95 < 200 ms)": [
@@ -830,6 +1835,21 @@
         "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
         "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
         "timestamp": 1792126654442
+      },
+      {
+        "executionId": "dfdb6c72-958c-4be1-bcac-4d53540fa896",
+        "chatSessionId": "sess_e02a90fd-0fb7-45a6-9ae7-e7f361a3451c",
+        "timestamp": 1792314112720
+      },
+      {
+        "executionId": "de3a354e-04be-4093-9857-9bfb8cbf4822",
+        "chatSessionId": "sess_e02a90fd-0fb7-45a6-9ae7-e7f361a3451c",
+        "timestamp": 1793751029236
+      },
+      {
+        "executionId": "de3a354e-04be-4093-9857-9bfb8cbf4822",
+        "chatSessionId": "sess_e02a90fd-0fb7-45a6-9ae7-e7f361a3451c",
+        "timestamp": 1793751571728
       }
     ],
     "25.3 Security checklist: ownership checks, rate limits, XSS escaping, secret handling, dependency audit": [
@@ -837,6 +1857,26 @@
         "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
         "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
         "timestamp": 1792126654507
+      },
+      {
+        "executionId": "dfdb6c72-958c-4be1-bcac-4d53540fa896",
+        "chatSessionId": "sess_e02a90fd-0fb7-45a6-9ae7-e7f361a3451c",
+        "timestamp": 1792314112800
+      },
+      {
+        "executionId": "de3a354e-04be-4093-9857-9bfb8cbf4822",
+        "chatSessionId": "sess_e02a90fd-0fb7-45a6-9ae7-e7f361a3451c",
+        "timestamp": 1793751576619
+      },
+      {
+        "executionId": "aca60f06-c676-4f8d-a3c4-918745afaff3",
+        "chatSessionId": "sess_e02a90fd-0fb7-45a6-9ae7-e7f361a3451c",
+        "timestamp": 1793764239969
+      },
+      {
+        "executionId": "aca60f06-c676-4f8d-a3c4-918745afaff3",
+        "chatSessionId": "sess_e02a90fd-0fb7-45a6-9ae7-e7f361a3451c",
+        "timestamp": 1793764365937
       }
     ],
     "25.4 axe scan plus VoiceOver/TalkBack manual pass": [
@@ -844,6 +1884,16 @@
         "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
         "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
         "timestamp": 1792126654584
+      },
+      {
+        "executionId": "dfdb6c72-958c-4be1-bcac-4d53540fa896",
+        "chatSessionId": "sess_e02a90fd-0fb7-45a6-9ae7-e7f361a3451c",
+        "timestamp": 1792314112885
+      },
+      {
+        "executionId": "aca60f06-c676-4f8d-a3c4-918745afaff3",
+        "chatSessionId": "sess_e02a90fd-0fb7-45a6-9ae7-e7f361a3451c",
+        "timestamp": 1793764372984
       }
     ],
     "25.5 Abuse checks: anonymous account creation rate limits, recovery-code and restore throttling, My Network privacy (owner cannot see savers)": [
@@ -851,6 +1901,21 @@
         "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
         "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
         "timestamp": 1792126654654
+      },
+      {
+        "executionId": "dfdb6c72-958c-4be1-bcac-4d53540fa896",
+        "chatSessionId": "sess_e02a90fd-0fb7-45a6-9ae7-e7f361a3451c",
+        "timestamp": 1792314112966
+      },
+      {
+        "executionId": "aca60f06-c676-4f8d-a3c4-918745afaff3",
+        "chatSessionId": "sess_e02a90fd-0fb7-45a6-9ae7-e7f361a3451c",
+        "timestamp": 1793764378522
+      },
+      {
+        "executionId": "aca60f06-c676-4f8d-a3c4-918745afaff3",
+        "chatSessionId": "sess_e02a90fd-0fb7-45a6-9ae7-e7f361a3451c",
+        "timestamp": 1793764838763
       }
     ],
     "26.1 GitHub Actions CI: lint, typecheck, test on PR": [
@@ -858,6 +1923,21 @@
         "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
         "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
         "timestamp": 1792126654731
+      },
+      {
+        "executionId": "dfdb6c72-958c-4be1-bcac-4d53540fa896",
+        "chatSessionId": "sess_e02a90fd-0fb7-45a6-9ae7-e7f361a3451c",
+        "timestamp": 1792314113054
+      },
+      {
+        "executionId": "aca60f06-c676-4f8d-a3c4-918745afaff3",
+        "chatSessionId": "sess_e02a90fd-0fb7-45a6-9ae7-e7f361a3451c",
+        "timestamp": 1793764848776
+      },
+      {
+        "executionId": "aca60f06-c676-4f8d-a3c4-918745afaff3",
+        "chatSessionId": "sess_e02a90fd-0fb7-45a6-9ae7-e7f361a3451c",
+        "timestamp": 1793764974038
       }
     ],
     "26.2 Deploy API to Render/DigitalOcean/AWS with MongoDB Atlas; configure env and secrets for staging and prod": [
@@ -865,6 +1945,16 @@
         "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
         "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
         "timestamp": 1792126654804
+      },
+      {
+        "executionId": "dfdb6c72-958c-4be1-bcac-4d53540fa896",
+        "chatSessionId": "sess_e02a90fd-0fb7-45a6-9ae7-e7f361a3451c",
+        "timestamp": 1792314113211
+      },
+      {
+        "executionId": "aca60f06-c676-4f8d-a3c4-918745afaff3",
+        "chatSessionId": "sess_e02a90fd-0fb7-45a6-9ae7-e7f361a3451c",
+        "timestamp": 1793764987252
       }
     ],
     "26.3 Deploy Next.js to Vercel; configure `tapsync.app` and `api.tapsync.app`": [
@@ -872,6 +1962,16 @@
         "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
         "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
         "timestamp": 1792126654883
+      },
+      {
+        "executionId": "dfdb6c72-958c-4be1-bcac-4d53540fa896",
+        "chatSessionId": "sess_e02a90fd-0fb7-45a6-9ae7-e7f361a3451c",
+        "timestamp": 1792314113310
+      },
+      {
+        "executionId": "aca60f06-c676-4f8d-a3c4-918745afaff3",
+        "chatSessionId": "sess_e02a90fd-0fb7-45a6-9ae7-e7f361a3451c",
+        "timestamp": 1793764987730
       }
     ],
     "26.4 Wire revalidation webhook secret between API and web": [
@@ -879,6 +1979,21 @@
         "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
         "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
         "timestamp": 1792126654953
+      },
+      {
+        "executionId": "dfdb6c72-958c-4be1-bcac-4d53540fa896",
+        "chatSessionId": "sess_e02a90fd-0fb7-45a6-9ae7-e7f361a3451c",
+        "timestamp": 1792314113392
+      },
+      {
+        "executionId": "aca60f06-c676-4f8d-a3c4-918745afaff3",
+        "chatSessionId": "sess_e02a90fd-0fb7-45a6-9ae7-e7f361a3451c",
+        "timestamp": 1793765308977
+      },
+      {
+        "executionId": "aca60f06-c676-4f8d-a3c4-918745afaff3",
+        "chatSessionId": "sess_e02a90fd-0fb7-45a6-9ae7-e7f361a3451c",
+        "timestamp": 1793765329327
       }
     ],
     "26.5 Add Sentry, structured logging and uptime check": [
@@ -886,6 +2001,21 @@
         "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
         "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
         "timestamp": 1792126655033
+      },
+      {
+        "executionId": "dfdb6c72-958c-4be1-bcac-4d53540fa896",
+        "chatSessionId": "sess_e02a90fd-0fb7-45a6-9ae7-e7f361a3451c",
+        "timestamp": 1792314113471
+      },
+      {
+        "executionId": "aca60f06-c676-4f8d-a3c4-918745afaff3",
+        "chatSessionId": "sess_e02a90fd-0fb7-45a6-9ae7-e7f361a3451c",
+        "timestamp": 1793765341167
+      },
+      {
+        "executionId": "aca60f06-c676-4f8d-a3c4-918745afaff3",
+        "chatSessionId": "sess_e02a90fd-0fb7-45a6-9ae7-e7f361a3451c",
+        "timestamp": 1793765751504
       }
     ],
     "26.6 Build `.apk` / `.aab` and `.ipa` via EAS and distribute to testers": [
@@ -893,6 +2023,16 @@
         "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
         "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
         "timestamp": 1792126655101
+      },
+      {
+        "executionId": "dfdb6c72-958c-4be1-bcac-4d53540fa896",
+        "chatSessionId": "sess_e02a90fd-0fb7-45a6-9ae7-e7f361a3451c",
+        "timestamp": 1792314113553
+      },
+      {
+        "executionId": "aca60f06-c676-4f8d-a3c4-918745afaff3",
+        "chatSessionId": "sess_e02a90fd-0fb7-45a6-9ae7-e7f361a3451c",
+        "timestamp": 1793765751911
       }
     ],
     "27.1 Privacy policy and terms pages linked from the public page and app": [
@@ -900,6 +2040,21 @@
         "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
         "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
         "timestamp": 1792126655170
+      },
+      {
+        "executionId": "dfdb6c72-958c-4be1-bcac-4d53540fa896",
+        "chatSessionId": "sess_e02a90fd-0fb7-45a6-9ae7-e7f361a3451c",
+        "timestamp": 1792314113643
+      },
+      {
+        "executionId": "aca60f06-c676-4f8d-a3c4-918745afaff3",
+        "chatSessionId": "sess_e02a90fd-0fb7-45a6-9ae7-e7f361a3451c",
+        "timestamp": 1793765757824
+      },
+      {
+        "executionId": "aca60f06-c676-4f8d-a3c4-918745afaff3",
+        "chatSessionId": "sess_e02a90fd-0fb7-45a6-9ae7-e7f361a3451c",
+        "timestamp": 1793766302950
       }
     ],
     "27.2 Data deletion flow verified end to end": [
@@ -907,6 +2062,21 @@
         "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
         "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
         "timestamp": 1792126655268
+      },
+      {
+        "executionId": "dfdb6c72-958c-4be1-bcac-4d53540fa896",
+        "chatSessionId": "sess_e02a90fd-0fb7-45a6-9ae7-e7f361a3451c",
+        "timestamp": 1792314113734
+      },
+      {
+        "executionId": "aca60f06-c676-4f8d-a3c4-918745afaff3",
+        "chatSessionId": "sess_e02a90fd-0fb7-45a6-9ae7-e7f361a3451c",
+        "timestamp": 1793766308679
+      },
+      {
+        "executionId": "aca60f06-c676-4f8d-a3c4-918745afaff3",
+        "chatSessionId": "sess_e02a90fd-0fb7-45a6-9ae7-e7f361a3451c",
+        "timestamp": 1793768788102
       }
     ],
     "27.3 Final regression pass and release notes": [
@@ -914,6 +2084,261 @@
         "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
         "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
         "timestamp": 1792126655341
+      },
+      {
+        "executionId": "dfdb6c72-958c-4be1-bcac-4d53540fa896",
+        "chatSessionId": "sess_e02a90fd-0fb7-45a6-9ae7-e7f361a3451c",
+        "timestamp": 1792314113820
+      },
+      {
+        "executionId": "aca60f06-c676-4f8d-a3c4-918745afaff3",
+        "chatSessionId": "sess_e02a90fd-0fb7-45a6-9ae7-e7f361a3451c",
+        "timestamp": 1793768793264
+      },
+      {
+        "executionId": "aca60f06-c676-4f8d-a3c4-918745afaff3",
+        "chatSessionId": "sess_e02a90fd-0fb7-45a6-9ae7-e7f361a3451c",
+        "timestamp": 1793769077432
+      }
+    ],
+    "2. Configure API core infrastructure": [
+      {
+        "executionId": "04f11bb5-0f90-4bf8-b1af-24d5053c4674",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792128740440
+      }
+    ],
+    "3. Implement database schemas": [
+      {
+        "executionId": "bd0b3c03-86fb-493d-a828-62c366ac9c2c",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792130997586
+      }
+    ],
+    "4. Implement anonymous-first authentication": [
+      {
+        "executionId": "01d22056-c984-4e9d-95a2-e1263208650e",
+        "chatSessionId": "sess_f53300f7-c232-4634-a2f8-56903ddaf533",
+        "timestamp": 1792150119234
+      }
+    ],
+    "5. Implement profile management": [
+      {
+        "executionId": "871238d2-36a8-4aab-a79f-0fc09371e1ea",
+        "chatSessionId": "sess_ec946762-a950-4a5e-a8a4-950c997c013e",
+        "timestamp": 1792234042183
+      }
+    ],
+    "6. Implement link management": [
+      {
+        "executionId": "577cf77b-7406-4ec2-a788-357eb27abdb7",
+        "chatSessionId": "sess_d1452211-1afe-4dfe-9f7f-131a3b675b28",
+        "timestamp": 1792234096481
+      },
+      {
+        "executionId": "3e6e2322-76aa-40a2-8698-a43eb6ff6d2e",
+        "chatSessionId": "sess_d1452211-1afe-4dfe-9f7f-131a3b675b28",
+        "timestamp": 1792236632120
+      }
+    ],
+    "7. Implement mode toggle": [
+      {
+        "executionId": "99ac30ae-b8f6-48ff-b30f-217fbfdaf479",
+        "chatSessionId": "sess_c057562a-2051-42a5-a9f8-3d4f948e4101",
+        "timestamp": 1792239347972
+      }
+    ],
+    "8. Implement revalidation service": [
+      {
+        "executionId": "938bf5d9-16cc-474e-8244-c87b15b8a879",
+        "chatSessionId": "sess_d392cf8b-3547-4a2f-b14a-3657812b8ed9",
+        "timestamp": 1792239409203
+      },
+      {
+        "executionId": "938bf5d9-16cc-474e-8244-c87b15b8a879",
+        "chatSessionId": "sess_d392cf8b-3547-4a2f-b14a-3657812b8ed9",
+        "timestamp": 1792241241678
+      }
+    ],
+    "9. Implement card management": [
+      {
+        "executionId": "1d330b5d-a15a-4437-bbf0-f3c6f5a991b1",
+        "chatSessionId": "sess_d392cf8b-3547-4a2f-b14a-3657812b8ed9",
+        "timestamp": 1792241593661
+      },
+      {
+        "executionId": "1d330b5d-a15a-4437-bbf0-f3c6f5a991b1",
+        "chatSessionId": "sess_d392cf8b-3547-4a2f-b14a-3657812b8ed9",
+        "timestamp": 1792242449954
+      }
+    ],
+    "10. Implement public API and vCard": [
+      {
+        "executionId": "1d330b5d-a15a-4437-bbf0-f3c6f5a991b1",
+        "chatSessionId": "sess_d392cf8b-3547-4a2f-b14a-3657812b8ed9",
+        "timestamp": 1792242495123
+      },
+      {
+        "executionId": "1d330b5d-a15a-4437-bbf0-f3c6f5a991b1",
+        "chatSessionId": "sess_d392cf8b-3547-4a2f-b14a-3657812b8ed9",
+        "timestamp": 1792243613959
+      }
+    ],
+    "11. Implement analytics": [
+      {
+        "executionId": "1d330b5d-a15a-4437-bbf0-f3c6f5a991b1",
+        "chatSessionId": "sess_d392cf8b-3547-4a2f-b14a-3657812b8ed9",
+        "timestamp": 1792243652668
+      },
+      {
+        "executionId": "1d330b5d-a15a-4437-bbf0-f3c6f5a991b1",
+        "chatSessionId": "sess_d392cf8b-3547-4a2f-b14a-3657812b8ed9",
+        "timestamp": 1792246412827
+      }
+    ],
+    "12. Implement My Network API": [
+      {
+        "executionId": "1d330b5d-a15a-4437-bbf0-f3c6f5a991b1",
+        "chatSessionId": "sess_d392cf8b-3547-4a2f-b14a-3657812b8ed9",
+        "timestamp": 1792246446801
+      },
+      {
+        "executionId": "1d330b5d-a15a-4437-bbf0-f3c6f5a991b1",
+        "chatSessionId": "sess_d392cf8b-3547-4a2f-b14a-3657812b8ed9",
+        "timestamp": 1792247815321
+      }
+    ],
+    "13. Build the public profile route": [
+      {
+        "executionId": "b20c0a17-8b50-4efe-bf32-61173bad222e",
+        "chatSessionId": "sess_d392cf8b-3547-4a2f-b14a-3657812b8ed9",
+        "timestamp": 1792249361124
+      },
+      {
+        "executionId": "b20c0a17-8b50-4efe-bf32-61173bad222e",
+        "chatSessionId": "sess_d392cf8b-3547-4a2f-b14a-3657812b8ed9",
+        "timestamp": 1792249361496
+      },
+      {
+        "executionId": "b20c0a17-8b50-4efe-bf32-61173bad222e",
+        "chatSessionId": "sess_d392cf8b-3547-4a2f-b14a-3657812b8ed9",
+        "timestamp": 1792249361671
+      }
+    ],
+    "14. Build mobile-first UI": [
+      {
+        "executionId": "b20c0a17-8b50-4efe-bf32-61173bad222e",
+        "chatSessionId": "sess_d392cf8b-3547-4a2f-b14a-3657812b8ed9",
+        "timestamp": 1792249378556
+      },
+      {
+        "executionId": "b20c0a17-8b50-4efe-bf32-61173bad222e",
+        "chatSessionId": "sess_d392cf8b-3547-4a2f-b14a-3657812b8ed9",
+        "timestamp": 1792249379175
+      }
+    ],
+    "15. Implement Save Contact and tracking": [
+      {
+        "executionId": "b20c0a17-8b50-4efe-bf32-61173bad222e",
+        "chatSessionId": "sess_d392cf8b-3547-4a2f-b14a-3657812b8ed9",
+        "timestamp": 1792249860147
+      },
+      {
+        "executionId": "97ed942e-32f9-48d0-9b83-53c8f26b8bd0",
+        "chatSessionId": "sess_d931791f-2ec4-4182-96e8-33db919a1add",
+        "timestamp": 1792276855022
+      },
+      {
+        "executionId": "97ed942e-32f9-48d0-9b83-53c8f26b8bd0",
+        "chatSessionId": "sess_d931791f-2ec4-4182-96e8-33db919a1add",
+        "timestamp": 1792277887312
+      }
+    ],
+    "16. Set up Expo app": [
+      {
+        "executionId": "a36883f2-b307-46f3-9b35-d605554a6917",
+        "chatSessionId": "sess_520b1da2-bcb5-413b-a507-c4cd9c5ceccf",
+        "timestamp": 1792278115108
+      },
+      {
+        "executionId": "18692a7f-b955-466d-a00f-29e0ca4ad4c9",
+        "chatSessionId": "sess_520b1da2-bcb5-413b-a507-c4cd9c5ceccf",
+        "timestamp": 1792281520067
+      }
+    ],
+    "18. Implement dashboard and mode toggle": [
+      {
+        "executionId": "1c2aaeea-8029-497d-8223-e557f1fc85ab",
+        "chatSessionId": "sess_1d54d354-9a60-4c7a-9514-9e1d0a22957d",
+        "timestamp": 1792292641034
+      }
+    ],
+    "19. Implement link management UI": [
+      {
+        "executionId": "2aea0804-682a-4169-81cb-f230476a84b6",
+        "chatSessionId": "sess_0296624f-6dfe-4b54-88dc-17fc7a78cb80",
+        "timestamp": 1792292696721
+      },
+      {
+        "executionId": "a4123628-6c9e-4ed9-8474-8de8598ad1e4",
+        "chatSessionId": "sess_0296624f-6dfe-4b54-88dc-17fc7a78cb80",
+        "timestamp": 1792299014094
+      }
+    ],
+    "20. Implement NFC writing module": [
+      {
+        "executionId": "8854d0b5-bdba-4959-858b-57d507108585",
+        "chatSessionId": "sess_c5ff335f-b4ac-401a-96ae-cbf0dd24e45d",
+        "timestamp": 1792310945406
+      }
+    ],
+    "21. Implement analytics screen": [
+      {
+        "executionId": "19fc028a-d59d-4de6-8f1f-b0e1698d332f",
+        "chatSessionId": "sess_c42854e2-2f37-43ad-bf15-55641db6095d",
+        "timestamp": 1792311590034
+      }
+    ],
+    "22. Implement link handling for My Network (custom scheme)": [
+      {
+        "executionId": "e782eb25-bb10-49b8-90cd-6348b0767da8",
+        "chatSessionId": "sess_3932dcb1-4fbb-4f89-9d24-1642d3175226",
+        "timestamp": 1792314029200
+      }
+    ],
+    "23. Build My Network screens": [
+      {
+        "executionId": "838122b1-ab49-408e-8605-b314de56af96",
+        "chatSessionId": "sess_e02a90fd-0fb7-45a6-9ae7-e7f361a3451c",
+        "timestamp": 1793750030698
+      }
+    ],
+    "24. End-to-end and device testing": [
+      {
+        "executionId": "de3a354e-04be-4093-9857-9bfb8cbf4822",
+        "chatSessionId": "sess_e02a90fd-0fb7-45a6-9ae7-e7f361a3451c",
+        "timestamp": 1793750425311
+      }
+    ],
+    "25. Performance, security and accessibility verification": [
+      {
+        "executionId": "aca60f06-c676-4f8d-a3c4-918745afaff3",
+        "chatSessionId": "sess_e02a90fd-0fb7-45a6-9ae7-e7f361a3451c",
+        "timestamp": 1793764838886
+      }
+    ],
+    "26. Deployment": [
+      {
+        "executionId": "aca60f06-c676-4f8d-a3c4-918745afaff3",
+        "chatSessionId": "sess_e02a90fd-0fb7-45a6-9ae7-e7f361a3451c",
+        "timestamp": 1793765752006
+      }
+    ],
+    "27. Launch readiness": [
+      {
+        "executionId": "aca60f06-c676-4f8d-a3c4-918745afaff3",
+        "chatSessionId": "sess_e02a90fd-0fb7-45a6-9ae7-e7f361a3451c",
+        "timestamp": 1793769077582
       }
     ]
   }

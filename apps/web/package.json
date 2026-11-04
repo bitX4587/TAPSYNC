@@ -9,16 +9,24 @@
     "start": "next start",
     "lint": "next lint",
     "typecheck": "tsc --noEmit",
-    "test": "vitest run",
-    "test:watch": "vitest"
+    "test": "vitest run --passWithNoTests",
+    "test:watch": "vitest",
+    "test:e2e": "playwright test",
+    "test:e2e:ui": "playwright test --ui",
+    "test:e2e:debug": "playwright test --debug",
+    "lighthouse": "lhci autorun",
+    "lighthouse:collect": "lhci collect"
   },
   "dependencies": {
+    "@sentry/nextjs": "^8.0.0",
     "@tapsync/shared": "workspace:*",
     "next": "^15.1.7",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },
   "devDependencies": {
+    "@lhci/cli": "^0.14.0",
+    "@playwright/test": "^1.64.1",
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.2.0",
     "@types/node": "^22.13.1",

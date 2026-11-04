@@ -1,0 +1,23 @@
+name: Lighthouse CI
+on:
+  pull_request:
+    paths:
+      - 'apps/web/**'
+      - 'packages/shared/**'
+jobs:
+  lighthouse:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: '.nvmrc'
+          cache: 'pnpm'
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm --filter @tapsync/web build
+      - name: Run Lighthouse CI
+        run: npx @lhci/cli@0.14.x autorun
+        working-directory: apps/web
+        env:
+          LHCI_BUILD_CONTEXT__CURRENT_BRANCH: ${{ github.head_ref }}

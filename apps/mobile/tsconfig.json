@@ -8,6 +8,7 @@
     "moduleResolution": "Bundler",
     "jsx": "react-native",
     "strict": true,
+    "types": ["node", "@types/jest"],
     "paths": {
       "@/*": ["./src/*"],
       "@tapsync/shared": ["../../packages/shared/src/index.ts"]

@@ -1,8 +1,56 @@
-// Entry screen – redirects immediately to the dashboard or first-run flow.
-// Full implementation in Task 17.
-import { Redirect } from 'expo-router';
+/**
+ * Entry screen – handles first-open flow and silent sign-in
+ * 
+ * Requirements: 1.1, 1.2, 1.3
+ * 
+ * Flow:
+ * 1. Check if a session exists (refresh token in secure storage)
+ * 2. If yes: redirect to dashboard (silent sign-in)
+ * 3. If no: show welcome screen with "Get Started" and "Restore my account" options
+ */
+
+import { useEffect } from 'react';
+import { View, ActivityIndicator, StyleSheet } from 'react-native';
+import { useRouter } from 'expo-router';
+import { useHasSession } from '../features/auth';
 
 export default function Index() {
-  // TODO (Task 17): check auth state and redirect accordingly
-  return <Redirect href="/(tabs)/home" />;
+  const router = useRouter();
+  const { data: hasSession, isLoading: isCheckingSession } = useHasSession();
+
+  useEffect(() => {
+    // Wait for the session check to complete
+    if (isCheckingSession) {
+      return;
+    }
+
+    // If we have a session, go straight to the dashboard (silent sign-in)
+    if (hasSession) {
+      router.replace('/(tabs)/home');
+      return;
+    }
+
+    // No session exists - show the welcome screen
+    // The welcome screen gives users a choice:
+    // - "Get Started" creates an anonymous account
+    // - "Restore my account" for existing users
+    router.replace('/welcome');
+  }, [hasSession, isCheckingSession, router]);
+
+  // Show loading state while checking for session
+  return (
+    <View style={styles.container}>
+      <ActivityIndicator size="large" color="#0066CC" />
+    </View>
+  );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#FFFFFF',
+  },
+});
+

@@ -1,0 +1,60 @@
+name: Load Test
+
+on:
+  pull_request:
+    paths:
+      - 'apps/api/**'
+      - 'packages/shared/**'
+  workflow_dispatch:
+
+jobs:
+  load-test:
+    runs-on: ubuntu-latest
+
+    services:
+      mongodb:
+        image: mongo:7
+        ports:
+          - 27017:27017
+        options: >-
+          --health-cmd "mongosh --eval 'db.adminCommand(\"ping\")'"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: '.nvmrc'
+          cache: 'pnpm'
+
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm --filter @tapsync/api build
+
+      - name: Start API
+        run: |
+          cd apps/api
+          node dist/main &
+          sleep 5
+        env:
+          PORT: '3001'
+          MONGODB_URI: mongodb://localhost:27017/tapsync-loadtest
+          JWT_ACCESS_SECRET: ci-load-test-access-secret
+          JWT_REFRESH_SECRET: ci-load-test-refresh-secret
+          GOOGLE_CLIENT_ID: ci-load-test-google-client-id
+          REVALIDATION_SECRET: ci-load-test-revalidation-secret
+          STORAGE_BUCKET: ci-load-test-bucket
+          STORAGE_KEY_ID: ci-load-test-key
+          STORAGE_SECRET: ci-load-test-secret
+
+      - name: Install k6
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y k6
+
+      - name: Run k6 load test
+        run: k6 run apps/api/load-tests/public-profile.k6.js
+        env:
+          BASE_URL: http://localhost:3001
