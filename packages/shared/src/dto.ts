@@ -1,4 +1,4 @@
-import type { Mode } from './enums.js';
+import type { Mode } from './enums';
 
 // ---------------------------------------------------------------------------
 // Profile / User DTOs
