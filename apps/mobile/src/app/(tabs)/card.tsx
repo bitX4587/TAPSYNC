@@ -616,7 +616,7 @@ function ProgramCardView({ onBack, onSuccess }: ProgramCardViewProps) {
             <Text style={styles.guidanceTitle}>How it works</Text>
             <GuidanceStep
               number={1}
-              text="Tap "Start" — your phone will listen for an NFC card."
+              text={'Tap "Start" — your phone will listen for an NFC card.'}
             />
             <GuidanceStep
               number={2}
@@ -624,7 +624,7 @@ function ProgramCardView({ onBack, onSuccess }: ProgramCardViewProps) {
             />
             <GuidanceStep
               number={3}
-              text="Keep it steady until you see "Card programmed successfully!""
+              text={'Keep it steady until you see "Card programmed successfully!"'}
             />
             <GuidanceStep
               number={4}
