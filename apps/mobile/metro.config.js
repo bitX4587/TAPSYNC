@@ -13,11 +13,4 @@ config.resolver.nodeModulesPaths = [
   path.resolve(monorepoRoot, 'node_modules'),
 ];
 
-// Map @tapsync/shared to its TypeScript source instead of dist
-// Metro can bundle TypeScript directly, so no build step is needed
-config.resolver.extraNodeModules = {
-  ...config.resolver.extraNodeModules,
-  '@tapsync/shared': path.resolve(monorepoRoot, 'packages/shared/src/index.ts'),
-};
-
 module.exports = config;
