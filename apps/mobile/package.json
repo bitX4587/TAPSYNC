@@ -10,8 +10,7 @@
     "ios": "expo run:ios",
     "lint": "eslint src --ext .ts,.tsx",
     "typecheck": "tsc --noEmit",
-    "test": "jest --passWithNoTests",
-    "eas-build-pre-install": "node-linker=hoisted >> ../../.npmrc"
+    "test": "jest --passWithNoTests"
   },
   "dependencies": {
     "@babel/runtime": "^7.25.2",
