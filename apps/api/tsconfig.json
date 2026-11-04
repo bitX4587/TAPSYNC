@@ -11,10 +11,7 @@
     "tsBuildInfoFile": "dist/.tsbuildinfo",
     "declarationMap": false,
     "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
-    "paths": {
-      "@tapsync/shared": ["../../packages/shared/src/index.ts"]
-    }
+    "experimentalDecorators": true
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules", "dist", "test"]
