@@ -13,4 +13,17 @@ config.resolver.nodeModulesPaths = [
   path.resolve(monorepoRoot, 'node_modules'),
 ];
 
+// Fix: expo/AppEntry.js imports '../../App' which resolves to the wrong
+// path in pnpm's node_modules structure. Our app uses expo-router, so
+// redirect the import to the expo-router entry point.
+config.resolver.resolveRequest = (context, moduleName, platform) => {
+  if (moduleName === '../../App') {
+    return {
+      filePath: require.resolve('expo-router/entry', { paths: [__dirname] }),
+      type: 'sourceFile',
+    };
+  }
+  return context.resolveRequest(context, moduleName, platform);
+};
+
 module.exports = config;
