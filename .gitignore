@@ -34,3 +34,6 @@ coverage
 
 database.txt
 reports/
+
+apps/mobile/android
+apps/mobile/ios
