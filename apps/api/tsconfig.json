@@ -9,6 +9,7 @@
     "rootDir": "src",
     "incremental": true,
     "tsBuildInfoFile": "dist/.tsbuildinfo",
+    "declarationMap": false,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "paths": {
