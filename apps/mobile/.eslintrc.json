@@ -1,5 +1,5 @@
 {
-  "extends": ["universe/native", "prettier"],
+  "extends": ["../../.eslintrc.base.json", "prettier"],
   "parser": "@typescript-eslint/parser",
   "plugins": ["@typescript-eslint"],
   "rules": {

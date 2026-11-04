@@ -45,6 +45,20 @@ jobs:
         run: pnpm --filter @tapsync/shared build
       - name: Run API unit tests
         run: pnpm --filter @tapsync/api test
+        env:
+          MONGODB_URI: mongodb://localhost:27017/tapsync-ci
+          JWT_ACCESS_SECRET: ci-access-secret-at-least-32-characters-long
+          JWT_REFRESH_SECRET: ci-refresh-secret-at-least-32-characters-long
+          JWT_ACCESS_EXPIRES_IN: 15m
+          JWT_REFRESH_EXPIRES_IN: 365d
+          GOOGLE_CLIENT_ID: ci-google-client-id
+          REVALIDATION_SECRET: ci-revalidation-secret
+          NEXT_PUBLIC_URL: http://localhost:3000
+          CORS_ORIGIN: http://localhost:3000
+          STORAGE_BUCKET: ci-bucket
+          STORAGE_KEY_ID: ci-key-id
+          STORAGE_SECRET: ci-storage-secret
+          STORAGE_REGION: us-east-1
 
   test-api-e2e:
     name: API Integration Tests
