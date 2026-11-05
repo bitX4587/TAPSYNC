@@ -15,13 +15,15 @@ config.resolver.nodeModulesPaths = [
   path.resolve(monorepoRoot, 'node_modules'),
 ];
 
-// Force react, react-dom and react-native to always resolve from the
-// mobile app's own node_modules, regardless of what is hoisted at the
-// monorepo root (where React 19 from the web app may live).
-const mobileNodeModules = path.resolve(__dirname, 'node_modules');
-const reactPath = path.resolve(mobileNodeModules, 'react');
-const reactNativePath = path.resolve(mobileNodeModules, 'react-native');
-const reactDomPath = path.resolve(mobileNodeModules, 'react-dom');
+// Pin react and react-native to the mobile app's own copies.
+// This prevents React 19 (pulled in by the web app) from being
+// resolved by expo-router or any other library in the monorepo.
+const mobileModules = path.resolve(__dirname, 'node_modules');
+config.resolver.extraNodeModules = {
+  'react': path.resolve(mobileModules, 'react'),
+  'react-dom': path.resolve(mobileModules, 'react-dom'),
+  'react-native': path.resolve(mobileModules, 'react-native'),
+};
 
 config.resolver.resolveRequest = (context, moduleName, platform) => {
   if (moduleName === '../../App') {
@@ -30,22 +32,6 @@ config.resolver.resolveRequest = (context, moduleName, platform) => {
       type: 'sourceFile',
     };
   }
-
-  // Pin react/react-native/react-dom to mobile's own copies
-  if (moduleName === 'react') {
-    return { filePath: path.join(reactPath, 'index.js'), type: 'sourceFile' };
-  }
-  if (moduleName === 'react-native') {
-    return { filePath: path.join(reactNativePath, 'index.js'), type: 'sourceFile' };
-  }
-  if (moduleName === 'react-dom') {
-    return { filePath: path.join(reactDomPath, 'index.js'), type: 'sourceFile' };
-  }
-  if (moduleName.startsWith('react/')) {
-    const subpath = moduleName.slice('react/'.length);
-    return { filePath: path.join(reactPath, subpath), type: 'sourceFile' };
-  }
-
   return context.resolveRequest(context, moduleName, platform);
 };
 
