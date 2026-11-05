@@ -5,7 +5,7 @@
 import { ExpoRoot } from 'expo-router';
 
 export default function App() {
-  // @ts-ignore — require.context is provided by Metro bundler
+  // @ts-ignore ï¿½ require.context is provided by Metro bundler
   const ctx = require.context('./apps/mobile/src/app');
   return <ExpoRoot context={ctx} />;
 }
