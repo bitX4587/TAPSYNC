@@ -19,7 +19,8 @@ interface LinkCardProps {
  */
 function sanitizeUrl(url: string): string {
   try {
-    const parsed = new URL(url, window.location.origin);
+    // Use a dummy base only for relative URLs; absolute URLs parse on their own
+    const parsed = new URL(url);
     if (ALLOWED_LINK_SCHEMES.includes(parsed.protocol as typeof ALLOWED_LINK_SCHEMES[number])) {
       return url;
     }
