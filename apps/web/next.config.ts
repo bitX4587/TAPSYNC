@@ -1,6 +1,5 @@
 import type { NextConfig } from 'next';
 import { withSentryConfig } from '@sentry/nextjs';
-import path from 'path';
 
 const nextConfig: NextConfig = {
   // Enable React strict mode for early detection of issues
@@ -19,17 +18,6 @@ const nextConfig: NextConfig = {
 
   // Experimental: server actions enabled by default in Next 15
   experimental: {},
-
-  // Force single React instance to prevent "useContext null" errors
-  // when multiple packages resolve different React copies.
-  webpack: (config) => {
-    config.resolve.alias = {
-      ...config.resolve.alias,
-      react: path.resolve('./node_modules/react'),
-      'react-dom': path.resolve('./node_modules/react-dom'),
-    };
-    return config;
-  },
 };
 
 export default withSentryConfig(nextConfig, {
