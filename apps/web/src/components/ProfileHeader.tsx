@@ -37,9 +37,9 @@ export function ProfileHeader({ profile }: ProfileHeaderProps) {
         <p className="profile-bio">{profile.bio}</p>
       )}
       
-      {(profile.contact.email || profile.contact.phone) && (
+      {((profile.contact?.email) || (profile.contact?.phone)) && (
         <div className="profile-contact">
-          {profile.contact.email && (
+          {profile.contact?.email && (
             <a 
               href={`mailto:${profile.contact.email}`}
               className="contact-link"
@@ -48,7 +48,7 @@ export function ProfileHeader({ profile }: ProfileHeaderProps) {
               {profile.contact.email}
             </a>
           )}
-          {profile.contact.phone && (
+          {profile.contact?.phone && (
             <a 
               href={`tel:${profile.contact.phone}`}
               className="contact-link"
