@@ -140,15 +140,16 @@ describe('LinkFormModal — create', () => {
       editingLink: null,
     });
 
+    fireEvent.changeText(getByLabelText('Link title'), 'Portfolio Site');
+    fireEvent.changeText(getByLabelText('Link URL'), 'https://portfolio.dev');
+    
     await act(async () => {
-      fireEvent.changeText(getByLabelText('Link title'), 'Portfolio Site');
-      fireEvent.changeText(getByLabelText('Link URL'), 'https://portfolio.dev');
       fireEvent.press(getByLabelText('Add link'));
     });
 
     await waitFor(() => {
       expect(linkService.createLink).toHaveBeenCalledTimes(1);
-    }, { timeout: 10000 });
+    });
 
     // The DTO should include title, url, mode, category and an auto icon.
     const dto = (linkService.createLink as jest.Mock).mock.calls[0][0];
@@ -159,7 +160,9 @@ describe('LinkFormModal — create', () => {
     expect(dto.icon).toBeDefined();
 
     // On success the modal closes.
-    expect(onClose).toHaveBeenCalled();
+    await waitFor(() => {
+      expect(onClose).toHaveBeenCalled();
+    });
   });
 
   it('shows a URL error and does not call createLink for an invalid scheme', () => {

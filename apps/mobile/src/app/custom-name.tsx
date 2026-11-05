@@ -24,7 +24,6 @@ import {
   TouchableOpacity,
   ActivityIndicator,
   Alert,
-  KeyboardAvoidingView,
   Platform,
 } from 'react-native';
 import { useRouter } from 'expo-router';
@@ -126,6 +125,9 @@ export default function CustomNameScreen() {
   const router = useRouter();
   const { data: profile, isLoading: isProfileLoading } = useUserProfile();
 
+  // DEBUG
+  console.log('[CustomName] SCREEN MOUNTED AND RENDERING');
+
   const [inputName, setInputName] = useState('');
 
   const {
@@ -183,6 +185,7 @@ export default function CustomNameScreen() {
     availabilityStatus === 'available' && !isCurrentName && !isClaiming && !isRemoving;
 
   const handleClaim = useCallback(() => {
+    console.log('[CustomName] Claim pressed! canClaim:', canClaim, 'inputName:', inputName);
     if (!canClaim) return;
     claimOrChange(inputName);
   }, [canClaim, claimOrChange, inputName]);
@@ -226,10 +229,7 @@ export default function CustomNameScreen() {
   }
 
   return (
-    <KeyboardAvoidingView
-      style={styles.root}
-      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-    >
+    <View style={styles.root} onStartShouldSetResponder={() => { console.log('[CustomName] ROOT VIEW TOUCHED'); return false; }}>
       {/* ── Header ────────────────────────────────────────────────────── */}
       <View style={styles.header}>
         <TouchableOpacity
@@ -252,7 +252,7 @@ export default function CustomNameScreen() {
       <ScrollView
         style={styles.scroll}
         contentContainerStyle={styles.scrollContent}
-        keyboardShouldPersistTaps="handled"
+        keyboardShouldPersistTaps="always"
         showsVerticalScrollIndicator={false}
       >
         {/* ── Current name ──────────────────────────────────────────── */}
@@ -287,6 +287,8 @@ export default function CustomNameScreen() {
               style={styles.nameInput}
               value={inputName}
               onChangeText={handleInputChange}
+              onFocus={() => console.log('[CustomName] TextInput focused!')}
+              onPressIn={() => console.log('[CustomName] TextInput pressed!')}
               placeholder="your-name"
               placeholderTextColor="#9CA3AF"
               autoCapitalize="none"
@@ -405,7 +407,7 @@ export default function CustomNameScreen() {
 
         <View style={styles.bottomPad} />
       </ScrollView>
-    </KeyboardAvoidingView>
+    </View>
   );
 }
 

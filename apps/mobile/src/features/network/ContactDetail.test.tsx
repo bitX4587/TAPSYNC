@@ -70,9 +70,6 @@ jest.mock('react-native/Libraries/Linking/Linking', () => ({
   openURL: jest.fn(() => Promise.resolve()),
 }));
 
-// Mock Alert
-jest.spyOn(Alert, 'alert');
-
 // ---------------------------------------------------------------------------
 // Imports after mocks
 // ---------------------------------------------------------------------------
@@ -143,8 +140,12 @@ function createWrapper() {
 // ---------------------------------------------------------------------------
 
 describe('ContactDetailScreen', () => {
+  let alertSpy: jest.SpyInstance;
+  
   beforeEach(() => {
     jest.clearAllMocks();
+    // Set up Alert.alert spy
+    alertSpy = jest.spyOn(Alert, 'alert').mockImplementation(() => {});
     // Default route params
     (useLocalSearchParams as jest.Mock).mockReturnValue({
       id: 'contact-1',
@@ -159,6 +160,10 @@ describe('ContactDetailScreen', () => {
     (api.get as jest.Mock).mockResolvedValue(makePublicProfile());
     mockDeleteContact.mockResolvedValue(undefined);
     mockUpdateNote.mockResolvedValue(undefined);
+  });
+
+  afterEach(() => {
+    alertSpy.mockRestore();
   });
 
   it('renders contact name from snapshot while live profile is loading', async () => {
