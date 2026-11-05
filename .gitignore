@@ -37,3 +37,6 @@ reports/
 
 apps/mobile/android
 apps/mobile/ios
+# IDE
+.idea
+.vscode
