@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 
 export const metadata: Metadata = {
   title: 'Terms of Service — TapSync',
@@ -10,7 +11,7 @@ export default function TermsOfServicePage() {
     <main className="legal-page">
       <div className="legal-container">
         <header className="legal-header">
-          <a href="/" className="legal-back-link">← TapSync</a>
+          <Link href="/" className="legal-back-link">← TapSync</Link>
           <h1 className="legal-title">Terms of Service</h1>
           <p className="legal-last-updated">Effective date: 1 June 2025</p>
         </header>
@@ -165,7 +166,7 @@ export default function TermsOfServicePage() {
         </section>
 
         <footer className="legal-footer">
-          <a href="/" className="legal-back-link">← Back to TapSync</a>
+          <Link href="/" className="legal-back-link">← Back to TapSync</Link>
           <span className="legal-footer-sep">·</span>
           <a href="/privacy" className="legal-link">Privacy Policy</a>
         </footer>
