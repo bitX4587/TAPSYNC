@@ -16,8 +16,6 @@ config.resolver.nodeModulesPaths = [
 ];
 
 // Pin react and react-native to the mobile app's own copies.
-// This prevents React 19 (pulled in by the web app) from being
-// resolved by expo-router or any other library in the monorepo.
 const mobileModules = path.resolve(__dirname, 'node_modules');
 config.resolver.extraNodeModules = {
   'react': path.resolve(mobileModules, 'react'),
@@ -25,10 +23,19 @@ config.resolver.extraNodeModules = {
   'react-native': path.resolve(mobileModules, 'react-native'),
 };
 
+// query-string v9 is pure ESM. expo-router calls require('query-string')
+// and accesses .stringify/.parse directly. This shim provides a CJS-
+// compatible wrapper so those calls work at runtime.
 config.resolver.resolveRequest = (context, moduleName, platform) => {
   if (moduleName === '../../App') {
     return {
       filePath: require.resolve('expo-router/entry', { paths: [__dirname] }),
+      type: 'sourceFile',
+    };
+  }
+  if (moduleName === 'query-string') {
+    return {
+      filePath: path.resolve(__dirname, 'query-string-shim.js'),
       type: 'sourceFile',
     };
   }

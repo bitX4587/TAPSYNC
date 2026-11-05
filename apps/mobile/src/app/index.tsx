@@ -19,22 +19,20 @@ export default function Index() {
   const { data: hasSession, isLoading: isCheckingSession } = useHasSession();
 
   useEffect(() => {
-    // Wait for the session check to complete
     if (isCheckingSession) {
       return;
     }
 
-    // If we have a session, go straight to the dashboard (silent sign-in)
-    if (hasSession) {
-      router.replace('/(tabs)/home');
-      return;
-    }
+    // Use setTimeout to ensure the Root Layout has mounted before navigating
+    const timer = setTimeout(() => {
+      if (hasSession) {
+        router.replace('/(tabs)/home');
+      } else {
+        router.replace('/welcome');
+      }
+    }, 0);
 
-    // No session exists - show the welcome screen
-    // The welcome screen gives users a choice:
-    // - "Get Started" creates an anonymous account
-    // - "Restore my account" for existing users
-    router.replace('/welcome');
+    return () => clearTimeout(timer);
   }, [hasSession, isCheckingSession, router]);
 
   // Show loading state while checking for session
