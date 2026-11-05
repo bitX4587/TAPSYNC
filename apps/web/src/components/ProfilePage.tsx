@@ -12,7 +12,7 @@ interface ProfilePageProps {
 }
 
 export function ProfilePage({ profile }: ProfilePageProps) {
-  const hasLinks = profile.links.length > 0;
+  const hasLinks = (profile.links ?? []).length > 0;
 
   return (
     <div className="profile-page">
@@ -29,7 +29,7 @@ export function ProfilePage({ profile }: ProfilePageProps) {
         {hasLinks ? (
           <section className="links-section" aria-label="Links">
             <div className="links-grid">
-              {profile.links.map((link) => (
+              {(profile.links ?? []).map((link) => (
                 <LinkCard 
                   key={link.id} 
                   link={link} 
