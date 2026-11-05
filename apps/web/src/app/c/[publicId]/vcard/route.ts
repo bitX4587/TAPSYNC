@@ -7,7 +7,8 @@
  * proper Content-Type and Content-Disposition headers are set.
  */
 
-import { NextRequest, NextResponse } from 'next/server';
+import type { NextRequest } from 'next/server';
+import { NextResponse } from 'next/server';
 
 const API_URL = process.env['TAPSYNC_API_URL'] || 'http://localhost:3001';
 
