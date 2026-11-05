@@ -174,3 +174,20 @@ dependencies {
         implementation jscFlavor
     }
 }
+
+// Fix expo-modules-autolinking generating wrong import with pnpm
+tasks.named("generateAutolinkingPackageList").configure {
+    doLast {
+        def packageListFile = layout.buildDirectory.file("generated/autolinking/src/main/java/com/facebook/react/PackageList.java").get().asFile
+        if (packageListFile.exists()) {
+            def content = packageListFile.text
+            def oldImport = 'import expo.core.ExpoModulesPackage;'
+            def newImport = 'import expo.modules.core.ExpoModulesPackage;'
+            if (content.contains(oldImport)) {
+                content = content.replace(oldImport, newImport)
+                packageListFile.text = content
+                println "✓ Fixed autolinking PackageList.java import"
+            }
+        }
+    }
+}
