@@ -9,11 +9,16 @@ import {
   CustomNameClaimDocument,
 } from './schemas/custom-name-claim.schema';
 import { User, UserDocument } from '../users/schemas/user.schema';
+import { RevalidationService } from '../revalidation/revalidation.service';
 
 describe('CustomNamesService', () => {
   let service: CustomNamesService;
   let claimModel: Model<CustomNameClaimDocument>;
   let userModel: Model<UserDocument>;
+
+  const mockRevalidationService = {
+    revalidateProfileAndPaths: jest.fn().mockResolvedValue(undefined),
+  };
 
   const mockSession = {
     startTransaction: jest.fn(),
@@ -46,6 +51,10 @@ describe('CustomNamesService', () => {
         {
           provide: getModelToken(User.name),
           useValue: mockUserModel,
+        },
+        {
+          provide: RevalidationService,
+          useValue: mockRevalidationService,
         },
       ],
     }).compile();
