@@ -26,7 +26,7 @@ export function SaveToNetworkButton({ publicId }: SaveToNetworkButtonProps) {
         Save to My Network
       </a>
       <a
-        href="https://tapsync.app/download"
+        href="https://tapsync-eosin.vercel.app/download"
         className="btn btn-secondary"
         target="_blank"
         rel="noopener noreferrer"

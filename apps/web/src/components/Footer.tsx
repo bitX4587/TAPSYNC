@@ -1,12 +1,13 @@
 export function Footer() {
   const currentYear = new Date().getFullYear();
-  
+  const siteUrl = process.env['NEXT_PUBLIC_SITE_URL'] || 'https://tapsync-eosin.vercel.app';
+
   return (
     <footer className="page-footer">
       <p className="footer-text">
         Powered by{' '}
-        <a 
-          href="https://tapsync.app" 
+        <a
+          href={siteUrl}
           className="footer-link"
           target="_blank"
           rel="noopener noreferrer"
@@ -15,8 +16,8 @@ export function Footer() {
         </a>
       </p>
       <div className="footer-links">
-        <a 
-          href="https://tapsync.app/privacy" 
+        <a
+          href={`${siteUrl}/privacy`}
           className="footer-link"
           target="_blank"
           rel="noopener noreferrer"
@@ -24,8 +25,8 @@ export function Footer() {
           Privacy
         </a>
         <span className="footer-separator">•</span>
-        <a 
-          href="https://tapsync.app/terms" 
+        <a
+          href={`${siteUrl}/terms`}
           className="footer-link"
           target="_blank"
           rel="noopener noreferrer"
