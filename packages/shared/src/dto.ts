@@ -78,7 +78,7 @@ export interface LinkCategoryMeta {
   defaultIcon: string;
 }
 
-export const LINK_CATEGORIES: ReadonlyArray<LinkCategoryMeta> = [
+export const LINK_CATEGORIES: LinkCategoryMeta[] = [
   { category: 'linkedin', label: 'LinkedIn', defaultIcon: 'linkedin' },
   { category: 'github', label: 'GitHub', defaultIcon: 'github' },
   { category: 'portfolio', label: 'Portfolio', defaultIcon: 'globe' },

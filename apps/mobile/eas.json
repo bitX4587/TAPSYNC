@@ -20,11 +20,13 @@
         "simulator": false
       },
       "android": {
-        "buildType": "apk"
+        "buildType": "apk",
+        "gradleCommand": ":app:assembleRelease"
       },
       "env": {
         "EXPO_PUBLIC_API_URL": "https://tapsync-dh4y.onrender.com",
-        "EXPO_PUBLIC_SITE_URL": "https://tapsync-eosin.vercel.app"
+        "EXPO_PUBLIC_SITE_URL": "https://tapsync-eosin.vercel.app",
+        "EXPO_USE_METRO_WORKSPACE_ROOT": "1"
       }
     },
     "production": {

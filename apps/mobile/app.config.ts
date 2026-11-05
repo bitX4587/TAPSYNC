@@ -3,6 +3,7 @@ import type { ExpoConfig } from 'expo/config';
 const config: ExpoConfig = {
   name: 'TapSync',
   slug: 'tapsync',
+  owner: 'maurc',
   version: '1.0.0',
   orientation: 'portrait',
   platforms: ['ios', 'android'],
@@ -59,12 +60,15 @@ const config: ExpoConfig = {
   ],
 
   experiments: {
-    typedRoutes: true,
+    typedRoutes: false,
   },
 
   extra: {
+    router: {
+      origin: false,
+    },
     eas: {
-      projectId: 'a0c52f89-8bec-4482-83f2-26f399b678c1',
+      projectId: 'a23962d8-acc0-47b8-9c3b-c653d78b5747',
     },
   },
 };

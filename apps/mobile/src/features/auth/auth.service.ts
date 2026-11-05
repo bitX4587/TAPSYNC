@@ -125,20 +125,3 @@ export async function checkAccountSecured(): Promise<boolean> {
   }
 }
 
-/**
- * Sign out the current user
- * 
- * Calls POST /auth/logout then clears local tokens.
- * Callers should check `checkAccountSecured()` first and warn the user
- * if the account has no recovery method (see `useSignOut` hook).
- * 
- * Requirements: 1.10
- */
-export async function signOut(): Promise<void> {
-  try {
-    await api.post('/auth/logout');
-  } finally {
-    // Always clear local tokens even if the API call fails
-    await tokenStorage.clearTokens();
-  }
-}

@@ -13,9 +13,10 @@ config.resolver.nodeModulesPaths = [
   path.resolve(monorepoRoot, 'node_modules'),
 ];
 
-// Fix: expo/AppEntry.js imports '../../App' which resolves to the wrong
-// path in pnpm's node_modules structure. Our app uses expo-router, so
-// redirect the import to the expo-router entry point.
+// Force react, react-dom and react-native to always resolve from the
+// mobile app's own node_modules, preventing React 19 (from the web app)
+// from being picked up via root hoisting.
+const mobileNodeModules = path.resolve(__dirname, 'node_modules');
 config.resolver.resolveRequest = (context, moduleName, platform) => {
   if (moduleName === '../../App') {
     return {
@@ -23,6 +24,22 @@ config.resolver.resolveRequest = (context, moduleName, platform) => {
       type: 'sourceFile',
     };
   }
+
+  if (
+    moduleName === 'react' ||
+    moduleName === 'react-dom' ||
+    moduleName === 'react-native' ||
+    moduleName.startsWith('react/') ||
+    moduleName.startsWith('react-dom/') ||
+    moduleName.startsWith('react-native/')
+  ) {
+    return context.resolveRequest(
+      { ...context, originModulePath: path.join(mobileNodeModules, 'expo', 'package.json') },
+      moduleName,
+      platform,
+    );
+  }
+
   return context.resolveRequest(context, moduleName, platform);
 };
 

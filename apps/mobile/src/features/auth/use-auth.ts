@@ -10,9 +10,9 @@ import {
   createAnonymousAccount,
   hasExistingSession,
   checkAccountSecured,
-  signOut,
   type AnonymousAccountResult,
 } from './auth.service';
+import { signOut } from './token-storage';
 
 /**
  * Hook to check if user has an existing session

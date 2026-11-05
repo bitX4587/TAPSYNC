@@ -3,17 +3,31 @@
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
     "target": "ES2022",
-    "lib": ["ES2022"],
+    "lib": [
+      "ES2022"
+    ],
     "module": "ESNext",
     "moduleResolution": "Bundler",
     "jsx": "react-native",
     "strict": true,
-    "types": ["node", "@types/jest"],
+    "types": [
+      "node",
+      "@types/jest"
+    ],
     "paths": {
-      "@/*": ["./src/*"],
-      "@tapsync/shared": ["../../packages/shared/src/index.ts"]
+      "@/*": [
+        "./src/*"
+      ],
+      "@tapsync/shared": [
+        "../../packages/shared/src/index.ts"
+      ]
     }
   },
-  "include": ["**/*.ts", "**/*.tsx", ".expo/types/**/*.ts", "expo-env.d.ts"],
-  "exclude": ["node_modules"]
+  "include": [
+    "**/*.ts",
+    "**/*.tsx"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }
