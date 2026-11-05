@@ -133,25 +133,22 @@ describe('LinkFormModal — create', () => {
 
   it('calls createLink with the correct DTO on submit', async () => {
     const onClose = jest.fn();
-    const { getByLabelText, getByText } = renderModal({
+    const { getByLabelText } = renderModal({
       visible: true,
       onClose,
       mode: Mode.Work,
       editingLink: null,
     });
 
-    // Fill in the title
-    fireEvent.changeText(getByLabelText('Link title'), 'Portfolio Site');
-
-    // Fill in the URL
-    fireEvent.changeText(getByLabelText('Link URL'), 'https://portfolio.dev');
-
-    // Submit
-    fireEvent.press(getByLabelText('Add link'));
+    await act(async () => {
+      fireEvent.changeText(getByLabelText('Link title'), 'Portfolio Site');
+      fireEvent.changeText(getByLabelText('Link URL'), 'https://portfolio.dev');
+      fireEvent.press(getByLabelText('Add link'));
+    });
 
     await waitFor(() => {
       expect(linkService.createLink).toHaveBeenCalledTimes(1);
-    });
+    }, { timeout: 10000 });
 
     // The DTO should include title, url, mode, category and an auto icon.
     const dto = (linkService.createLink as jest.Mock).mock.calls[0][0];

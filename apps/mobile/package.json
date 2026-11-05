@@ -11,8 +11,7 @@
     "lint": "eslint src --ext .ts,.tsx",
     "typecheck": "tsc --noEmit",
     "test": "jest --passWithNoTests",
-    "eas-build-pre-install": "echo 'pre-install'",
-    "eas-build-post-install": "pnpm --filter @tapsync/shared build && node ./fix-autolinking.js"
+    "eas-build-post-install": "pnpm --filter @tapsync/shared build"
   },
   "dependencies": {
     "@babel/runtime": "^7.25.2",
@@ -34,6 +33,11 @@
     "react-native-safe-area-context": "~5.0.0",
     "react-native-screens": "~4.4.0",
     "zustand": "^5.0.15"
+  },
+  "expo": {
+    "autolinking": {
+      "searchPaths": ["../../node_modules", "./node_modules"]
+    }
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",

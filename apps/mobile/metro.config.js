@@ -8,37 +8,57 @@ const monorepoRoot = path.resolve(__dirname, '../..');
 config.watchFolders = [monorepoRoot];
 
 // Resolve node_modules from both the app and monorepo root.
-// The mobile app's node_modules must come FIRST so React 18 wins over
-// any React 19 that the web app hoisted to the root.
 config.resolver.nodeModulesPaths = [
   path.resolve(__dirname, 'node_modules'),
   path.resolve(monorepoRoot, 'node_modules'),
 ];
 
-// Pin react and react-native to the mobile app's own copies.
 const mobileModules = path.resolve(__dirname, 'node_modules');
-config.resolver.extraNodeModules = {
-  'react': path.resolve(mobileModules, 'react'),
-  'react-dom': path.resolve(mobileModules, 'react-dom'),
-  'react-native': path.resolve(mobileModules, 'react-native'),
-};
 
-// query-string v9 is pure ESM. expo-router calls require('query-string')
-// and accesses .stringify/.parse directly. This shim provides a CJS-
-// compatible wrapper so those calls work at runtime.
+// The pnpm virtual store has react@18.3.1 (mobile) and react@19.3.1 (web).
+// apps/mobile/node_modules/react is a junction to the virtual store copy,
+// and node_modules/react at root is a real directory (also 18.3.1, leftover
+// from a previous hoisted install). Metro sees these as two DIFFERENT paths
+// and loads both, creating two React instances → "Objects are not valid as
+// a React child".
+//
+// Fix: pin EVERY react import to the virtual store's real directory path
+// (node_modules/.pnpm/react@18.3.1/node_modules/react) so Metro loads only
+// one copy. Using the virtual store path directly avoids junction issues.
+const reactPath = path.resolve(
+  monorepoRoot,
+  'node_modules/.pnpm/react@18.3.1/node_modules/react'
+);
+
 config.resolver.resolveRequest = (context, moduleName, platform) => {
-  if (moduleName === '../../App') {
+  // Force ALL react imports to a single physical copy
+  if (moduleName === 'react') {
     return {
-      filePath: require.resolve('expo-router/entry', { paths: [__dirname] }),
+      filePath: path.resolve(reactPath, 'index.js'),
       type: 'sourceFile',
     };
   }
+  if (moduleName === 'react/jsx-runtime') {
+    return {
+      filePath: path.resolve(reactPath, 'jsx-runtime.js'),
+      type: 'sourceFile',
+    };
+  }
+  if (moduleName === 'react/jsx-dev-runtime') {
+    return {
+      filePath: path.resolve(reactPath, 'jsx-dev-runtime.js'),
+      type: 'sourceFile',
+    };
+  }
+
+  // query-string v9 is pure ESM — use our CJS shim.
   if (moduleName === 'query-string') {
     return {
       filePath: path.resolve(__dirname, 'query-string-shim.js'),
       type: 'sourceFile',
     };
   }
+
   return context.resolveRequest(context, moduleName, platform);
 };
 
