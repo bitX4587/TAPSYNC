@@ -14,7 +14,7 @@
 import { View, Text, Image, StyleSheet, TouchableOpacity, Linking } from 'react-native';
 import type { UserProfile } from '../features/user';
 
-const PUBLIC_BASE_URL = 'https://tapsync.app';
+const PUBLIC_BASE_URL = process.env.EXPO_PUBLIC_SITE_URL ?? 'https://tapsync-eosin.vercel.app';
 
 interface ProfilePreviewCardProps {
   /** User profile data. Pass `undefined` while loading to show the skeleton. */

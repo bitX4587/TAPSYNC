@@ -145,7 +145,7 @@ export async function uploadAvatar(
 ): Promise<UserProfile> {
   const formData = new FormData();
   // React Native's FormData accepts { uri, type, name } as the file blob.
-  formData.append('file', {
+  formData.append('avatar', {
     uri: fileUri,
     type: mimeType,
     name: fileName,

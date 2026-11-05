@@ -32,6 +32,8 @@ import { useUserProfile } from '../features/user/use-user-profile';
 import { useCustomName } from '../features/user/use-custom-name';
 import { ApiError } from '../lib/api';
 
+const SITE_URL = process.env.EXPO_PUBLIC_SITE_URL ?? 'https://tapsync-eosin.vercel.app';
+
 // ─── Helpers ──────────────────────────────────────────────────────────────────
 
 /** Returns a human-readable error message from an unknown error. */
@@ -189,7 +191,7 @@ export default function CustomNameScreen() {
   const handleRemove = useCallback(() => {
     Alert.alert(
       'Remove custom name?',
-      `"tapsync.app/p/${currentName}" will keep redirecting to your profile, but you won't have a custom name anymore. You can always claim a new one.`,
+      `"${SITE_URL}/p/${currentName}" will keep redirecting to your profile, but you won't have a custom name anymore. You can always claim a new one.`,
       [
         { text: 'Cancel', style: 'cancel' },
         {
@@ -205,12 +207,12 @@ export default function CustomNameScreen() {
 
   // ── Derived display ───────────────────────────────────────────────────────
   const publicId = profile?.publicId;
-  const permanentUrl = publicId ? `tapsync.app/c/${publicId}` : 'tapsync.app/c/…';
+  const permanentUrl = publicId ? `${SITE_URL}/c/${publicId}` : `${SITE_URL}/c/…`;
   const previewUrl =
     inputName && availabilityStatus !== 'invalid'
-      ? `tapsync.app/p/${inputName}`
+      ? `${SITE_URL}/p/${inputName}`
       : currentName
-        ? `tapsync.app/p/${currentName}`
+        ? `${SITE_URL}/p/${currentName}`
         : null;
 
   // ── Loading state ─────────────────────────────────────────────────────────
@@ -259,7 +261,7 @@ export default function CustomNameScreen() {
           {currentName ? (
             <View style={styles.currentNameRow}>
               <Text style={styles.currentNameText}>
-                tapsync.app/p/
+                {SITE_URL}/p/
                 <Text style={styles.currentNameBold}>{currentName}</Text>
               </Text>
             </View>
@@ -280,7 +282,7 @@ export default function CustomNameScreen() {
 
           {/* Input */}
           <View style={styles.inputRow}>
-            <Text style={styles.inputPrefix}>tapsync.app/p/</Text>
+            <Text style={styles.inputPrefix}>{SITE_URL}/p/</Text>
             <TextInput
               style={styles.nameInput}
               value={inputName}
@@ -376,7 +378,7 @@ export default function CustomNameScreen() {
           <View style={styles.card}>
             <Text style={styles.cardTitle}>Remove custom name</Text>
             <Text style={styles.removeHint}>
-              "tapsync.app/p/{currentName}" will keep redirecting to your profile
+              `"${SITE_URL}/p/${currentName}" will keep redirecting to your profile
               and stay reserved so nobody else can claim it.
             </Text>
 

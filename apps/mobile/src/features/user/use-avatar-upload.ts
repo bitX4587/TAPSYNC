@@ -68,11 +68,10 @@ export function useAvatarUpload(): UseAvatarUploadResult {
       }
 
       const result = await ImagePicker.launchImageLibraryAsync({
-        mediaTypes: ImagePicker.MediaTypeOptions.Images,
+        mediaTypes: ['images'],
         allowsEditing: true,
         aspect: [1, 1],
         quality: 0.85,
-        // Accept JPEG, PNG and WebP (Req 2.5)
         allowsMultipleSelection: false,
       });
 
@@ -99,6 +98,7 @@ export function useAvatarUpload(): UseAvatarUploadResult {
     } catch (err) {
       const uploadError =
         err instanceof Error ? err : new Error('Avatar upload failed. Please try again.');
+      console.error('[AvatarUpload] Error:', uploadError.message, err);
       setError(uploadError);
       // Clear the preview so the UI doesn't show a stale local image on error.
       setPreviewUri(null);

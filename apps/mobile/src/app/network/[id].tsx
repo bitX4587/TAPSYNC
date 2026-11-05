@@ -36,7 +36,7 @@ import { formatRelativeTime } from '../../features/network/formatRelativeTime';
 // Constants
 // ---------------------------------------------------------------------------
 
-const PUBLIC_BASE_URL = 'https://tapsync.app';
+const PUBLIC_BASE_URL = process.env.EXPO_PUBLIC_SITE_URL ?? 'https://tapsync-eosin.vercel.app';
 const API_BASE_URL = process.env.EXPO_PUBLIC_API_URL ?? 'https://api.tapsync.app';
 
 // ---------------------------------------------------------------------------

@@ -410,7 +410,7 @@ export default function SecureAccountScreen() {
       {/* Privacy Policy link */}
       <TouchableOpacity
         style={styles.privacyLink}
-        onPress={() => Linking.openURL('https://tapsync.app/privacy')}
+        onPress={() => Linking.openURL(`${process.env.EXPO_PUBLIC_SITE_URL ?? 'https://tapsync-eosin.vercel.app'}/privacy`)}
         accessibilityRole="link"
         accessibilityLabel="View Privacy Policy"
       >

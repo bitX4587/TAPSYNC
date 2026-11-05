@@ -160,9 +160,11 @@ export async function apiRequest<T = unknown>(
 
   const url = endpoint.startsWith('http') ? endpoint : `${API_BASE_URL}${endpoint}`;
 
-  // Prepare headers
+  // Prepare headers - don't set Content-Type for FormData,
+  // the runtime sets the multipart boundary automatically.
+  const isFormData = fetchOptions.body instanceof FormData;
   const requestHeaders: Record<string, string> = {
-    'Content-Type': 'application/json',
+    ...(isFormData ? {} : { 'Content-Type': 'application/json' }),
     ...(headers as Record<string, string>),
   };
 

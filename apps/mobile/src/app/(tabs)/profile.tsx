@@ -21,6 +21,8 @@ import { SecurityWarningBanner } from '../../components';
 import { useSecurityWarning } from '../../features/auth';
 import { useUserProfile } from '../../features/user';
 
+const SITE_URL = process.env.EXPO_PUBLIC_SITE_URL ?? 'https://tapsync-eosin.vercel.app';
+
 export default function ProfileScreen() {
   const router = useRouter();
   const { showBanner, dismissBanner } = useSecurityWarning();
@@ -140,7 +142,7 @@ export default function ProfileScreen() {
               <View style={styles.urlRow}>
                 <Text style={styles.urlLabel}>Custom URL</Text>
                 <Text style={styles.urlValue} numberOfLines={1}>
-                  tapsync.app/p/{profile.customName}
+                  {SITE_URL}/p/{profile.customName}
                 </Text>
               </View>
             ) : null}
@@ -149,7 +151,7 @@ export default function ProfileScreen() {
               <View style={styles.urlRow}>
                 <Text style={styles.urlLabel}>Permanent URL</Text>
                 <Text style={styles.urlValue} numberOfLines={1}>
-                  tapsync.app/c/{profile.publicId}
+                  {SITE_URL}/c/{profile.publicId}
                 </Text>
               </View>
             ) : null}
@@ -192,7 +194,7 @@ export default function ProfileScreen() {
           <View style={styles.menuCard}>
             <TouchableOpacity
               style={styles.menuItem}
-              onPress={() => Linking.openURL('https://tapsync.app/privacy')}
+              onPress={() => Linking.openURL(`${SITE_URL}/privacy`)}
               accessibilityRole="link"
               accessibilityLabel="View Privacy Policy"
             >
@@ -202,7 +204,7 @@ export default function ProfileScreen() {
             </TouchableOpacity>
             <TouchableOpacity
               style={[styles.menuItem, styles.menuItemBorder]}
-              onPress={() => Linking.openURL('https://tapsync.app/terms')}
+              onPress={() => Linking.openURL(`${SITE_URL}/terms`)}
               accessibilityRole="link"
               accessibilityLabel="View Terms of Service"
             >
