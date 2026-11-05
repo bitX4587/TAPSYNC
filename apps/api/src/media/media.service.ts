@@ -140,8 +140,6 @@ export class MediaService {
       Key: key,
       Body: buffer,
       ContentType: contentType,
-      // Make the file publicly readable
-      ACL: 'public-read',
     });
 
     await this.s3Client.send(command);
