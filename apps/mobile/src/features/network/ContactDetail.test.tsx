@@ -389,7 +389,9 @@ describe('ContactDetailScreen', () => {
       const openBtn = await findByLabelText('Open in browser');
       fireEvent.press(openBtn);
 
-      expect(Linking.openURL).toHaveBeenCalledWith('https://tapsync.app/c/abc123xyz9');
+      expect(Linking.openURL).toHaveBeenCalledWith(
+        `${process.env.EXPO_PUBLIC_SITE_URL ?? 'https://tapsync-eosin.vercel.app'}/c/abc123xyz9`,
+      );
     });
 
     it('"Save to phone contacts" calls Linking.openURL with the vcard URL', async () => {
