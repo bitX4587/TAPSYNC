@@ -12,7 +12,7 @@
     "typecheck": "tsc --noEmit",
     "test": "jest --passWithNoTests",
     "eas-build-pre-install": "echo 'pre-install'",
-    "eas-build-post-install": "pnpm --filter @tapsync/shared build && npx expo prebuild --platform android --clean"
+    "eas-build-post-install": "pnpm --filter @tapsync/shared build && node ./fix-autolinking.js"
   },
   "dependencies": {
     "@babel/runtime": "^7.25.2",
