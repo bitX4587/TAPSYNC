@@ -35,5 +35,5 @@ coverage
 database.txt
 reports/
 
-apps/mobile/android
+# apps/mobile/android committed so EAS uses our prebuild
 apps/mobile/ios

@@ -11,7 +11,8 @@
     "lint": "eslint src --ext .ts,.tsx",
     "typecheck": "tsc --noEmit",
     "test": "jest --passWithNoTests",
-    "eas-build-post-install": "pnpm --filter @tapsync/shared build"
+    "eas-build-pre-install": "echo 'pre-install'",
+    "eas-build-post-install": "pnpm --filter @tapsync/shared build && npx expo prebuild --platform android --clean"
   },
   "dependencies": {
     "@babel/runtime": "^7.25.2",
