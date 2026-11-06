@@ -101,6 +101,10 @@ export class CustomNamesController {
     // Fetch and return the updated profile
     const user = await this.customNamesService['userModel'].findById(userId).lean().exec();
     
+    if (!user) {
+      throw new Error('User not found after custom name removal');
+    }
+    
     return {
       publicId: user.publicId,
       customName: user.customName ?? null,
@@ -114,9 +118,9 @@ export class CustomNamesController {
       hiddenFields: user.hiddenFields || [],
       activeMode: user.activeMode,
       status: user.status,
-      hasEmailLinked: !!user.linkedEmail,
-      hasGoogleLinked: !!user.linkedGoogleId,
-      hasRecoveryCode: !!user.recoveryCode,
+      hasEmailLinked: !!user.email,
+      hasGoogleLinked: !!user.googleId,
+      hasRecoveryCode: !!user.recoveryCodeHash,
       createdAt: user.createdAt,
       updatedAt: user.updatedAt,
     };
