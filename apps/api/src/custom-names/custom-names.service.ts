@@ -215,7 +215,7 @@ export class CustomNamesService {
       // Trigger revalidation of the public profile page and custom name paths (Requirements: 2.10)
       const user = await this.userModel.findById(userId).select('publicId').lean().exec();
       if (user) {
-        await this.revalidationService.revalidateProfileAndPaths(user.publicId);
+        await this.revalidationService.revalidateProfileAndPaths(user.publicId, normalizedName);
       }
 
       return newClaim;

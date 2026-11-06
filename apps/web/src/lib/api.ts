@@ -82,7 +82,8 @@ export async function fetchProfileByCustomName(
   try {
     const res = await fetch(`${API_URL}/public/profiles/p/${name}`, {
       next: {
-        revalidate: 60, // 60-second fallback; tag is added after we know the publicId
+        tags: [`custom-name:${name.toLowerCase()}`],
+        revalidate: 60, // 60-second fallback
       },
     });
 
@@ -107,6 +108,8 @@ export async function fetchProfileByCustomName(
       };
     }
 
+    // Also add the profile:{publicId} tag for this fetch
+    // Note: Next.js doesn't allow adding tags after fetch, so we rely on the custom-name tag
     return { success: true, profile: data };
   } catch (err) {
     return {

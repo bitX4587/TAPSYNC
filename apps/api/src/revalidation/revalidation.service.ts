@@ -97,12 +97,34 @@ export class RevalidationService {
    * invalidate both the old and new vanity URLs in addition to the canonical URL.
    *
    * @param publicId - The user's permanent public ID.
+   * @param customName - Optional current custom name to revalidate.
    */
-  async revalidateProfileAndPaths(publicId: string): Promise<void> {
-    // The cache tag `profile:{publicId}` covers both /c/{publicId} and /p/{customName}
-    // routes, so a single call is sufficient. Custom name paths are also revalidated
-    // by Next.js when the revalidateTag is called.
+  async revalidateProfileAndPaths(publicId: string, customName?: string): Promise<void> {
+    // Revalidate the profile tag
     await this.revalidateProfile(publicId);
+    
+    // Also revalidate the custom name tag if provided
+    if (customName) {
+      const url = `${this.config.nextPublicUrl}/api/revalidate`;
+      const tag = `custom-name:${customName.toLowerCase()}`;
+
+      try {
+        const response = await fetch(url, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'x-revalidation-secret': this.config.revalidationSecret,
+          },
+          body: JSON.stringify({ tag }),
+        });
+
+        if (response.ok) {
+          this.logger.log(`Successfully revalidated custom-name:${customName}`);
+        }
+      } catch (error) {
+        this.logger.warn(`Failed to revalidate custom-name:${customName}`);
+      }
+    }
   }
 
   /**
