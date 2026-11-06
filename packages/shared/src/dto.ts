@@ -67,6 +67,10 @@ export type LinkCategory =
   | 'instagram'
   | 'facebook'
   | 'twitter'
+  | 'whatsapp'
+  | 'discord'
+  | 'fiverr'
+  | 'upwork'
   | 'gaming'
   | 'messaging'
   | 'spotify'
@@ -83,6 +87,10 @@ export const LINK_CATEGORIES: LinkCategoryMeta[] = [
   { category: 'github', label: 'GitHub', defaultIcon: 'github' },
   { category: 'portfolio', label: 'Portfolio', defaultIcon: 'globe' },
   { category: 'email', label: 'Email', defaultIcon: 'mail' },
+  { category: 'whatsapp', label: 'WhatsApp', defaultIcon: 'whatsapp' },
+  { category: 'discord', label: 'Discord', defaultIcon: 'discord' },
+  { category: 'fiverr', label: 'Fiverr', defaultIcon: 'fiverr' },
+  { category: 'upwork', label: 'Upwork', defaultIcon: 'upwork' },
   { category: 'calendar', label: 'Calendar', defaultIcon: 'calendar' },
   { category: 'company', label: 'Company Site', defaultIcon: 'building' },
   { category: 'instagram', label: 'Instagram', defaultIcon: 'instagram' },

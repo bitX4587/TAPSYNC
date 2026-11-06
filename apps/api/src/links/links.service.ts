@@ -79,6 +79,7 @@ export class LinksService {
 
     // Validate category
     const validCategories = LINK_CATEGORIES.map((c) => c.category);
+    
     if (!validCategories.includes(dto.category as never)) {
       throw new BadRequestException(
         `Invalid category. Must be one of: ${validCategories.join(', ')}`,
@@ -156,6 +157,7 @@ export class LinksService {
 
     if (dto.category !== undefined) {
       const validCategories = LINK_CATEGORIES.map((c) => c.category);
+      
       if (!validCategories.includes(dto.category as never)) {
         throw new BadRequestException(
           `Invalid category. Must be one of: ${validCategories.join(', ')}`,
