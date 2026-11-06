@@ -92,19 +92,29 @@ function CardListView({ onProgramNew }: CardListViewProps) {
   const { mutateAsync: unassign, isPending: isUnassigning } = useUnassignCard();
   const { mutateAsync: saveLabel, isPending: isSavingLabel } = useLabelCard();
 
+  // DEBUG: Log the cards data structure
+  useEffect(() => {
+    if (cards && cards.length > 0) {
+      console.log('[DEBUG] Cards data:', JSON.stringify(cards[0], null, 2));
+      console.log('[DEBUG] First card keys:', Object.keys(cards[0]));
+    }
+  }, [cards]);
+
   // Track which card is currently being label-edited.
   const [editingId, setEditingId] = useState<string | null>(null);
   const [labelDraft, setLabelDraft] = useState('');
 
   const handleStartEdit = (card: NfcCard) => {
-    setEditingId(card.id);
+    const cardId = (card as any)._id || card.id;
+    setEditingId(cardId);
     setLabelDraft(card.label ?? '');
   };
 
   const handleSaveLabel = async (card: NfcCard) => {
+    const cardId = (card as any)._id || card.id;
     const trimmed = labelDraft.trim();
     try {
-      await saveLabel({ id: card.id, label: trimmed });
+      await saveLabel({ id: cardId, label: trimmed });
     } catch {
       Alert.alert('Error', 'Could not save the label. Please try again.');
     } finally {
@@ -113,6 +123,7 @@ function CardListView({ onProgramNew }: CardListViewProps) {
   };
 
   const handleUnassign = (card: NfcCard) => {
+    const cardId = (card as any)._id || card.id;
     Alert.alert(
       'Remove card?',
       `This will unassign the card${card.label ? ` "${card.label}"` : ''} from your account. The card can be re-programmed later.`,
@@ -123,8 +134,13 @@ function CardListView({ onProgramNew }: CardListViewProps) {
           style: 'destructive',
           onPress: async () => {
             try {
-              await unassign(card.id);
-            } catch {
+              console.log('[DEBUG] Attempting to unassign card:', cardId);
+              await unassign(cardId);
+              console.log('[DEBUG] Card unassigned successfully');
+            } catch (error) {
+              console.error('[ERROR] Failed to unassign card:', error);
+              console.error('[ERROR] Card ID:', cardId);
+              console.error('[ERROR] Error details:', JSON.stringify(error, null, 2));
               Alert.alert('Error', 'Could not remove the card. Please try again.');
             }
           },
@@ -163,8 +179,13 @@ function CardListView({ onProgramNew }: CardListViewProps) {
         ) : !cards || cards.length === 0 ? (
           <EmptyCardList onProgramNew={onProgramNew} />
         ) : (
-          cards.map((card) => (
-            <View key={card.id} style={styles.cardItem}>
+          cards.map((card, index) => {
+            // Ensure we have a unique string key
+            const cardId = card._id?.toString() || card.id?.toString() || '';
+            const uniqueKey = cardId || `card-${card.uid}-${index}`;
+            
+            return (
+            <View key={uniqueKey} style={styles.cardItem}>
               {/* UID + status badge */}
               <View style={styles.cardItemHeader}>
                 <Text style={styles.cardUid} numberOfLines={1}>
@@ -192,7 +213,7 @@ function CardListView({ onProgramNew }: CardListViewProps) {
               </View>
 
               {/* Label row or edit field */}
-              {editingId === card.id ? (
+              {editingId === ((card as any)._id || card.id) ? (
                 <View style={styles.labelEditRow}>
                   <TextInput
                     style={styles.labelInput}
@@ -270,7 +291,8 @@ function CardListView({ onProgramNew }: CardListViewProps) {
                 <Text style={styles.unassignButtonText}>Remove card</Text>
               </TouchableOpacity>
             </View>
-          ))
+            );
+          })
         )}
       </ScrollView>
     </View>
