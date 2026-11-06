@@ -7,15 +7,13 @@ import {
   Body,
   UseGuards,
   Req,
-  HttpCode,
-  HttpStatus,
 } from '@nestjs/common';
 import { Request } from 'express';
 
 import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard.js';
 import { CustomNamesService } from './custom-names.service.js';
-import { CheckAvailabilityDto } from './dto/check-availability.dto.js';
 import { AvailabilityResponseDto } from './dto/availability-response.dto.js';
+import { CheckAvailabilityDto } from './dto/check-availability.dto.js';
 import { ClaimCustomNameDto } from './dto/claim-custom-name.dto.js';
 
 /**
@@ -37,14 +35,17 @@ export class CustomNamesController {
    * Returns an object with `available` boolean and optional `reason` string
    * explaining why the name is not available (if applicable).
    *
+   * @param req - Express request with authenticated user attached by JwtAuthGuard.
    * @param query - Query parameters containing the name to check.
    * @returns Availability status and optional reason.
    */
   @Get('available')
   async checkAvailability(
+    @Req() req: Request,
     @Query() query: CheckAvailabilityDto,
   ): Promise<AvailabilityResponseDto> {
-    return this.customNamesService.checkAvailability(query.name);
+    const userId = (req.user as { userId: string }).userId;
+    return this.customNamesService.checkAvailability(query.name, userId);
   }
 
   /**
@@ -94,7 +95,25 @@ export class CustomNamesController {
    * @returns The updated user profile with customName cleared.
    */
   @Delete()
-  async removeName(@Req() req: Request): Promise<any> {
+  async removeName(@Req() req: Request): Promise<{
+    publicId: string;
+    customName: string | null;
+    fullName: string | null;
+    designation: string | null;
+    company: string | null;
+    bio: string | null;
+    phone: string | null;
+    publicEmail: string | null;
+    avatarUrl: string | null;
+    hiddenFields: string[];
+    activeMode: string;
+    status: string;
+    hasEmailLinked: boolean;
+    hasGoogleLinked: boolean;
+    hasRecoveryCode: boolean;
+    createdAt: Date;
+    updatedAt: Date;
+  }> {
     const userId = (req.user as { userId: string }).userId;
     await this.customNamesService.removeName(userId);
     
