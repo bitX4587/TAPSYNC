@@ -5,7 +5,6 @@
 
 import type {
   PublicProfileDto,
-  RetiredNameRedirectDto,
 } from '@tapsync/shared';
 
 // API response type for custom name endpoint
