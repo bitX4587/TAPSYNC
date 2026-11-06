@@ -1,5 +1,6 @@
 // Custom-name public profile page: /p/[name]
 // Handles current name (render) and retired name (308 redirect).
+// Updated: 2026-11-06
 import { notFound, redirect } from 'next/navigation';
 import type { Metadata } from 'next';
 import { fetchProfileByCustomName } from '@/lib/api';
