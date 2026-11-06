@@ -8,6 +8,12 @@ import type {
   RetiredNameRedirectDto,
 } from '@tapsync/shared';
 
+// API response type for custom name endpoint
+interface CustomNameResponseDto {
+  profile?: PublicProfileDto;
+  redirectTo?: string;
+}
+
 const API_URL = process.env['TAPSYNC_API_URL'] || 'http://localhost:3001';
 
 export interface FetchProfileByPublicIdResult {
@@ -79,8 +85,10 @@ export interface FetchProfileByCustomNameError {
 export async function fetchProfileByCustomName(
   name: string,
 ): Promise<FetchProfileByCustomNameResult | FetchProfileByCustomNameError> {
+  const url = `${API_URL}/public/profiles/p/${name}`;
+  
   try {
-    const res = await fetch(`${API_URL}/public/profiles/p/${name}`, {
+    const res = await fetch(url, {
       next: {
         tags: [`custom-name:${name.toLowerCase()}`],
         revalidate: 60, // 60-second fallback
@@ -95,12 +103,10 @@ export async function fetchProfileByCustomName(
       };
     }
 
-    const data = (await res.json()) as
-      | PublicProfileDto
-      | RetiredNameRedirectDto;
+    const data = (await res.json()) as CustomNameResponseDto;
 
     // Check if this is a retired name redirect
-    if ('redirectTo' in data) {
+    if (data.redirectTo) {
       return {
         success: true,
         profile: null as any, // Not used for redirect
@@ -108,9 +114,17 @@ export async function fetchProfileByCustomName(
       };
     }
 
-    // Also add the profile:{publicId} tag for this fetch
-    // Note: Next.js doesn't allow adding tags after fetch, so we rely on the custom-name tag
-    return { success: true, profile: data };
+    // The API returns { profile: PublicProfileDto }
+    // Extract the actual profile
+    if (!data.profile) {
+      return {
+        success: false,
+        status: 500,
+        message: 'Invalid API response: missing profile',
+      };
+    }
+
+    return { success: true, profile: data.profile };
   } catch (err) {
     return {
       success: false,
