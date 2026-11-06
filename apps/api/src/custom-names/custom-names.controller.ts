@@ -88,14 +88,37 @@ export class CustomNamesController {
    * - Marks the current claim as retired (Requirement 2.11)
    * - Clears User.customName
    * - The retired name stays reserved and keeps redirecting to the user's profile
+   * - Returns the updated user profile
    *
    * @param req - Express request with authenticated user attached by JwtAuthGuard.
-   * @returns Success message or 204 if no custom name exists.
+   * @returns The updated user profile with customName cleared.
    */
   @Delete()
-  @HttpCode(HttpStatus.NO_CONTENT)
-  async removeName(@Req() req: Request): Promise<void> {
+  async removeName(@Req() req: Request): Promise<any> {
     const userId = (req.user as { userId: string }).userId;
     await this.customNamesService.removeName(userId);
+    
+    // Fetch and return the updated profile
+    const user = await this.customNamesService['userModel'].findById(userId).lean().exec();
+    
+    return {
+      publicId: user.publicId,
+      customName: user.customName ?? null,
+      fullName: user.fullName ?? null,
+      designation: user.designation ?? null,
+      company: user.company ?? null,
+      bio: user.bio ?? null,
+      phone: user.phone ?? null,
+      publicEmail: user.publicEmail ?? null,
+      avatarUrl: user.avatarUrl ?? null,
+      hiddenFields: user.hiddenFields || [],
+      activeMode: user.activeMode,
+      status: user.status,
+      hasEmailLinked: !!user.linkedEmail,
+      hasGoogleLinked: !!user.linkedGoogleId,
+      hasRecoveryCode: !!user.recoveryCode,
+      createdAt: user.createdAt,
+      updatedAt: user.updatedAt,
+    };
   }
 }

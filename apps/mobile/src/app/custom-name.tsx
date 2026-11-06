@@ -14,7 +14,7 @@
  * Requirements: 2.8–2.14
  */
 
-import React, { useState, useCallback, useEffect } from 'react';
+import React, { useState, useCallback, useEffect, useRef } from 'react';
 import {
   View,
   Text,
@@ -22,9 +22,11 @@ import {
   StyleSheet,
   ScrollView,
   TouchableOpacity,
+  TouchableWithoutFeedback,
   ActivityIndicator,
   Alert,
   Platform,
+  Linking,
 } from 'react-native';
 import { useRouter } from 'expo-router';
 import { useUserProfile } from '../features/user/use-user-profile';
@@ -124,9 +126,12 @@ const badgeStyles = StyleSheet.create({
 export default function CustomNameScreen() {
   const router = useRouter();
   const { data: profile, isLoading: isProfileLoading } = useUserProfile();
+  const inputRef = useRef<TextInput>(null);
 
   // DEBUG
   console.log('[CustomName] SCREEN MOUNTED AND RENDERING');
+  console.log('[CustomName] Profile:', profile);
+  console.log('[CustomName] isProfileLoading:', isProfileLoading);
 
   const [inputName, setInputName] = useState('');
 
@@ -208,6 +213,16 @@ export default function CustomNameScreen() {
 
   const isBusy = isClaiming || isRemoving;
 
+  console.log('[CustomName] State:', {
+    inputName,
+    isBusy,
+    canClaim,
+    availabilityStatus,
+    isClaiming,
+    isRemoving,
+    isCurrentName: inputName === (currentName ?? '')
+  });
+
   // ── Derived display ───────────────────────────────────────────────────────
   const publicId = profile?.publicId;
   const permanentUrl = publicId ? `${SITE_URL}/c/${publicId}` : `${SITE_URL}/c/…`;
@@ -229,7 +244,7 @@ export default function CustomNameScreen() {
   }
 
   return (
-    <View style={styles.root} onStartShouldSetResponder={() => { console.log('[CustomName] ROOT VIEW TOUCHED'); return false; }}>
+    <View style={styles.root}>
       {/* ── Header ────────────────────────────────────────────────────── */}
       <View style={styles.header}>
         <TouchableOpacity
@@ -259,12 +274,31 @@ export default function CustomNameScreen() {
         <View style={styles.card}>
           <Text style={styles.cardTitle}>Current custom name</Text>
           {currentName ? (
-            <View style={styles.currentNameRow}>
+            <TouchableOpacity
+              style={styles.currentNameRow}
+              onPress={() => {
+                const url = `${SITE_URL}/p/${currentName}`;
+                Alert.alert(
+                  'Custom Name Link',
+                  url,
+                  [
+                    { text: 'Cancel', style: 'cancel' },
+                    {
+                      text: 'Open in Browser',
+                      onPress: () => Linking.openURL(url),
+                    },
+                  ]
+                );
+              }}
+              activeOpacity={0.7}
+              accessibilityRole="button"
+              accessibilityLabel={`Open custom link: ${SITE_URL}/p/${currentName}`}
+            >
               <Text style={styles.currentNameText}>
                 {SITE_URL}/p/
                 <Text style={styles.currentNameBold}>{currentName}</Text>
               </Text>
-            </View>
+            </TouchableOpacity>
           ) : (
             <Text style={styles.noNameText}>No custom name set yet.</Text>
           )}
@@ -281,26 +315,40 @@ export default function CustomNameScreen() {
           </Text>
 
           {/* Input */}
-          <View style={styles.inputRow}>
-            <Text style={styles.inputPrefix}>{SITE_URL}/p/</Text>
-            <TextInput
-              style={styles.nameInput}
-              value={inputName}
-              onChangeText={handleInputChange}
-              onFocus={() => console.log('[CustomName] TextInput focused!')}
-              onPressIn={() => console.log('[CustomName] TextInput pressed!')}
-              placeholder="your-name"
-              placeholderTextColor="#9CA3AF"
-              autoCapitalize="none"
-              autoCorrect={false}
-              keyboardType="default"
-              returnKeyType="done"
-              maxLength={30}
-              accessibilityLabel="Custom name input"
-              accessibilityHint="Enter a custom name for your profile URL"
-              editable={!isBusy}
-            />
-          </View>
+          <TouchableWithoutFeedback 
+            onPress={() => {
+              console.log('[CustomName] 🟢 InputRow PRESSED - Focusing input');
+              inputRef.current?.focus();
+            }}
+          >
+            <View style={styles.inputRow}>
+              <Text style={styles.inputPrefix}>tapsync.app/p/</Text>
+              <TextInput
+                ref={inputRef}
+                style={[styles.nameInput, { color: '#000000' }]}
+                value={inputName}
+                onChangeText={(text) => {
+                  console.log('[CustomName] ✅ TextInput onChangeText:', text);
+                  handleInputChange(text);
+                }}
+                onFocus={() => console.log('[CustomName] ✅ TextInput FOCUSED')}
+                onPressIn={() => console.log('[CustomName] ✅ TextInput PRESS IN')}
+                onBlur={() => console.log('[CustomName] ✅ TextInput BLURRED')}
+                placeholder="your-name"
+                placeholderTextColor="#9CA3AF"
+                autoCapitalize="none"
+                autoCorrect={false}
+                keyboardType="default"
+                returnKeyType="done"
+                maxLength={30}
+                accessibilityLabel="Custom name input"
+                accessibilityHint="Enter a custom name for your profile URL"
+                editable={!isBusy}
+                underlineColorAndroid="transparent"
+                selectionColor="#0066CC"
+              />
+            </View>
+          </TouchableWithoutFeedback>
 
           {/* Availability badge */}
           <AvailabilityBadge
@@ -312,7 +360,12 @@ export default function CustomNameScreen() {
           {/* Claim/Change button */}
           <TouchableOpacity
             style={[styles.claimButton, !canClaim && styles.claimButtonDisabled]}
-            onPress={handleClaim}
+            onPress={() => {
+              console.log('[CustomName] Claim button pressed! canClaim:', canClaim);
+              handleClaim();
+            }}
+            onPressIn={() => console.log('[CustomName] Claim button touch started')}
+            onPressOut={() => console.log('[CustomName] Claim button touch ended')}
             accessibilityRole="button"
             accessibilityLabel={currentName ? 'Change custom name' : 'Claim custom name'}
             accessibilityState={{ disabled: !canClaim }}
@@ -526,22 +579,25 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: '#E5E7EB',
     borderRadius: 10,
-    backgroundColor: '#F9FAFB',
+    backgroundColor: 'transparent',
     paddingLeft: 14,
     height: 48,
   },
   inputPrefix: {
-    fontSize: 14,
+    fontSize: 12,
     color: '#9CA3AF',
-    fontFamily: Platform.select({ ios: 'Menlo', android: 'monospace' }),
+    marginRight: 4,
   },
   nameInput: {
     flex: 1,
     height: 48,
-    fontSize: 15,
-    color: '#111827',
-    fontFamily: Platform.select({ ios: 'Menlo', android: 'monospace' }),
-    paddingRight: 14,
+    fontSize: 16,
+    fontWeight: '500',
+    color: '#000000',
+    paddingHorizontal: 8,
+    includeFontPadding: false,
+    textAlignVertical: 'center',
+    minWidth: 100,
   },
 
   // ── Claim button ──────────────────────────────────────────────────────────
