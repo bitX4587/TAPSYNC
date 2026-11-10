@@ -38,6 +38,13 @@ describe('CustomNamesService', () => {
 
   const mockUserModel = {
     findByIdAndUpdate: jest.fn(),
+    findById: jest.fn().mockReturnValue({
+      select: jest.fn().mockReturnValue({
+        lean: jest.fn().mockReturnValue({
+          exec: jest.fn().mockResolvedValue({ publicId: 'test123' }),
+        }),
+      }),
+    }),
   };
 
   beforeEach(async () => {
@@ -504,6 +511,8 @@ describe('CustomNamesService', () => {
         name: 'myoldname',
         userId: new Types.ObjectId(userId),
         status: 'retired',
+        retiredAt: new Date(),
+        save: jest.fn().mockResolvedValue(undefined),
       };
 
       // Mock availability check (finds own retired name)
@@ -519,10 +528,13 @@ describe('CustomNamesService', () => {
             exec: jest.fn().mockResolvedValue(mockRetiredClaim), // Is a re-claim
           }),
         })
-        // Mock finding current claim (exists)
+        // Mock finding current claim (none exists)
         .mockReturnValueOnce({
-          session: jest.fn().mockReturnThis(),
           exec: jest.fn().mockResolvedValue(null),
+        })
+        // Mock finding existing retired claim to re-activate
+        .mockReturnValueOnce({
+          exec: jest.fn().mockResolvedValue(mockRetiredClaim),
         });
 
       const mockNewClaim = {

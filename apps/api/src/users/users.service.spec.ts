@@ -101,6 +101,9 @@ describe('UsersService', () => {
         activeMode: mockUser.activeMode,
         theme: mockUser.theme,
         status: mockUser.status,
+        hasEmailLinked: true,
+        hasGoogleLinked: false,
+        hasRecoveryCode: false,
         createdAt: mockUser.createdAt,
         updatedAt: mockUser.updatedAt,
       });

@@ -27,6 +27,9 @@ describe('UsersController', () => {
     activeMode: 'work',
     theme: 'dark',
     status: 'active',
+    hasEmailLinked: false,
+    hasGoogleLinked: false,
+    hasRecoveryCode: false,
     createdAt: new Date('2024-01-01'),
     updatedAt: new Date('2024-01-15'),
   };
