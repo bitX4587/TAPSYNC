@@ -80,6 +80,7 @@ function makeSavedUser(
 ): {
   _id: { toString(): string };
   publicId: string;
+  status: string;
   refreshTokenHashes: { hash: string; expiresAt: Date }[];
   save: jest.Mock;
   googleId?: string;
@@ -91,6 +92,7 @@ function makeSavedUser(
   return {
     _id: { toString: () => '507f1f77bcf86cd799439011' },
     publicId,
+    status: 'active',
     refreshTokenHashes: [...extraHashes] as { hash: string; expiresAt: Date }[],
     save: jest.fn().mockResolvedValue(undefined),
     ...overrides,
@@ -1076,12 +1078,13 @@ describe('AuthService', () => {
       const RAW_CODE = 'ab3cdef7ghjk9mnpq2rs';
 
       it('happy path: finds user, clears recoveryCodeHash, returns tokens', async () => {
-        const argon2Mock = jest.requireMock('argon2') as { verify: jest.Mock };
-        argon2Mock.verify.mockResolvedValue(true);
+        const argon2Mock = jest.requireMock('argon2') as { verify: jest.Mock; hash: jest.Mock };
+        argon2Mock.verify.mockReset().mockResolvedValue(true);
 
         const targetUser = makeSavedUser('recovpublic1', [], {
           _id: { toString: () => TARGET_USER_ID },
           recoveryCodeHash: '$argon2id$code-hash',
+          set: jest.fn(),
         });
         const callerUser = makeSavedUser('callerpublic1', [], {
           _id: { toString: () => CALLER_USER_ID },
@@ -1097,18 +1100,18 @@ describe('AuthService', () => {
 
         expect(result.user.publicId).toBe('recovpublic1');
         // Recovery code hash must be cleared (single-use)
-        expect(targetUser.recoveryCodeHash).toBeUndefined();
+        expect(targetUser.set).toHaveBeenCalledWith('recoveryCodeHash', null);
         expect(targetUser.save).toHaveBeenCalled();
       });
 
       it('strips dashes from the formatted recovery code before verifying', async () => {
         const argon2Mock = jest.requireMock('argon2') as { verify: jest.Mock };
-        argon2Mock.verify.mockClear();
-        argon2Mock.verify.mockResolvedValue(true);
+        argon2Mock.verify.mockReset().mockResolvedValue(true);
 
         const targetUser = makeSavedUser('recovpublic1', [], {
           _id: { toString: () => TARGET_USER_ID },
           recoveryCodeHash: '$argon2id$code-hash',
+          set: jest.fn(),
         });
 
         mockFind.mockReturnValue({
@@ -1164,11 +1167,12 @@ describe('AuthService', () => {
     describe('anonymous account cleanup', () => {
       it("soft-deletes the caller's anonymous account when it is untouched", async () => {
         const argon2Mock = jest.requireMock('argon2') as { verify: jest.Mock };
-        argon2Mock.verify.mockResolvedValue(true);
+        argon2Mock.verify.mockReset().mockResolvedValue(true);
 
         const targetUser = makeSavedUser('targetpublic1', [], {
           _id: { toString: () => TARGET_USER_ID },
           recoveryCodeHash: '$argon2id$code-hash',
+          set: jest.fn(),
         });
         // Untouched caller: no fullName, no customName
         const callerUser = makeSavedUser('callerpublic1', [], {
@@ -1195,11 +1199,12 @@ describe('AuthService', () => {
 
       it('does NOT delete the caller account when it has links', async () => {
         const argon2Mock = jest.requireMock('argon2') as { verify: jest.Mock };
-        argon2Mock.verify.mockResolvedValue(true);
+        argon2Mock.verify.mockReset().mockResolvedValue(true);
 
         const targetUser = makeSavedUser('targetpublic1', [], {
           _id: { toString: () => TARGET_USER_ID },
           recoveryCodeHash: '$argon2id$code-hash',
+          set: jest.fn(),
         });
         const callerUser = makeSavedUser('callerpublic1', [], {
           _id: { toString: () => CALLER_USER_ID },
@@ -1221,11 +1226,12 @@ describe('AuthService', () => {
 
       it('does NOT delete the caller account when it has bound cards', async () => {
         const argon2Mock = jest.requireMock('argon2') as { verify: jest.Mock };
-        argon2Mock.verify.mockResolvedValue(true);
+        argon2Mock.verify.mockReset().mockResolvedValue(true);
 
         const targetUser = makeSavedUser('targetpublic1', [], {
           _id: { toString: () => TARGET_USER_ID },
           recoveryCodeHash: '$argon2id$code-hash',
+          set: jest.fn(),
         });
         const callerUser = makeSavedUser('callerpublic1', [], {
           _id: { toString: () => CALLER_USER_ID },
