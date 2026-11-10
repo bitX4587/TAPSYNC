@@ -354,7 +354,10 @@ describe('CustomNamesService', () => {
         })
         // Mock finding current claim (none exists)
         .mockReturnValueOnce({
-          session: jest.fn().mockReturnThis(),
+          exec: jest.fn().mockResolvedValue(null),
+        })
+        // Mock finding existing retired claim (none exists)
+        .mockReturnValueOnce({
           exec: jest.fn().mockResolvedValue(null),
         });
 
@@ -414,8 +417,11 @@ describe('CustomNamesService', () => {
         })
         // Mock finding current claim (exists)
         .mockReturnValueOnce({
-          session: jest.fn().mockReturnThis(),
           exec: jest.fn().mockResolvedValue(mockOldClaim),
+        })
+        // Mock finding existing retired claim (none exists)
+        .mockReturnValueOnce({
+          exec: jest.fn().mockResolvedValue(null),
         });
 
       mockCustomNameClaimModel.countDocuments.mockReturnValue({
@@ -439,10 +445,9 @@ describe('CustomNamesService', () => {
       const result = await service.claimOrChangeName(userId, 'newname');
 
       expect(result).toEqual(mockNewClaim);
-      expect(mockOldClaim.save).toHaveBeenCalledWith({ session: mockSession });
+      expect(mockOldClaim.save).toHaveBeenCalled();
       expect(mockOldClaim.status).toBe('retired');
       expect(mockOldClaim.retiredAt).toBeInstanceOf(Date);
-      expect(mockSession.commitTransaction).toHaveBeenCalled();
     });
 
     it('should throw BadRequestException for invalid name format', async () => {
@@ -562,7 +567,7 @@ describe('CustomNamesService', () => {
       expect(mockSession.commitTransaction).toHaveBeenCalled();
     });
 
-    it('should rollback transaction on error', async () => {
+    it('should throw error when database operation fails', async () => {
       mockCustomNameClaimModel.findOne
         .mockReturnValueOnce({
           lean: jest.fn().mockReturnValue({
@@ -575,7 +580,9 @@ describe('CustomNamesService', () => {
           }),
         })
         .mockReturnValueOnce({
-          session: jest.fn().mockReturnThis(),
+          exec: jest.fn().mockResolvedValue(null),
+        })
+        .mockReturnValueOnce({
           exec: jest.fn().mockResolvedValue(null),
         });
 
@@ -591,9 +598,6 @@ describe('CustomNamesService', () => {
       await expect(
         service.claimOrChangeName(userId, 'newname'),
       ).rejects.toThrow('Database error');
-
-      expect(mockSession.abortTransaction).toHaveBeenCalled();
-      expect(mockSession.endSession).toHaveBeenCalled();
     });
 
     it('should normalize name to lowercase', async () => {
@@ -609,7 +613,9 @@ describe('CustomNamesService', () => {
           }),
         })
         .mockReturnValueOnce({
-          session: jest.fn().mockReturnThis(),
+          exec: jest.fn().mockResolvedValue(null),
+        })
+        .mockReturnValueOnce({
           exec: jest.fn().mockResolvedValue(null),
         });
 
@@ -646,13 +652,6 @@ describe('CustomNamesService', () => {
   describe('removeName', () => {
     const userId = new Types.ObjectId().toString();
 
-    beforeEach(() => {
-      mockSession.startTransaction.mockClear();
-      mockSession.commitTransaction.mockClear();
-      mockSession.abortTransaction.mockClear();
-      mockSession.endSession.mockClear();
-    });
-
     it('should retire current claim and clear User.customName', async () => {
       const mockCurrentClaim = {
         _id: new Types.ObjectId(),
@@ -665,7 +664,6 @@ describe('CustomNamesService', () => {
       };
 
       mockCustomNameClaimModel.findOne.mockReturnValue({
-        session: jest.fn().mockReturnThis(),
         exec: jest.fn().mockResolvedValue(mockCurrentClaim),
       });
 
@@ -678,33 +676,25 @@ describe('CustomNamesService', () => {
       expect(result).toEqual(mockCurrentClaim);
       expect(mockCurrentClaim.status).toBe('retired');
       expect(mockCurrentClaim.retiredAt).toBeInstanceOf(Date);
-      expect(mockCurrentClaim.save).toHaveBeenCalledWith({
-        session: mockSession,
-      });
+      expect(mockCurrentClaim.save).toHaveBeenCalled();
       expect(mockUserModel.findByIdAndUpdate).toHaveBeenCalledWith(
         userId,
         { $unset: { customName: 1 } },
-        { session: mockSession },
       );
-      expect(mockSession.commitTransaction).toHaveBeenCalled();
-      expect(mockSession.endSession).toHaveBeenCalled();
     });
 
     it('should return null if no current claim exists', async () => {
       mockCustomNameClaimModel.findOne.mockReturnValue({
-        session: jest.fn().mockReturnThis(),
         exec: jest.fn().mockResolvedValue(null),
       });
 
       const result = await service.removeName(userId);
 
       expect(result).toBeNull();
-      expect(mockSession.abortTransaction).toHaveBeenCalled();
-      expect(mockSession.endSession).toHaveBeenCalled();
       expect(mockUserModel.findByIdAndUpdate).not.toHaveBeenCalled();
     });
 
-    it('should rollback transaction on error', async () => {
+    it('should throw error when save fails', async () => {
       const mockCurrentClaim = {
         name: 'currentname',
         userId: new Types.ObjectId(userId),
@@ -714,14 +704,10 @@ describe('CustomNamesService', () => {
       };
 
       mockCustomNameClaimModel.findOne.mockReturnValue({
-        session: jest.fn().mockReturnThis(),
         exec: jest.fn().mockResolvedValue(mockCurrentClaim),
       });
 
       await expect(service.removeName(userId)).rejects.toThrow('Save failed');
-
-      expect(mockSession.abortTransaction).toHaveBeenCalled();
-      expect(mockSession.endSession).toHaveBeenCalled();
     });
   });
 });
