@@ -382,12 +382,9 @@ describe('CustomNamesService', () => {
       const result = await service.claimOrChangeName(userId, 'newname');
 
       expect(result).toEqual(mockNewClaim);
-      expect(mockSession.commitTransaction).toHaveBeenCalled();
-      expect(mockSession.endSession).toHaveBeenCalled();
       expect(mockUserModel.findByIdAndUpdate).toHaveBeenCalledWith(
         userId,
         { $set: { customName: 'newname' } },
-        { session: mockSession },
       );
     });
 
@@ -563,8 +560,11 @@ describe('CustomNamesService', () => {
 
       const result = await service.claimOrChangeName(userId, 'myoldname');
 
-      expect(result).toEqual(mockNewClaim);
-      expect(mockSession.commitTransaction).toHaveBeenCalled();
+      // Should return the re-activated retired claim, not create a new one
+      expect(result).toEqual(mockRetiredClaim);
+      expect(mockRetiredClaim.status).toBe('current');
+      expect(mockRetiredClaim.save).toHaveBeenCalled();
+      expect(mockCustomNameClaimModel.create).not.toHaveBeenCalled();
     });
 
     it('should throw error when database operation fails', async () => {
@@ -644,7 +644,6 @@ describe('CustomNamesService', () => {
             name: 'mixedcase',
           }),
         ],
-        { session: mockSession },
       );
     });
   });

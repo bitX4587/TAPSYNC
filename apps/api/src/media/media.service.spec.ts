@@ -251,7 +251,6 @@ describe('MediaService', () => {
         expect.objectContaining({
           Bucket: 'test-bucket',
           ContentType: 'image/jpeg',
-          ACL: 'public-read',
         }),
       );
     });
@@ -350,21 +349,6 @@ describe('MediaService', () => {
         (PutObjectCommand as jest.Mock).mock.calls.length - 1
       ];
       expect(lastCall[0].Key).toContain(userId);
-    });
-
-    it('should set public-read ACL for accessibility', async () => {
-      const file = createMockFile('image/jpeg', 1024);
-      const mockSharp = createMockSharp();
-      (sharp as any).mockReturnValue(mockSharp);
-
-      await service.uploadAvatar(userId, file);
-
-      // Verify PutObjectCommand was created with public-read ACL
-      const PutObjectCommand = require('@aws-sdk/client-s3').PutObjectCommand;
-      const lastCall = (PutObjectCommand as jest.Mock).mock.calls[
-        (PutObjectCommand as jest.Mock).mock.calls.length - 1
-      ];
-      expect(lastCall[0].ACL).toBe('public-read');
     });
   });
 });

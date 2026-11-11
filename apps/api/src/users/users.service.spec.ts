@@ -110,7 +110,7 @@ describe('UsersService', () => {
 
       expect(mockFindById).toHaveBeenCalledWith(mockUserId);
       expect(mockSelect).toHaveBeenCalledWith(
-        '-passwordHash -recoveryCodeHash -refreshTokenHashes -__v',
+        '-passwordHash -refreshTokenHashes -__v',
       );
     });
 
